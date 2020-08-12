@@ -1,0 +1,26 @@
+{
+  "name": "alexa-skill-template",
+  "version": "1.1.0",
+  "description": "a starter template for building alexa skills",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd lambda && bst proxy lambda index.js",
+    "test": "jest",
+    "lint": "eslint '**/*.js'",
+    "validate": "concurrently npm:lint npm:test -c \"bgGreen,bgCyan\""
+  },
+  "author": "Jeff Blankenburg",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.8.1",
+    "ask-sdk": "^2.8.0",
+    "ask-sdk-core": "^2.6.0",
+    "ask-sdk-model": "^1.18.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "bespoken-tools": "^2.4.65",
+    "jest": "^26.0.1"
+  }
+}

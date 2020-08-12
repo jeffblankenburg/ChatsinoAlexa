@@ -1,0 +1,563 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "chat sino",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "UserAccountIntent",
+                    "slots": [],
+                    "samples": [
+                        "what is my user id",
+                        "how do I join my accounts",
+                        "link accounts",
+                        "how do I link my accounts"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StartSlotsIntent",
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{wager} credits",
+                                "{wager} coins",
+                                "{wager}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{wager} slots",
+                        "{wager} on slots",
+                        "slots {wager}",
+                        "bet {wager} coins on slots",
+                        "play slots for {wager} credits",
+                        "play slots for {wager} coins",
+                        "play slots for {wager}",
+                        "bet {wager} on slots"
+                    ]
+                },
+                {
+                    "name": "StartPokerIntent",
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{wager} credits",
+                                "{wager} coins",
+                                "{wager}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "play poker for {wager} coins",
+                        "bet {wager} coins on poker",
+                        "{wager} on poker",
+                        "{wager} poker",
+                        "poker {wager}",
+                        "bet {wager} on poker",
+                        "play poker for {wager}"
+                    ]
+                },
+                {
+                    "name": "StartRouletteIntent",
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{wager} credits",
+                                "{wager} coins",
+                                "{wager}"
+                            ]
+                        },
+                        {
+                            "name": "position",
+                            "type": "Position",
+                            "samples": [
+                                "put it on {position}",
+                                "place it on {position}",
+                                "{position} please",
+                                "{position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "play roulette",
+                        "play {wager} on {position}",
+                        "bet {wager} on roulette",
+                        "bet {wager} on {position}",
+                        "bet {wager} on {position} in roulette"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Game",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "blackjack",
+                                "synonyms": [
+                                    "21"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "craps"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "roulette"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "slots"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "poker",
+                                "synonyms": [
+                                    "video poker"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Position",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "ROW THREE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ROW TWO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ROW ONE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "DOUBLE ZERO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ZERO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY SIX"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY FIVE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY FOUR"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY THREE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY TWO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY ONE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTY"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY NINE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY EIGHT"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY SEVEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY SIX"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY FIVE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY FOUR"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY THREE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY TWO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY ONE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWENTY"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "NINETEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "EIGHTEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SEVENTEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SIXTEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "FIFTEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "FOURTEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THIRTEEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWELVE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ELEVEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "NINE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "EIGHT"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SEVEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SIX"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "FIVE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "FOUR"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "THREE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TWO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ONE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "LOW"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "MIDDLE"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "HIGH"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "BOTTOM"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TOP"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "EVEN"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ODD"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "BLACK"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "RED"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "StartSlotsIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.342068114923.410889881663"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "StartPokerIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.299297455298.974168009386"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "StartRouletteIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.873341212251.282603051817"
+                            }
+                        },
+                        {
+                            "name": "position",
+                            "type": "Position",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.873341212251.498498387309"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1139503083320.489150287204",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is your bet?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "How much are you betting?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "How much do you want to bet?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your wager?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.342068114923.410889881663",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is your bet on slots?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Slots.  Got it.  How much do you want to wager?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Ok.  How much do you want to wager on slots?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.299297455298.974168009386",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How much would you like to bet on poker?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your wager?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "OK.  How many coins would you like to bet on poker?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.873341212251.282603051817",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How much would you like to bet?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your wager?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "OK.  How many coins would you like to wager?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.873341212251.498498387309",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "On which position do you want your {wager} coins to be placed?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Where should I place your bet of {wager} coins on the roulette table?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "OK.  Where do you want to place your bet?"
+                    }
+                ]
+            }
+        ]
+    }
+}
