@@ -4,6 +4,26 @@ const handlers = require(`./handlers`);
 const helper = require(`./helper`);
 const chatsino = require("./chatsino");
 
+const BalanceIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BalanceIntent';
+    },
+    handle(handlerInput) {
+        return handlers.BalanceIntent(handlerInput);
+    }
+};
+
+const HelpIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
+    },
+    handle(handlerInput) {
+        return AMAZON.HelpIntent(handlerInput);
+    }
+};
+
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
@@ -12,15 +32,6 @@ const LaunchRequestHandler = {
         return handlers.LaunchRequest(handlerInput);
     }
 };
-// const StartGameIntentHandler = {
-//     canHandle(handlerInput) {
-//         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-//             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'StartGameIntent';
-//     },
-//     async handle(handlerInput) {
-//         return await handlers.StartGameIntent(handlerInput);
-//     }
-// };
 
 const StartPokerHandler = {
     canHandle(handlerInput) {
@@ -49,16 +60,6 @@ const StartRouletteHandler = {
     },
     handle(handlerInput) {
         return handlers.StartRouletteIntent(handlerInput);
-    }
-};
-
-const HelpIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
-    },
-    handle(handlerInput) {
-        return AMAZON.HelpIntent(handlerInput);
     }
 };
 
@@ -155,6 +156,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         StartPokerHandler,
         StartSlotsHandler,
         StartRouletteHandler,
+        BalanceIntentHandler,
         HelpIntentHandler,
         RepeatIntentHandler,
         CancelAndStopIntentHandler,

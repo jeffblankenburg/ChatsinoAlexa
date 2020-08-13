@@ -1,3 +1,4 @@
+const BalanceIntent = require("./BalanceIntent");
 const LaunchRequest = require("./LaunchRequest");
 const Error = require("./Error");
 const HelloWorldIntent = require("./HelloWorldIntent");
@@ -8,6 +9,7 @@ const StartRouletteIntent = require("./StartRouletteIntent");
 const UserAccountIntent = require("./UserAccountIntent");
 
 module.exports = {
+    BalanceIntent,
     LaunchRequest,
     Error,
     HelloWorldIntent,

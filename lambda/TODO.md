@@ -7,6 +7,9 @@
 * [ ] On-stream lights and browser sources for big wins.  (What's a big win? 10000?)
 * [ ] "It has been 32 days since you've played slots.  Time for a spin?"
 * [ ] Each game type should have its own table.
+* [ ] Leaderboard (cards? APL?)
+* [ ] Paytable?  How do we communicate this with voice-only?
+* [ ] Rock Paper Scissors?
 
 ## Poker
 * [ ] We need to add the turn that video poker allows.
