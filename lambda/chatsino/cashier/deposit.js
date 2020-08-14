@@ -3,12 +3,9 @@ const data = require("../data");
 
 const d = debug("index:cashier:deposit");
 
-async function deposit(user, wager, odds, type) {
-  const winnings = parseInt(wager) * parseInt(odds);
-  const balance = parseInt(user.Currency) + winnings;
-  d(`DEPOSITING ${balance}`);
-  const record = await data.createLedgerItem(user, winnings, type);
-  return await data.updateBalance(user, balance, winnings, type);
+async function deposit(user, game, winnings) {
+  const balance = parseInt(user.fields.Balance) + winnings;
+  return await data.updateBalance(user, balance);
 }
 
 module.exports = deposit;

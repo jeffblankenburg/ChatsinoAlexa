@@ -1,18 +1,17 @@
 const Airtable = require("airtable");
 const keys = require("../keys");
 
-function updateBalance(user, winnings) {
+async function createWager(user, wager, game) {
   const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
     keys.airtable_base_data
   );
-  console.log(`BALANCE ${user.fields.Balance}`);
-  const balance = user.fields.Balance + winnings;
-  console.log(`UPDATED BALANCE ${balance}`);
   return new Promise((resolve, reject) => {
-    airtable("User").update(
-      user.fields.RecordId,
+    airtable("Wager").create(
       {
-        Balance: balance,
+        UserId: [user.fields.RecordId],
+        GameId: [game.fields.RecordId],
+        Amount: wager,
+        Status: "Active",
       },
       function (err, record) {
         if (err) {
@@ -25,4 +24,4 @@ function updateBalance(user, winnings) {
   });
 }
 
-module.exports = updateBalance;
+module.exports = createWager;

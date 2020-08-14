@@ -1,14 +1,17 @@
 const Airtable = require("airtable");
-const keys = require("../keys.js");
+const keys = require("../keys");
 
-async function ledger(user, amount, type) {
+async function completeGame(game) {
   const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
     keys.airtable_base_data
   );
   return new Promise((resolve, reject) => {
-    airtable("Ledger").create(
-      { User: [user.fields.RecordId], Amount: amount, GameTypeId: [type] },
-      (err, record) => {
+    airtable("Game").update(
+      game.fields.RecordId,
+      {
+        Status: "Completed",
+      },
+      function (err, record) {
         if (err) {
           console.error(err);
           return;
@@ -19,4 +22,4 @@ async function ledger(user, amount, type) {
   });
 }
 
-module.exports = ledger;
+module.exports = completeGame;

@@ -130,10 +130,10 @@ const ErrorHandler = {
 
 const RequestLog = {
     async process(handlerInput) {
-      console.log(`REQ ENV ${JSON.stringify(handlerInput.requestEnvelope)}`);
+      //console.log(`REQ ENV ${JSON.stringify(handlerInput.requestEnvelope)}`);
       const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
       const userRecord = await chatsino.data.getUserByUserId(handlerInput.requestEnvelope.session.user.userId);
-      sessionAttributes.user = userRecord.fields;
+      sessionAttributes.user = userRecord;
       sessionAttributes.isError = false;
       //console.log("USER RECORD = " + JSON.stringify(userRecord.fields));
     },

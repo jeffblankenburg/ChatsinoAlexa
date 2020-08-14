@@ -5,6 +5,9 @@ async function StartPokerIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
     const wager = helper.getSpokenWords(handlerInput, "wager");
 
+    const result = chatsino.poker.play(sessionAttributes.user, parseInt(wager));
+    console.log(`RESULT ${result}`);
+
     const speakOutput = `You wagered ${wager} coins on poker.`;
 
     return (

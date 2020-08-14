@@ -1,11 +1,9 @@
-const data = require('../data');
-const ledger = require('./ledger');
+const data = require("../data");
 
 async function withdraw(user, wager, type) {
-  console.log('<== cashier/withdraw.js ==>');
+  console.log("<== cashier/withdraw.js ==>");
   const balance = parseInt(user.Currency) - parseInt(wager);
-  console.log(`WITHDRAWING ${wager}`);
-  const record = await data.createLedgerItem(user, (parseInt(wager) * -1), type);
+  const record = await data.createLedgerItem(user, parseInt(wager) * -1, type);
   return await data.updateBalance(user, balance);
 }
 

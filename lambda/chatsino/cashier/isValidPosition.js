@@ -1,13 +1,15 @@
 const debug = require("debug");
-const roulettePosition = require("../roulette/position.js");
 
 const d = debug(`index:cashier:isValidPosition`);
 
 function isValidPosition(position, game) {
   d(game);
   switch (game.fields.GameType.toString().toLowerCase()) {
-    case "poker": case "slots": return true;
+    case "poker":
+    case "slots":
+      return true;
     case "roulette":
+      const roulettePosition = require("../roulette/position.js");
       if (position === "00") return true;
       if (parseInt(position) >= 0 && parseInt(position) <= 36) return true;
       if (parseInt(position) < 0 || parseInt(position) > 36) return false;
