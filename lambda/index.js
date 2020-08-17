@@ -31,7 +31,7 @@ const LaunchRequestHandler = {
     handle(handlerInput) {
         return handlers.LaunchRequest(handlerInput);
     }
-};
+}; 
 
 const StartPokerHandler = {
     canHandle(handlerInput) {
