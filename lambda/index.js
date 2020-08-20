@@ -31,7 +31,17 @@ const LaunchRequestHandler = {
     handle(handlerInput) {
         return handlers.LaunchRequest(handlerInput);
     }
-}; 
+};
+
+const RepeatIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.RepeatIntent';
+    },
+    handle(handlerInput) {
+        return AMAZON.RepeatIntent(handlerInput);
+    }
+};
 
 const StartPokerHandler = {
     canHandle(handlerInput) {
@@ -60,16 +70,6 @@ const StartRouletteHandler = {
     },
     handle(handlerInput) {
         return handlers.StartRouletteIntent(handlerInput);
-    }
-};
-
-const RepeatIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.RepeatIntent';
-    },
-    handle(handlerInput) {
-        return AMAZON.RepeatIntent(handlerInput);
     }
 };
 
@@ -156,6 +156,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         StartPokerHandler,
         StartSlotsHandler,
         StartRouletteHandler,
+        NumberIntentHandler,
         BalanceIntentHandler,
         HelpIntentHandler,
         RepeatIntentHandler,

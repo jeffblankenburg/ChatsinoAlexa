@@ -19,17 +19,11 @@ async function StartSlotsIntent(handlerInput) {
 
         break;
         case "INVALID_WAGER":
-            speakOutput += `Your wager is invalid.  Your current available balance is ${result.user.fields.AvailableBalance} coins.`;
+            handlerInput.responseBuilder.addElicitSlotDirective("wager");
+            speakOutput += `Your wager is invalid. Your current available balance is ${result.user.fields.AvailableBalance} coins. You can bet any amount up to your balance. How much would you like to bet on slots?`;
         break;
     }
-
-    if (result.status === "COMPLETED") {
-
-    }
     
-
-
-
     return (
         handlerInput.responseBuilder
           .speak(speakOutput + ' What do you want to play next?')

@@ -15,6 +15,7 @@
 * [ ] We need to add the turn that video poker allows.
 * [ ] Add APL card reveal.
 * [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
+* [x] If a user makes an invalid wager, we don't have an effective way to let them indicate a new bet.
 
 ## Slots
 * [x] Alexa pronounces the DIAMOND emoji as "gemstone."

@@ -8,9 +8,6 @@ async function play(user, wager) {
     if (cashier.isValidWager(user, wager)) {
         const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId);
         if (activeGame.length > 0) {
-          //console.log(`ACTIVE GAME ${JSON.stringify(activeGame)}`);
-          console.log(`OPENING HAND ${JSON.parse(activeGame[0].fields.OpeningHand)}`);
-          console.log(`DECK ${JSON.parse(activeGame[0].fields.Deck)}`);
             const result = {
                 user: user,
                 wager: activeGame[0].fields.WageredAmount,
@@ -20,7 +17,6 @@ async function play(user, wager) {
                 status: "ACTIVE_GAME",
               };
             return result;
-            //TODO: WE NEED TO GET A USER BACK INTO AN ACTIVE GAME THEY HAVEN'T FINISHED.
         }
 
         const game = await data.createGame(user, helper.VIDEOPOKER);

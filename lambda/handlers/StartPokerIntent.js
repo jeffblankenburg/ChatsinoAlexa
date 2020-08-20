@@ -14,24 +14,25 @@ async function StartPokerIntent(handlerInput) {
         case "ACTIVE_GAME":
             speakOutput += `You already have an active game of video poker waiting for you. You wagered ${result.wager} coins. `
             if (result.outcome) speakOutput += "You already have a winning hand! ";
-            speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}`;
+            speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "COMPLETED":
 
         break;
         case "BEFORE_DRAW":
             if (result.outcome) speakOutput += "You already have a winning hand! ";
-            speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}`;
+            speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "INVALID_WAGER":
-
+            handlerInput.responseBuilder.addElicitSlotDirective("wager");
+            speakOutput += `Your wager is invalid. Your current available balance is ${result.user.fields.AvailableBalance} coins. You can bet any amount up to your balance. How much would you like to bet on poker?`;
         break;
     }
 
     return (
         handlerInput.responseBuilder
-          .speak(speakOutput + ' Which cards do you want to hold?')
-          .reprompt(speakOutput + 'Which cards do you want to hold?')
+          .speak(speakOutput)
+          .reprompt(speakOutput)
           .getResponse()
       );
 
