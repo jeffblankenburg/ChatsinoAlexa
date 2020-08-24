@@ -156,7 +156,6 @@ exports.handler = Alexa.SkillBuilders.custom()
         StartPokerHandler,
         StartSlotsHandler,
         StartRouletteHandler,
-        NumberIntentHandler,
         BalanceIntentHandler,
         HelpIntentHandler,
         RepeatIntentHandler,

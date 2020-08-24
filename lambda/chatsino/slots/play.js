@@ -8,7 +8,7 @@ async function play(user, wager) {
   if (cashier.isValidWager(user, wager)) {
     const game = await data.createGame(user, helper.SLOTS);
     // console.log(`GAME ${JSON.stringify(game)}`);
-    const bet = await data.createWager(user, wager, game);
+    const bet = await data.createWager(user, wager, "", game);
     // console.log(`BET ${JSON.stringify(bet)}`);
     const spinResult = spin();
     const outcome = evaluator(spinResult);

@@ -6,7 +6,7 @@ const helper = require("../helper");
 
 async function play(user, wager) {
     if (cashier.isValidWager(user, wager)) {
-        const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId);
+        const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
         if (activeGame.length > 0) {
             const result = {
                 user: user,
@@ -20,7 +20,7 @@ async function play(user, wager) {
         }
 
         const game = await data.createGame(user, helper.VIDEOPOKER);
-        const bet = await data.createWager(user, wager, game);
+        const bet = await data.createWager(user, wager, "", game);
 
         let cardDeck = deck.create();
         let dealOutcome = deck.deal(cardDeck, 5);

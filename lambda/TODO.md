@@ -3,6 +3,7 @@
 ## General Features
 * [ ] Offer tips and statistics like "63% of users typically bet 40 or more coins on this."
 * [ ] Review https://elements.envato.com/sound-effects/game-sounds/slots for sound effects from lockedinaus
+* [ ] SOUND EFFECTS!
 * [x] User analytics.  "You've played slots 89% of the time."
 * [ ] On-stream lights and browser sources for big wins.  (What's a big win? 10000?)
 * [ ] "It has been 32 days since you've played slots.  Time for a spin?"
@@ -12,6 +13,7 @@
 * [ ] Rock Paper Scissors?
 
 ## Poker
+* [ ] Why does using multi-value slots with AMAZON.Number result in concatenating the digits into one number?
 * [ ] We need to add the turn that video poker allows.
 * [ ] Add APL card reveal.
 * [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
@@ -24,7 +26,11 @@
 
 ## Roulette
 * [ ] We should probably allow a user to make multiple bets before spinning.
-* [ ] How do we assure that we have a bet AND a position?
+* [x] How do we assure that we have a bet AND a position?
+* [ ] How does a user remove one or many bets from the table?
+* [ ] How can a user create a set of standard bets, and make them all at once?
+* [ ] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
+* [ ] We haven't built a way to spin the wheel yet.
 
 ## Account Linking
 * [x] Provide a user with the last six digits of their Alexa skill user ID.

@@ -1,7 +1,7 @@
 const Airtable = require("airtable");
 const keys = require("../keys");
 
-async function createWager(user, wager, game) {
+async function createWager(user, wager, position, game) {
   const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
     keys.airtable_base_data
   );
@@ -11,6 +11,7 @@ async function createWager(user, wager, game) {
         UserId: [user.fields.RecordId],
         GameId: [game.fields.RecordId],
         Amount: wager,
+        Position: position,
         Status: "Active",
       },
       function (err, record) {
