@@ -25,12 +25,18 @@
 * [ ] Progressive slot machine grows the jackpot with each play that doesn't hit the jackpot.
 
 ## Roulette
-* [ ] We should probably allow a user to make multiple bets before spinning.
+* [x] We should probably allow a user to make multiple bets before spinning.
 * [x] How do we assure that we have a bet AND a position?
 * [ ] How does a user remove one or many bets from the table?
 * [ ] How can a user create a set of standard bets, and make them all at once?
 * [ ] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
-* [ ] We haven't built a way to spin the wheel yet.
+* [x] We haven't built a way to spin the wheel yet.
+
+## Craps
+* [ ] Have not even started this.
+
+## Blackjack
+* [ ] Have not even started this. 
 
 ## Account Linking
 * [x] Provide a user with the last six digits of their Alexa skill user ID.

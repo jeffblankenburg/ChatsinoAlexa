@@ -19,7 +19,6 @@ async function wager(user, wager, position) {
                 status: "ACTIVE_GAME",
               };
             return result;
-            //TODO: TELL THE USER TO SAY "SPIN THE WHEEL" WHEN THEY ARE DONE BETTING.
         }
         else return {user: user, wager: wager, position: position, status: "INVALID_POSITION"}
     }
