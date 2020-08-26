@@ -22,8 +22,7 @@ async function play(user) {
 
     for (let i = 0; i < wagers.length; i++) {
         //WAS THEIR POSITION A NUMBER?
-        let wagerPosition = eval(`position._${parseInt(wagers[i].fields.Position)}`);
-        if (!wagerPosition) wagerPosition = eval(`position.${wagers[i].fields.Position.toUpperCase()}`);
+        const wagerPosition = eval(`position.${wagers[i].fields.Position.toUpperCase()}`);
 
         let fields = {Result: spinResult.toString(), Status: "Completed", Amount: wagers[i].fields.Amount, Position: wagers[i].fields.Position};
 

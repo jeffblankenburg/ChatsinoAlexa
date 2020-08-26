@@ -1,13 +1,15 @@
 {
-    "name": "chatsino-alexa",
-    "version": "1.1.0",
-    "description": "a starter template for building alexa skills",
-    "main": "index.js",
-    "scripts": {
-      "dev": "cd lambda && bst proxy lambda index.js",
-      "test": "jest"
-    },
-    "author": "Jeff Blankenburg",
-    "license": "ISC"
+  "name": "chatsino-alexa",
+  "version": "1.1.0",
+  "description": "a starter template for building alexa skills",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd lambda && bst proxy lambda index.js",
+    "test": "jest"
+  },
+  "author": "Jeff Blankenburg",
+  "license": "ISC",
+  "dependencies": {
+    "num-words": "^1.2.0"
   }
-  
+}

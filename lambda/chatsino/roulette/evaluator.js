@@ -1,16 +1,18 @@
 const color = require('./color.js');
 const column = require('./column.js');
 const position = require('./position.js');
+const numwords = require("num-words");
 
 function evaluator(spin) {
   const result = { win: [], lose: [] };
 
   if (spin >= 1) {
-    result.win.push(eval(`position._${spin}`));
-    result.lose.push(position._0);
-    result.lose.push(position._00);
+    console.log(`SPIN ${numwords(spin).replace(" ", "").toUpperCase()}`);
+    result.win.push(eval(`position.${numwords(spin).replace(" ", "").toUpperCase()}`));
+    result.lose.push(position.ZERO);
+    result.lose.push(position.DOUBLEZERO);
     for (let i=1;i<=36;i++) {
-      if (i != spin) result.lose.push(eval(`position._${i}`));
+      if (i != spin) result.lose.push(eval(`position.${numwords(i).replace(" ", "").toUpperCase()}`));
     }
 
     if (color.RED.includes(spin)){
@@ -73,11 +75,11 @@ function evaluator(spin) {
     }
   }
   else {
-    if (spin === -1) result.win.push(eval('position._00'));
-    else if (spin === 0) result.win.push(eval('position._0'));
+    if (spin === -1) result.win.push(eval('position.DOUBLEZERO'));
+    else if (spin === 0) result.win.push(eval('position.ZERO'));
 
     for (let i=1;i<=36;i++) {
-      result.lose.push(eval(`position._${i}`));
+      result.lose.push(eval(`position.${numwords(i).replace(" ", "").toUpperCase()}`));
     }
 
     result.lose.push(position.BLACK);

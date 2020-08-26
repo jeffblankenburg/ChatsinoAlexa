@@ -2,16 +2,16 @@ function isValidPosition(position, game) {
   switch (game.fields.GameType.toString().toLowerCase()) {
     case "roulette":
       const roulettePosition = require("../roulette/position.js");
-      if (position === "00") return true;
-      if (parseInt(position) >= 0 && parseInt(position) <= 36) return true;
-      if (parseInt(position) < 0 || parseInt(position) > 36) return false;
-      // if (wagerPosition === undefined) wagerPosition = "";
-      const positionString = position
-        .toString()
-        .trim()
-        .toUpperCase()
-        .replace("-", "");
-      position = eval(`roulettePosition.${positionString}`);
+      // if (position === "00") return true;
+      // if (parseInt(position) >= 0 && parseInt(position) <= 36) return true;
+      // if (parseInt(position) < 0 || parseInt(position) > 36) return false;
+      // // if (wagerPosition === undefined) wagerPosition = "";
+      // const positionString = position
+      //   .toString()
+      //   .trim()
+      //   .toUpperCase()
+      //   .replace("-", "");
+      position = eval(`roulettePosition.${position}`);
       if (position) return true;
       return false;
       break;

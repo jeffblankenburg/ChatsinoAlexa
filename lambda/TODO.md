@@ -18,6 +18,7 @@
 * [ ] Add APL card reveal.
 * [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
 * [x] If a user makes an invalid wager, we don't have an effective way to let them indicate a new bet.
+* [ ] What if a user says hold the 10s, when they have a pair of tens?  How do we handle references to the actual cards?
 
 ## Slots
 * [x] Alexa pronounces the DIAMOND emoji as "gemstone."
@@ -29,7 +30,7 @@
 * [x] How do we assure that we have a bet AND a position?
 * [ ] How does a user remove one or many bets from the table?
 * [ ] How can a user create a set of standard bets, and make them all at once?
-* [ ] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
+* [x] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
 * [x] We haven't built a way to spin the wheel yet.
 
 ## Craps
