@@ -43,6 +43,16 @@ const LaunchRequestHandler = {
     }
 };
 
+const PokerHoldIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PokerHoldIntent';
+    },
+    handle(handlerInput) {
+        return handlers.PokerHoldIntent(handlerInput);
+    }
+};
+
 const RepeatIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -177,6 +187,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         StartSlotsHandler,
         StartRouletteHandler,
         SpinRouletteHandler,
+        PokerHoldIntentHandler,
         BetSummaryIntentHandler,
         BalanceIntentHandler,
         HelpIntentHandler,

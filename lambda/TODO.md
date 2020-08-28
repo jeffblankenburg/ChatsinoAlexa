@@ -18,7 +18,7 @@
 * [ ] Add APL card reveal.
 * [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
 * [x] If a user makes an invalid wager, we don't have an effective way to let them indicate a new bet.
-* [ ] What if a user says hold the 10s, when they have a pair of tens?  How do we handle references to the actual cards?
+* [x] What if a user says hold the 10s, when they have a pair of tens?  How do we handle references to the actual cards?
 
 ## Slots
 * [x] Alexa pronounces the DIAMOND emoji as "gemstone."
