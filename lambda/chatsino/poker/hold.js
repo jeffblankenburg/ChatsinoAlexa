@@ -5,53 +5,76 @@ const helper = require("../helper");
 async function hold(user, action, suit, value) {
 
     const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
-    //console.log(`ACTIVE GAME ${JSON.stringify(activeGame)}`);
     if (activeGame.length > 0) {
         let openingHand = JSON.parse(activeGame[0].fields.OpeningHand);
-        console.log(`OPENING HAND ${openingHand}`);
-        //IF THERE IS NO SUIT OR VALUE, WE WILL USE THEIR COMMAND TO HOLD OR DROP ALL.
-        if (action && !suit && !value) {
-            for (let i = 0;i<openingHand.length;i++) {
-                if (action[0].value.name === "hold") openingHand[i].held = true;
-                else openingHand[i].held = false;
-            }
-        }
-        else if (action && !suit) {
-            for (let i = 0;i<openingHand.length;i++) {
-                if (value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+        if (action) {
+            if (!suit && !value) {
+                for (let i = 0;i<openingHand.length;i++) {
                     if (action[0].value.name === "hold") openingHand[i].held = true;
-                    else if (action[0].value.name === "drop") openingHand[i].held = false;
+                    else openingHand[i].held = false;
+                }
+            }
+            else if (value && !suit) {
+                for (let i = 0;i<openingHand.length;i++) {
+                    if (value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                        if (action[0].value.name === "hold") openingHand[i].held = true;
+                        else if (action[0].value.name === "discard") openingHand[i].held = false;
+                    }
+                }
+            }
+            else if (suit && !value) {
+                for (let i = 0;i<openingHand.length;i++) {
+                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase()) {
+                        if (action[0].value.name === "hold") openingHand[i].held = true;
+                        else if (action[0].value.name === "discard") openingHand[i].held = false;
+                    }
+                }
+            }
+            else if (suit && value) {
+                for (let i = 0;i<openingHand.length;i++) {
+                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                        if (action[0].value.name === "hold") openingHand[i].held = true;
+                        else if (action[0].value.name === "discard") openingHand[i].help = false;
+                    }
                 }
             }
         }
-        else if (action && !value) {
-            for (let i = 0;i<openingHand.length;i++) {
-                if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase()) {
-                    if (action[0].value.name === "hold") openingHand[i].held = true;
-                    else if (action[0].value.name === "drop") openingHand[i].held = false;
+        else {
+            if (!suit && value) {
+                for (let i = 0;i<openingHand.length;i++) {
+                    if (value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                        openingHand[i].held = true;
+                    }
                 }
             }
-        }
-        else if (action && suit && value) {
-            for (let i = 0;i<openingHand.length;i++) {
-                if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
-                    if (action[0].value.name === "hold") openingHand[i].held = true;
-                    else if (action[0].value.name === "drop") openingHand[i].help = false;
+            else if (suit && !value) {
+                for (let i = 0;i<openingHand.length;i++) {
+                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase()) {
+                        openingHand[i].held = true;
+                    }
+                }
+            }
+            else if (suit && value) {
+                for (let i = 0;i<openingHand.length;i++) {
+                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                        openingHand[i].held = true;
+                    }
                 }
             }
         }
 
-        //TODO: What if the user tries to hold a card that they don't have?
-        //TODO: WHAT IF THE USER JUST SAYS THE NAME OF A CARD WITHOUT "HOLD" OR "DROP"?
-        //TODO: RETURN AN OBJECT THAT ALEXA CAN USE TO LET THE USER KNOW THE CURRENT STATE.
 
-        const videoPokerData = await data.updatePokerHand(activeGame[0], openingHand, JSON.parse(activeGame[0].fields.Deck))
+
+        const videoPokerData = await data.updatePokerHand(activeGame[0], openingHand, JSON.parse(activeGame[0].fields.Deck), undefined);
         activeGame[0].fields.OpeningHand = openingHand;
-        //activeGame[0].fields.Deck = deck;
 
         return {
+            user: user,
+            action: action,
+            suit: suit,
+            value: value,
             game: activeGame[0],
-
+            status: "CARD_HOLD_UPDATED"
         }
     }
     else return {user: user, status: "NO_ACTIVE_GAME"}

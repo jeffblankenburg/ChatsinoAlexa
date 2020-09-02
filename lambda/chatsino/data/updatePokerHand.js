@@ -1,7 +1,7 @@
 const Airtable = require("airtable");
 const keys = require("../keys");
 
-async function updatePokerHand(game, hand, deck) {
+async function updatePokerHand(game, hand, deck, closingHand) {
   // console.log(`USER ${JSON.stringify(user.fields.RecordId)}`);
   const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
     keys.airtable_base_data
@@ -11,6 +11,7 @@ async function updatePokerHand(game, hand, deck) {
       {
         OpeningHand: JSON.stringify(hand),
         Deck: JSON.stringify(deck),
+        ClosingHand: JSON.stringify(closingHand)
       },
       function (err, record) {
         if (err) {

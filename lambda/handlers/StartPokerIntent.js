@@ -13,14 +13,14 @@ async function StartPokerIntent(handlerInput) {
     switch(result.status) {
         case "ACTIVE_GAME":
             speakOutput += `You already have an active game of video poker waiting for you. You wagered ${result.wager} coins. `
-            if (result.outcome) speakOutput += "You already have a winning hand! ";
+            if (result.outcome) speakOutput += `You already have a ${result.outcome.symbol}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "COMPLETED":
 
         break;
         case "BEFORE_DRAW":
-            if (result.outcome) speakOutput += "You already have a winning hand! ";
+            if (result.outcome) speakOutput += `You already have a ${result.outcome.symbol}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "INVALID_WAGER":

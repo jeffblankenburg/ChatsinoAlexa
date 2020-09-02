@@ -7,17 +7,23 @@ async function PokerHoldIntent(handlerInput) {
     const cardSuit = helper.getResolvedWords(handlerInput, "cardSuit");
     const cardValue = helper.getResolvedWords(handlerInput, "cardValue");
 
-    const result = chatsino.poker.hold(sessionAttributes.user, action, cardSuit, cardValue);
+    const result = await chatsino.poker.hold(sessionAttributes.user, action, cardSuit, cardValue);
 
-    //const result = await chatsino.slots.play(sessionAttributes.user, parseInt(wager));
-    console.log(`RESULT ${JSON.stringify(result)}`);
     //TODO: Use sound effects for revealing the slot reel results?
     let speakOutput = `This is the poker hold intent.`;
 
+    let holdSpeech = `You are not currently holding any cards. `;
+    const heldCardSpeech = helper.getCardSpeech(result.game.fields.OpeningHand.filter(card => card.held === true))
+    if (heldCardSpeech.length > 0) holdSpeech = `You are currently holding the ${heldCardSpeech}. `;
+
+    let dropSpeech = "";
+    const droppedCardSpeech = helper.getCardSpeech(result.game.fields.OpeningHand.filter(card => card.held === false));
+    if (droppedCardSpeech.length > 0) dropSpeech = `You are about to drop the ${droppedCardSpeech}`;
+
+
     switch(result.status) {
-        case "COMPLETED":
-            if (result.outcome) speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_positive_01"/>You got ${helper.getSlotSpeech(result.result)}. You won ${result.outcome.odds * wager} coins.`;
-            else speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_negative_01"/>You got ${helper.getSlotSpeech(result.result)}. That is not a winning spin.  You lost ${wager} coins.`;
+        case "CARD_HOLD_UPDATED":
+            speakOutput = `${holdSpeech} ${dropSpeech} You can say deal to finish this hand, or you can continue holding cards.  What would you like to do?`;
         break;
         case "NO_ACTIVE_GAME":
             speakOutput = "You tried to hold some cards in poker, but you don't currently have a game of poker in play.  To start a game, say something like bet five on poker. "
@@ -25,8 +31,8 @@ async function PokerHoldIntent(handlerInput) {
     }
     
     return handlerInput.responseBuilder
-          .speak(speakOutput + ' What do you want to play next?')
-          .reprompt('What do you want to play next?')
+          .speak(speakOutput)
+          .reprompt('What do you want to do next?')
           .getResponse();
 
 }

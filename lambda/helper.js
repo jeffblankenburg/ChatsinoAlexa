@@ -131,7 +131,7 @@ function setAction(handlerInput, action) {
 function getCardSpeech(hand) {
   let speech = "";
   for (let i=0;i<hand.length;i++) {
-    if (i == hand.length - 1) speech += " and ";
+    if (i == hand.length - 1 && i != 0) speech += " and ";
     speech += `${hand[i].value.name} of ${hand[i].suit.name}, `;
   }
   return speech;

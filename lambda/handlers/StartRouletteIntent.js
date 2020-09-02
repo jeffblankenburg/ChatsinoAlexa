@@ -7,7 +7,6 @@ async function StartRouletteIntent(handlerInput) {
     const position = helper.getResolvedWords(handlerInput, "position");
 
     const result = await chatsino.roulette.wager(sessionAttributes.user, parseInt(wager), position[0].value.name);
-    console.log(`RESULT ${JSON.stringify(result)}`);
     //TODO: Catch the situations in which they didn't manage to match one of our slot values.
     //const speakOutput = `You wagered ${wager} coins on ${position[0].value.name} in roulette.`;
 

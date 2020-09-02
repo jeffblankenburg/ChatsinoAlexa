@@ -4,21 +4,17 @@ const evaluator = require('./evaluator');
 const helper = require('../helper.js');
 const position = require("./position");
 
-
-//TODO: WE ARE NOT CURRENTLY CALCULATING THE PAYOUTS CORRECTLY.
-//TODO: WE ARE NOT PASSING THE COMPLETED WAGERS BACK TO THE INTENT PROPERLY.
 async function play(user) {
     let game = await data.getGamesByUserRecordId(user.fields.RecordId, helper.ROULETTE);
     //TODO: WHY DON'T WE JUST START A GAME FOR THEM?
     if (game.length === 0) return {user: user, status: "NO_GAME"};
 
+    //TODO: WE SHOULD RECORD EVERY SPIN IN THE TABLE SOMEPLACE.
     const spinResult = helper.getRandom(0, 36);
     const evaluation = evaluator(spinResult);
     const wagers = await data.getWagersByGame(game[0]);
     let updateArray = [];
     let payout = 0;
-
-    //console.log(`WAGERS ${JSON.stringify(wagers)}`);
 
     for (let i = 0; i < wagers.length; i++) {
         //WAS THEIR POSITION A NUMBER?
@@ -51,8 +47,9 @@ async function play(user) {
         }
         updateArray.push(wager)
     }
-
-    const areWagersResolved = await cashier.updateWagers(updateArray);
+    if (updateArray.length > 0) {
+        const areWagersResolved = await cashier.updateWagers(updateArray);
+    }
     const updatedUser = await data.updateBalance(user, payout);
     
 

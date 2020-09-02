@@ -4,6 +4,7 @@ const LaunchRequest = require("./LaunchRequest");
 const Error = require("./Error");
 const HelloWorldIntent = require("./HelloWorldIntent");
 const IntentReflector = require("./IntentReflector");
+const PokerDealIntent = require("./PokerDealIntent");
 const PokerHoldIntent = require("./PokerHoldIntent");
 const SpinRouletteIntent = require("./SpinRouletteIntent");
 const StartPokerIntent = require("./StartPokerIntent");
@@ -18,6 +19,7 @@ module.exports = {
     Error,
     HelloWorldIntent,
     IntentReflector,
+    PokerDealIntent,
     PokerHoldIntent,
     SpinRouletteIntent,
     StartPokerIntent,
