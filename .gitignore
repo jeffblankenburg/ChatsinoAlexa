@@ -104,3 +104,4 @@ dist
 .tern-port
 .ask/lambda/build.zip
 lambda/chatsino/keys.js
+lambda/keys.js

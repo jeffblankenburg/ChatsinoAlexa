@@ -147,12 +147,35 @@ function getSlotSpeech(spinResult) {
   }
   return speech;
 }
+
+function getSlotAudio(spinResult) {
+  let speech = "";
+  for (let i=0;i<spinResult.length;i++) {
+    //if (i == spinResult.length - 1) speech += " and ";
+    switch(spinResult[i]) {
+      case "💎": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_c.mp3" />`;
+      break;
+      case "🍋": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_bflat.mp3" />`
+      break;
+      case "🔔": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_a.mp3" />`
+      break;
+      case "🍇": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_g.mp3" />`
+      break;
+      case "🍊": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_f.mp3" />`
+      break;
+      case "🍒": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_e.mp3" />`
+      break; 
+    }
+  }
+  return speech;
+}
   
 module.exports = {
   changeVoice,
   getCardSpeech,
   getIntentName,
   getLocale,
+  getSlotAudio,
   getSlotSpeech,
   getSpokenWords,
   getResolvedWords,
