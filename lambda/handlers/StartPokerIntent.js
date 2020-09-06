@@ -20,7 +20,8 @@ async function StartPokerIntent(handlerInput) {
 
         break;
         case "BEFORE_DRAW":
-            if (result.outcome) speakOutput += `You already have a ${result.outcome.symbol}! `;
+            speakOutput += "<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/5_card_deal.mp3' />";
+            if (result.outcome) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.symbol}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "INVALID_WAGER":

@@ -7,6 +7,7 @@ const getUserByUserId = require("./getUserByUserId");
 const getUserByUsername = require("./getUserByUsername");
 const getWagersByGame = require("./getWagersByGame");
 const getWagersByUser = require("./getWagersByUser");
+const saveSpin = require("./saveSpin");
 const updateBalance = require("./updateBalance");
 const updatePokerHand = require("./updatePokerHand");
 
@@ -20,6 +21,7 @@ module.exports = {
   getUserByUsername,
   getWagersByGame,
   getWagersByUser,
+  saveSpin,
   updateBalance,
   updatePokerHand
 };

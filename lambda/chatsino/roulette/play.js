@@ -9,7 +9,6 @@ async function play(user) {
     //TODO: WHY DON'T WE JUST START A GAME FOR THEM?
     if (game.length === 0) return {user: user, status: "NO_GAME"};
 
-    //TODO: WE SHOULD RECORD EVERY SPIN IN THE TABLE SOMEPLACE.
     const spinResult = helper.getRandom(0, 36);
     const evaluation = evaluator(spinResult);
     const wagers = await data.getWagersByGame(game[0]);
@@ -51,6 +50,7 @@ async function play(user) {
         const areWagersResolved = await cashier.updateWagers(updateArray);
     }
     const updatedUser = await data.updateBalance(user, payout);
+    const saveSpin = await data.saveSpin(game[0], spinResult);
     
 
     console.log(`UPDATEARRAY ${JSON.stringify(updateArray)}`);

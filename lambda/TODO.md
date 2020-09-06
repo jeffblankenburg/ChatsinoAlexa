@@ -7,14 +7,13 @@
 * [x] User analytics.  "You've played slots 89% of the time."
 * [ ] On-stream lights and browser sources for big wins.  (What's a big win? 10000?)
 * [ ] "It has been 32 days since you've played slots.  Time for a spin?"
-* [ ] Each game type should have its own table.
 * [ ] Leaderboard (cards? APL?)
 * [ ] Paytable?  How do we communicate this with voice-only?
 * [ ] Rock Paper Scissors?
 
 ## Poker
 * [ ] Why does using multi-value slots with AMAZON.Number result in concatenating the digits into one number?
-* [ ] We need to add the turn that video poker allows.
+* [x] We need to add the turn that video poker allows.
 * [ ] Add APL card reveal.
 * [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
 * [x] If a user makes an invalid wager, we don't have an effective way to let them indicate a new bet.
@@ -25,6 +24,7 @@
 * [x] Alexa pronounces the ORANGE emoji as "tangerine."
 * [ ] Progressive slot machine grows the jackpot with each play that doesn't hit the jackpot.
 
+
 ## Roulette
 * [x] We should probably allow a user to make multiple bets before spinning.
 * [x] How do we assure that we have a bet AND a position?
@@ -32,6 +32,7 @@
 * [ ] How can a user create a set of standard bets, and make them all at once?
 * [x] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
 * [x] We haven't built a way to spin the wheel yet.
+* [x] Record every spin for analytics purposes.
 
 ## Craps
 * [ ] Have not even started this.

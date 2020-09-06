@@ -7,6 +7,7 @@ async function SpinRouletteIntent(handlerInput) {
     const result = await chatsino.roulette.play(sessionAttributes.user);
     console.log(`RESULT ${JSON.stringify(result)}`);
     let returnSpeech = "";
+    //TODO: THIS SOUND EFFECT IS WAY TOO LONG.  FIND SOMETHING BETTER.
     let speakOutput = `<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/roulettewheel.mp3' />The wheel landed on ${result.spinResult}. `;
 
     if (result.outcome.length === 0) speakOutput += "You didn't have any coins on the table, however.  You didn't win anything, but you also didn't lose anything, right? ";

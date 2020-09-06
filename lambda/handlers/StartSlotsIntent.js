@@ -8,7 +8,6 @@ async function StartSlotsIntent(handlerInput) {
 
     const result = await chatsino.slots.play(sessionAttributes.user, parseInt(wager));
     console.log(`RESULT ${JSON.stringify(result)}`);
-    //TODO: Use sound effects for revealing the slot reel results?
     let speakOutput = ``;
 
     switch(result.status) {

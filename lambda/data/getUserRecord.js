@@ -9,7 +9,7 @@ function getUserRecord(handlerInput) {
     process.env.airtable_base_data
   }/User?api_key=${
     process.env.airtable_api_key
-  }&filterByFormula=%7BUserId%7D%3D%22${encodeURIComponent(userId)}%22`;
+  }&filterByFormula=%7BUserId%7D%3D%22${encodeURIComponent(userId)}%22&fields%5B%5D=RecordId&fields%5B%5D=Balance&fields%5B%5D=AvailableBalance&fields%5B%5D=CurrentWagers&fields%5B%5D=PokerGames&fields%5B%5D=SlotsGames&fields%5B%5D=RouletteGames&fields%5B%5D=TotalGames`;
   const options = {
     method: "GET",
   };

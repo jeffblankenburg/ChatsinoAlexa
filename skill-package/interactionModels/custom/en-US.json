@@ -94,7 +94,7 @@
                         },
                         {
                             "name": "position",
-                            "type": "Position",
+                            "type": "RoulettePosition",
                             "samples": [
                                 "put it on {position}",
                                 "place it on {position}",
@@ -109,6 +109,81 @@
                         "bet {wager} on roulette",
                         "bet {wager} on {position}",
                         "bet {wager} on {position} in roulette"
+                    ]
+                },
+                {
+                    "name": "BalanceIntent",
+                    "slots": [],
+                    "samples": [
+                        "what is my coin total",
+                        "what is my total",
+                        "how many chips do I have",
+                        "what is my chip count",
+                        "how many coins do I have",
+                        "what is my balance",
+                        "how much do I have"
+                    ]
+                },
+                {
+                    "name": "PokerHoldIntent",
+                    "slots": [
+                        {
+                            "name": "cardValue",
+                            "type": "CardValues"
+                        },
+                        {
+                            "name": "cardSuit",
+                            "type": "CardSuits"
+                        },
+                        {
+                            "name": "holdType",
+                            "type": "PokerHold"
+                        }
+                    ],
+                    "samples": [
+                        "{holdType} {cardValue} {cardSuit}",
+                        "{holdType} all of the cards",
+                        "{holdType} all of them",
+                        "{holdType} everything",
+                        "{holdType} all",
+                        "{cardValue} {cardSuit}",
+                        "{cardSuit} {cardValue}",
+                        "{cardValue} of {cardSuit}",
+                        "{holdType} the {cardValue} of {cardSuit}",
+                        "{holdType} the {cardValue}",
+                        "{holdType} "
+                    ]
+                },
+                {
+                    "name": "PokerDealIntent",
+                    "slots": [],
+                    "samples": [
+                        "finish the hand",
+                        "deal the cards",
+                        "draw",
+                        "deal"
+                    ]
+                },
+                {
+                    "name": "SpinRouletteIntent",
+                    "slots": [],
+                    "samples": [
+                        "no more betting",
+                        "no more bets",
+                        "spin wheel",
+                        "spin roulette",
+                        "spin the roulette wheel",
+                        "spin the wheel"
+                    ]
+                },
+                {
+                    "name": "BetSummaryIntent",
+                    "slots": [],
+                    "samples": [
+                        "what are my wagers",
+                        "where are my bets",
+                        "what are my bets",
+                        "what are my current bets"
                     ]
                 }
             ],
@@ -150,7 +225,7 @@
                     ]
                 },
                 {
-                    "name": "Position",
+                    "name": "RoulettePosition",
                     "values": [
                         {
                             "name": {
@@ -178,181 +253,217 @@
                             }
                         },
                         {
+                            "id": "36",
                             "name": {
-                                "value": "THIRTY SIX"
+                                "value": "THIRTYSIX"
                             }
                         },
                         {
+                            "id": "35",
                             "name": {
-                                "value": "THIRTY FIVE"
+                                "value": "THIRTYFIVE"
                             }
                         },
                         {
+                            "id": "34",
                             "name": {
-                                "value": "THIRTY FOUR"
+                                "value": "THIRTYFOUR"
                             }
                         },
                         {
+                            "id": "33",
                             "name": {
-                                "value": "THIRTY THREE"
+                                "value": "THIRTYTHREE"
                             }
                         },
                         {
+                            "id": "32",
                             "name": {
-                                "value": "THIRTY TWO"
+                                "value": "THIRTYTWO"
                             }
                         },
                         {
+                            "id": "31",
                             "name": {
-                                "value": "THIRTY ONE"
+                                "value": "THIRTYONE"
                             }
                         },
                         {
+                            "id": "30",
                             "name": {
                                 "value": "THIRTY"
                             }
                         },
                         {
+                            "id": "29",
                             "name": {
-                                "value": "TWENTY NINE"
+                                "value": "TWENTYNINE"
                             }
                         },
                         {
+                            "id": "28",
                             "name": {
-                                "value": "TWENTY EIGHT"
+                                "value": "TWENTYEIGHT"
                             }
                         },
                         {
+                            "id": "27",
                             "name": {
-                                "value": "TWENTY SEVEN"
+                                "value": "TWENTYSEVEN"
                             }
                         },
                         {
+                            "id": "26",
                             "name": {
-                                "value": "TWENTY SIX"
+                                "value": "TWENTYSIX"
                             }
                         },
                         {
+                            "id": "25",
                             "name": {
-                                "value": "TWENTY FIVE"
+                                "value": "TWENTYFIVE"
                             }
                         },
                         {
+                            "id": "24",
                             "name": {
-                                "value": "TWENTY FOUR"
+                                "value": "TWENTYFOUR"
                             }
                         },
                         {
+                            "id": "23",
                             "name": {
-                                "value": "TWENTY THREE"
+                                "value": "TWENTYTHREE"
                             }
                         },
                         {
+                            "id": "22",
                             "name": {
-                                "value": "TWENTY TWO"
+                                "value": "TWENTYTWO"
                             }
                         },
                         {
+                            "id": "21",
                             "name": {
-                                "value": "TWENTY ONE"
+                                "value": "TWENTYONE"
                             }
                         },
                         {
+                            "id": "20",
                             "name": {
                                 "value": "TWENTY"
                             }
                         },
                         {
+                            "id": "19",
                             "name": {
                                 "value": "NINETEEN"
                             }
                         },
                         {
+                            "id": "18",
                             "name": {
                                 "value": "EIGHTEEN"
                             }
                         },
                         {
+                            "id": "17",
                             "name": {
                                 "value": "SEVENTEEN"
                             }
                         },
                         {
+                            "id": "16",
                             "name": {
                                 "value": "SIXTEEN"
                             }
                         },
                         {
+                            "id": "15",
                             "name": {
                                 "value": "FIFTEEN"
                             }
                         },
                         {
+                            "id": "14",
                             "name": {
                                 "value": "FOURTEEN"
                             }
                         },
                         {
+                            "id": "13",
                             "name": {
                                 "value": "THIRTEEN"
                             }
                         },
                         {
+                            "id": "12",
                             "name": {
                                 "value": "TWELVE"
                             }
                         },
                         {
+                            "id": "11",
                             "name": {
                                 "value": "ELEVEN"
                             }
                         },
                         {
+                            "id": "10",
                             "name": {
                                 "value": "TEN"
                             }
                         },
                         {
+                            "id": "9",
                             "name": {
                                 "value": "NINE"
                             }
                         },
                         {
+                            "id": "8",
                             "name": {
                                 "value": "EIGHT"
                             }
                         },
                         {
+                            "id": "7",
                             "name": {
                                 "value": "SEVEN"
                             }
                         },
                         {
+                            "id": "6",
                             "name": {
                                 "value": "SIX"
                             }
                         },
                         {
+                            "id": "5",
                             "name": {
                                 "value": "FIVE"
                             }
                         },
                         {
+                            "id": "4",
                             "name": {
                                 "value": "FOUR"
                             }
                         },
                         {
+                            "id": "3",
                             "name": {
                                 "value": "THREE"
                             }
                         },
                         {
+                            "id": "2",
                             "name": {
                                 "value": "TWO"
                             }
                         },
                         {
+                            "id": "1",
                             "name": {
                                 "value": "ONE"
                             }
@@ -400,6 +511,162 @@
                         {
                             "name": {
                                 "value": "RED"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CardSuits",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "clubs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diamonds"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spades"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CardValues",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "king",
+                                "synonyms": [
+                                    "kings"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "queen",
+                                "synonyms": [
+                                    "queens"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jack",
+                                "synonyms": [
+                                    "jacks"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ten",
+                                "synonyms": [
+                                    "tens"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nine",
+                                "synonyms": [
+                                    "nines"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "eight",
+                                "synonyms": [
+                                    "eights"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seven",
+                                "synonyms": [
+                                    "sevens"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "six",
+                                "synonyms": [
+                                    "sixes"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "five",
+                                "synonyms": [
+                                    "fives"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "four",
+                                "synonyms": [
+                                    "fours"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "three",
+                                "synonyms": [
+                                    "threes"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "two",
+                                "synonyms": [
+                                    "twos"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ace",
+                                "synonyms": [
+                                    "ones"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "PokerHold",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "discard",
+                                "synonyms": [
+                                    "unhold",
+                                    "drop"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hold",
+                                "synonyms": [
+                                    "save"
+                                ]
                             }
                         }
                     ]
@@ -456,12 +723,40 @@
                         },
                         {
                             "name": "position",
-                            "type": "Position",
+                            "type": "RoulettePosition",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
                                 "elicitation": "Elicit.Slot.873341212251.498498387309"
                             }
+                        }
+                    ]
+                },
+                {
+                    "name": "PokerHoldIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "cardValue",
+                            "type": "CardValues",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "cardSuit",
+                            "type": "CardSuits",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "holdType",
+                            "type": "PokerHold",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
                         }
                     ]
                 }
@@ -555,6 +850,40 @@
                     {
                         "type": "PlainText",
                         "value": "OK.  Where do you want to place your bet?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.946725308605",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I heard you say hold {position_number} , right?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "You want to hold the cards at {position_number} , correct?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1524952630295",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You asked to hold {position_ordinal} .  Is that correct?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "You want to hold {position_number} .  Right?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "I heard say hold {position_ordinal} . Is that correct?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "I heard you say you want to hold {position_number} .  Is that correct?"
                     }
                 ]
             }

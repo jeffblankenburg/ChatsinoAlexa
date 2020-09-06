@@ -8,8 +8,7 @@ async function PokerHoldIntent(handlerInput) {
     const cardValue = helper.getResolvedWords(handlerInput, "cardValue");
 
     const result = await chatsino.poker.hold(sessionAttributes.user, action, cardSuit, cardValue);
-
-    //TODO: Use sound effects for revealing the slot reel results?
+    
     let speakOutput = `This is the poker hold intent.`;
 
     let holdSpeech = `You are not currently holding any cards. `;
