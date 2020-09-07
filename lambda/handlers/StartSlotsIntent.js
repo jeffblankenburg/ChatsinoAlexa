@@ -4,6 +4,7 @@ const chatsino = require("../chatsino");
 
 async function StartSlotsIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    helper.setAction(handlerInput, `STARTSLOTS`);
     const wager = helper.getSpokenWords(handlerInput, "wager");
 
     const result = await chatsino.slots.play(sessionAttributes.user, parseInt(wager));

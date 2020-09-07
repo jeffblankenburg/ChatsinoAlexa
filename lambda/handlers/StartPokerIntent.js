@@ -3,6 +3,7 @@ const chatsino = require("../chatsino");
 
 async function StartPokerIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    helper.setAction(handlerInput, `STARTPOKER`);
     const wager = helper.getSpokenWords(handlerInput, "wager");
 
     const result = await chatsino.poker.play(sessionAttributes.user, parseInt(wager));

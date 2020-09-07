@@ -3,12 +3,13 @@ const chatsino = require("../chatsino");
 
 async function PokerHoldIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    helper.setAction(handlerInput, `POKERHOLD`);
     const action = helper.getResolvedWords(handlerInput, "holdType");
     const cardSuit = helper.getResolvedWords(handlerInput, "cardSuit");
     const cardValue = helper.getResolvedWords(handlerInput, "cardValue");
 
     const result = await chatsino.poker.hold(sessionAttributes.user, action, cardSuit, cardValue);
-    
+
     let speakOutput = `This is the poker hold intent.`;
 
     let holdSpeech = `You are not currently holding any cards. `;

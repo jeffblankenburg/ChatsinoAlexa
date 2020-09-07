@@ -4,7 +4,7 @@ const chatsino = require("../chatsino");
 
 async function PokerDealIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-
+    helper.setAction(handlerInput, `POKERDEAL`);
     const result = await chatsino.poker.deal(sessionAttributes.user);
     let speakOutput = ``;
 

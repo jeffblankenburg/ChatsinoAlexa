@@ -1,7 +1,6 @@
 const helper = require("../helper");
 
 async function UserAccountIntent(handlerInput) {
-    console.log(`<=== handler/UserAccountIntent.js ===>`);
     helper.setAction(handlerInput, `USERACCOUNTINTENT`);
     const locale = helper.getLocale(handlerInput);
 

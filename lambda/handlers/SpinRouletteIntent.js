@@ -3,6 +3,7 @@ const chatsino = require("../chatsino");
 
 async function SpinRouletteIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    helper.setAction(handlerInput, `SPINROULETTE`);
 
     const result = await chatsino.roulette.play(sessionAttributes.user);
     console.log(`RESULT ${JSON.stringify(result)}`);

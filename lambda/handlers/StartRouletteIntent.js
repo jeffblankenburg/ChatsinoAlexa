@@ -3,6 +3,7 @@ const chatsino = require("../chatsino");
 
 async function StartRouletteIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    helper.setAction(handlerInput, `STARTROULETTE`);
     const wager = helper.getSpokenWords(handlerInput, "wager");
     const position = helper.getResolvedWords(handlerInput, "position");
 

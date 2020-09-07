@@ -2,7 +2,6 @@ const data = require("../data");
 const helper = require("../helper");
 
 async function LaunchRequest(handlerInput) {
-    console.log(`<=== handler/LaunchRequest.js ===>`);
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
     helper.setAction(handlerInput, `LAUNCHREQUEST`);
     const locale = helper.getLocale(handlerInput);

@@ -3,7 +3,7 @@ const chatsino = require("../chatsino");
 
 async function BetSummaryIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-
+    helper.setAction(handlerInput, `BETSUMMARY`);
     const result = await chatsino.data.getWagersByUser(sessionAttributes.user);
     let speakOutput = `You currently have ${sessionAttributes.user.fields.CurrentWagers} coins in play. `;
 
@@ -15,7 +15,7 @@ async function BetSummaryIntent(handlerInput) {
                     speakOutput += `You have ${result[i].fields.Amount} coins bet on ${result[i].fields.GameType}. `;
                 break;
                 case "Roulette":
-                    if (oldGameType != "Roulette") speakOutput += "In roulette, "
+                    if (oldGameType != "Roulette") speakOutput += "In roulette, you have "
                     if ((oldGameType === "Roulette") && result[i+1] && (result[i+1].fields.GameType != "Roulette")) speakOutput += "Finally, you have "
                     speakOutput += `${result[i].fields.Amount} coins bet on ${result[i].fields.Position}. `;
                     

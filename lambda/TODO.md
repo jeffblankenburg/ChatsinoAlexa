@@ -1,6 +1,7 @@
 ## Alexa Casino To-Do
 
 ## General Features
+* [ ] What is the first-time experience like?  How do we detect it?
 * [ ] Offer tips and statistics like "63% of users typically bet 40 or more coins on this."
 * [ ] Review https://elements.envato.com/sound-effects/game-sounds/slots for sound effects from lockedinaus
 * [ ] SOUND EFFECTS!
@@ -8,8 +9,10 @@
 * [ ] On-stream lights and browser sources for big wins.  (What's a big win? 10000?)
 * [ ] "It has been 32 days since you've played slots.  Time for a spin?"
 * [ ] Leaderboard (cards? APL?)
-* [ ] Paytable?  How do we communicate this with voice-only?
+* [ ] Paytable?  How do we communicate this with voice-only? (Intent constructed!)
 * [ ] Rock Paper Scissors?
+* [x] We need a contextual help engine.  What does that look like?
+* [ ] Users should be able to buy more coins if they want more coins.  (You never really run out, because you get another coin with every interaction.)
 
 ## Poker
 * [ ] Why does using multi-value slots with AMAZON.Number result in concatenating the digits into one number?
@@ -27,8 +30,8 @@
 
 ## Roulette
 * [x] We should probably allow a user to make multiple bets before spinning.
-* [x] How do we assure that we have a bet AND a position?
-* [ ] How does a user remove one or many bets from the table?
+* [x] How do we assure that we have a bet AND a position? (Intent constructed!)
+* [ ] How does a user remove one or many bets from the table? 
 * [ ] How can a user create a set of standard bets, and make them all at once?
 * [x] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
 * [x] We haven't built a way to spin the wheel yet.
