@@ -15,7 +15,7 @@ async function LaunchRequest(handlerInput) {
     else if (pokerPercent > 49) gameSpeech = `You have played poker ${pokerPercent}% of the time.  You should give slots or roulette a try today! `;
     else if (roulettePercent > 49) gameSpeech = `You have played roulette ${roulettePercent}% of the time.  You should give poker or slots a try today! `;
 
-    var speakOutput = `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/intro.mp3" /> Welcome to the Chatsino! You currently have ${sessionAttributes.user.fields.AvailableBalance} coins available. ${gameSpeech}`; //await data.getRandomSpeech(`Welcome`, locale);
+    var speakOutput = `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/intro.mp3" /> <amazon:emotion name="excited" intensity="medium">Welcome to the Chatsino!</amazon:emotion> You currently have ${sessionAttributes.user.fields.AvailableBalance} coins available. ${gameSpeech}`; //await data.getRandomSpeech(`Welcome`, locale);
     var actionQuery = `What would you like to do?`; //await data.getRandomSpeech(`ActionQuery`, locale);
 
     return handlerInput.responseBuilder

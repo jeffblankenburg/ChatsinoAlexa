@@ -9,7 +9,7 @@ async function createWager(user, wager, position, game) {
     airtable("Wager").create(
       {
         UserId: [user.fields.RecordId],
-        GameId: [game.fields.RecordId],
+        GameId: [game.id],
         Amount: wager,
         Position: position,
         Status: "Active",

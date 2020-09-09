@@ -8,9 +8,9 @@ async function wager(user, wager, position) {
             let activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.ROULETTE);
             if (activeGame.length === 0) {
                 activeGame = await data.createGame(user, helper.ROULETTE);
-            }
+            } else activeGame = activeGame[0];
             console.log(`ACTIVE GAME ${JSON.stringify(activeGame)}`);
-            const bet = await data.createWager(user, wager, position, activeGame[0]);
+            const bet = await data.createWager(user, wager, position, activeGame);
 
             const result = {
                 user: user,

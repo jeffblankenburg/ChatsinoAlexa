@@ -43,6 +43,16 @@ const LaunchRequestHandler = {
     }
 };
 
+const PaytableIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PaytableIntent';
+    },
+    handle(handlerInput) {
+        return handlers.PaytableIntent(handlerInput);
+    }
+};
+
 const PokerDealIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -203,6 +213,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         BalanceIntentHandler,
         HelpIntentHandler,
         RepeatIntentHandler,
+        PaytableIntentHandler,
         CancelAndStopIntentHandler,
         UserAccountIntentHandler,
         SessionEndedRequestHandler,

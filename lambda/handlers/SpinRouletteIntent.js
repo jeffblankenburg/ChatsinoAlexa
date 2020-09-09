@@ -9,9 +9,9 @@ async function SpinRouletteIntent(handlerInput) {
     console.log(`RESULT ${JSON.stringify(result)}`);
     let returnSpeech = "";
     //TODO: THIS SOUND EFFECT IS WAY TOO LONG.  FIND SOMETHING BETTER.
-    let speakOutput = `<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/roulettewheel.mp3' />The wheel landed on ${result.spinResult}. `;
+    let speakOutput = `<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/roulette_spin.mp3' />The wheel landed on ${result.spinResult}. `;
 
-    if (result.outcome.length === 0) speakOutput += "You didn't have any coins on the table, however.  You didn't win anything, but you also didn't lose anything, right? ";
+    if (result.outcome.length === 0) speakOutput += "You didn't have any coins on the table.  You didn't win anything, but you also didn't lose anything, right? ";
     else {
         for (let i = 0;i<result.outcome.length;i++) {
             console.log(`RESULT OUTCOME [i] ${JSON.stringify(result.outcome[i])}`)

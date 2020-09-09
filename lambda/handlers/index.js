@@ -3,6 +3,7 @@ const BetSummaryIntent = require("./BetSummaryIntent");
 const LaunchRequest = require("./LaunchRequest");
 const Error = require("./Error");
 const IntentReflector = require("./IntentReflector");
+const PaytableIntent = require("./PaytableIntent");
 const PokerDealIntent = require("./PokerDealIntent");
 const PokerHoldIntent = require("./PokerHoldIntent");
 const SpinRouletteIntent = require("./SpinRouletteIntent");
@@ -17,6 +18,7 @@ module.exports = {
     LaunchRequest,
     Error,
     IntentReflector,
+    PaytableIntent,
     PokerDealIntent,
     PokerHoldIntent,
     SpinRouletteIntent,
