@@ -24,6 +24,16 @@ const BetSummaryIntentHandler = {
     }
 };
 
+const ClearRouletteIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ClearRouletteIntent';
+    },
+    handle(handlerInput) {
+        return handlers.ClearRouletteIntent(handlerInput);
+    }
+};
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -40,6 +50,16 @@ const LaunchRequestHandler = {
     },
     handle(handlerInput) {
         return handlers.LaunchRequest(handlerInput);
+    }
+};
+
+const LeaderboardIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LeaderboardIntent';
+    },
+    handle(handlerInput) {
+        return handlers.LeaderboardIntent(handlerInput);
     }
 };
 
@@ -210,9 +230,11 @@ exports.handler = Alexa.SkillBuilders.custom()
         PokerDealIntentHandler,
         PokerHoldIntentHandler,
         BetSummaryIntentHandler,
+        LeaderboardIntentHandler,
         BalanceIntentHandler,
         HelpIntentHandler,
         RepeatIntentHandler,
+        ClearRouletteIntentHandler,
         PaytableIntentHandler,
         CancelAndStopIntentHandler,
         UserAccountIntentHandler,

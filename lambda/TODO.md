@@ -13,6 +13,7 @@
 * [ ] Rock Paper Scissors?
 * [x] We need a contextual help engine.  What does that look like?
 * [ ] Users should be able to buy more coins if they want more coins.  (You never really run out, because you get another coin with every interaction.)
+* [ ] What do we do when a user wants to clear ALL of their bets?  Poker, roulette, craps, etc?
 
 ## Poker
 * [ ] Why does using multi-value slots with AMAZON.Number result in concatenating the digits into one number?
@@ -25,7 +26,7 @@
 ## Slots
 * [x] Alexa pronounces the DIAMOND emoji as "gemstone."
 * [x] Alexa pronounces the ORANGE emoji as "tangerine."
-* [ ] Progressive slot machine grows the jackpot with each play that doesn't hit the jackpot.
+* [ ] Progressive slot machine grows the jackpot with each play that doesn't hit the jackpot.  Base amount is 5,000 coins, increases by 10 with every spin of the slot machine.  Can only with a wager of 5 or more.  This should span all services.
 
 
 ## Roulette

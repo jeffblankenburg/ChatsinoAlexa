@@ -2,11 +2,14 @@ const createGame = require("./createGame");
 const createLedgerItem = require("./createLedgerItem");
 const createPokerHand = require("./createPokerHand");
 const createWager = require("./createWager");
+const deleteUserWagersByPosition = require("./deleteUserWagersByPosition");
 const getGamesByUserRecordId = require("./getGamesByUserRecordId");
+const getLeaderboard = require("./getLeaderboard");
 const getPositionsByGameType = require("./getPositionsByGameType");
 const getUserByUserId = require("./getUserByUserId");
 const getUserByUsername = require("./getUserByUsername");
 const getWagersByGame = require("./getWagersByGame");
+const getWagersByPosition = require("./getWagersByPosition");
 const getWagersByUser = require("./getWagersByUser");
 const saveSpin = require("./saveSpin");
 const updateBalance = require("./updateBalance");
@@ -17,11 +20,14 @@ module.exports = {
   createLedgerItem,
   createPokerHand,
   createWager,
+  deleteUserWagersByPosition,
   getGamesByUserRecordId,
+  getLeaderboard,
   getPositionsByGameType,
   getUserByUserId,
   getUserByUsername,
   getWagersByGame,
+  getWagersByPosition,
   getWagersByUser,
   saveSpin,
   updateBalance,
