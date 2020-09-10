@@ -5,7 +5,7 @@ async function StartRouletteIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
     helper.setAction(handlerInput, `STARTROULETTE`);
     const wager = helper.getSpokenWords(handlerInput, "wager");
-    const position = helper.getResolvedWords(handlerInput, "position");
+    const position = helper.getResolvedWords(handlerInput, "rouletteposition");
 
     const result = await chatsino.roulette.wager(sessionAttributes.user, parseInt(wager), position[0].value.name);
     //TODO: Catch the situations in which they didn't manage to match one of our slot values.
@@ -26,7 +26,7 @@ async function StartRouletteIntent(handlerInput) {
         break;
         case "INVALID_WAGER":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");
-            speakOutput += `Your wager is invalid. Your current available balance is ${result.user.fields.AvailableBalance} coins. You can bet any amount up to your balance. Please try your roulette wager again.`;
+            speakOutput += `Your wager is invalid. Your current available balance is ${result.user.fields.AvailableBalance} coins. You can bet any amount up to your balance. How much would you like to wager? `;
         break;
     }
 

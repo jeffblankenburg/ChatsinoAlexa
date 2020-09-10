@@ -10,7 +10,8 @@ async function saveSpin(game, spin) {
     airtable("Roulette").create(
       {
         GameId: [game.fields.RecordId],
-        Spin: spin
+        Spin: spin,
+        UserId: game.fields.UserId
       },
       function (err, record) {
         if (err) {

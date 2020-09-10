@@ -13,7 +13,7 @@ async function ClearRouletteIntent(handlerInput) {
     else {
         const result = await chatsino.data.deleteUserWagersByPosition(sessionAttributes.user, position[0].value.name);
         if (result.amount === 0) speakOutput = `Oh. You don't have any bets on ${result.position}.  To place a bet, you can say something like, bet ten on red.  What would you like to do now? `;
-        else speakOutput = `OK.  I removed ${result.amount} coins from ${result.position} on the roulette table for you.  What would you like to do now? `;
+        else speakOutput = `OK.  I removed ${result.amount} coins from ${result.position} on the roulette table and returned them to you.  What would you like to do now? `;
     }
     
 

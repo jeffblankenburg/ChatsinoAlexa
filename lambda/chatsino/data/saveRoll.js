@@ -1,18 +1,17 @@
 const Airtable = require("airtable");
 const keys = require("../keys");
 
-async function createGame(user, type) {
-  // console.log(`USER ${JSON.stringify(user.fields.RecordId)}`);
+async function saveRoll(game, die1, die2) {
   const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
     keys.airtable_base_data
   );
   return new Promise((resolve, reject) => {
-    airtable("Game").create(
+    airtable("Craps").create(
       {
-        GameTypeId: [type],
-        Status: "Active",
-        UserId: [user.fields.RecordId],
-        Point: 0
+        GameId: [game.fields.RecordId],
+        Die_1: die1,
+        Die_2: die2,
+        UserId: game.fields.UserId
       },
       function (err, record) {
         if (err) {
@@ -25,4 +24,4 @@ async function createGame(user, type) {
   });
 }
 
-module.exports = createGame;
+module.exports = saveRoll;

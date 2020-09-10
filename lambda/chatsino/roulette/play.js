@@ -6,12 +6,12 @@ const position = require("./position");
 
 async function play(user) {
     let game = await data.getGamesByUserRecordId(user.fields.RecordId, helper.ROULETTE);
-    //TODO: WHY DON'T WE JUST START A GAME FOR THEM?
-    if (game.length === 0) return {user: user, status: "NO_GAME"};
+    if (game.length === 0) game = await data.createGame(user, helper.ROULETTE);
+    else game = game[0];
 
     const spinResult = helper.getRandom(0, 36);
     const evaluation = evaluator(spinResult);
-    const wagers = await data.getWagersByGame(game[0]);
+    const wagers = await data.getWagersByGame(game);
     let updateArray = [];
     let payout = 0;
 
@@ -50,7 +50,7 @@ async function play(user) {
         const areWagersResolved = await cashier.updateWagers(updateArray);
     }
     const updatedUser = await data.updateBalance(user, payout);
-    const saveSpin = await data.saveSpin(game[0], spinResult);
+    const saveSpin = await data.saveSpin(game, spinResult);
     
 
     console.log(`UPDATEARRAY ${JSON.stringify(updateArray)}`);
