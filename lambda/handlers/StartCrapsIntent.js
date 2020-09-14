@@ -6,6 +6,7 @@ async function StartCrapsIntent(handlerInput) {
     helper.setAction(handlerInput, `STARTCRAPS`);
     const wager = helper.getSpokenWords(handlerInput, "wager");
     const position = helper.getResolvedWords(handlerInput, "crapsposition");
+    //TODO: IF THEY DON'T MATCH SOMETHING, THIS SHOULDN'T BREAK, IT SHOULD SAY INVALID WAGER.
 
     const result = await chatsino.craps.wager(sessionAttributes.user, parseInt(wager), position[0].value.id);
 

@@ -14,6 +14,7 @@ const getWagersByUser = require("./getWagersByUser");
 const saveRoll = require("./saveRoll");
 const saveSpin = require("./saveSpin");
 const updateBalance = require("./updateBalance");
+const updatePoint = require("./updatePoint");
 const updatePokerHand = require("./updatePokerHand");
 
 module.exports = {
@@ -33,5 +34,6 @@ module.exports = {
   saveRoll,
   saveSpin,
   updateBalance,
+  updatePoint,
   updatePokerHand
 };

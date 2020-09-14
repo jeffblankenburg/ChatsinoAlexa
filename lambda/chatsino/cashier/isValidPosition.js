@@ -1,6 +1,7 @@
 function isValidPosition(position, game) {
   switch (game.fields.GameType.toString().toLowerCase()) {
     case "roulette":
+      console.log({position});
       const roulettePosition = require("../roulette/position.js");
       position = eval(`roulettePosition.${position}`);
       if (position) return true;

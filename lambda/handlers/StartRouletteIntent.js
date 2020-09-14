@@ -7,7 +7,7 @@ async function StartRouletteIntent(handlerInput) {
     const wager = helper.getSpokenWords(handlerInput, "wager");
     const position = helper.getResolvedWords(handlerInput, "rouletteposition");
 
-    const result = await chatsino.roulette.wager(sessionAttributes.user, parseInt(wager), position[0].value.name);
+    const result = await chatsino.roulette.wager(sessionAttributes.user, parseInt(wager), position[0].value.id);
     //TODO: Catch the situations in which they didn't manage to match one of our slot values.
     //const speakOutput = `You wagered ${wager} coins on ${position[0].value.name} in roulette.`;
 
@@ -15,7 +15,8 @@ async function StartRouletteIntent(handlerInput) {
 
     switch(result.status) {
         case "ACTIVE_GAME":
-            speakOutput += `You wagered ${result.wager} coins on ${result.position}. What would you like to do next? You can place another bet, or you can say spin the wheel when you're ready. `;
+            const positionObject = eval(`chatsino.roulette.position.${result.position}`);
+            speakOutput += `You wagered ${result.wager} coins on ${positionObject.symbol}. What would you like to do next? You can place another bet, or you can say spin the wheel when you're ready. `;
         break;
         case "COMPLETED":
 

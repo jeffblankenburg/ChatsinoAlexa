@@ -5,7 +5,7 @@
 * [ ] Achievements
 * [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
 * [ ] Randomize most speech strings
-* [ ] Website?  Not sure if this is required at launch, but Quick Links would be cool.
+* [x] Website?  Not sure if this is required at launch, but Quick Links would be cool. (Quick links are only after certification.)
 * [ ] Craps
 * [ ] Blackjack
 * [ ] APL all the things!
@@ -25,7 +25,7 @@
 * [x] We need a contextual help engine.  What does that look like?
 * [ ] Users should be able to buy more coins if they want more coins.  (You never really run out, because you get another coin with every interaction.)
 * [ ] What do we do when a user wants to clear ALL of their bets?  Poker, roulette, craps, etc?
-* [ ] BINGO?
+* [ ] BINGO? (Would this need to be multiplayer?  How does solo Bingo work?)
 * [ ] Lottery scratchers?
 
 ## Poker
@@ -39,7 +39,7 @@
 ## Slots
 * [x] Alexa pronounces the DIAMOND emoji as "gemstone."
 * [x] Alexa pronounces the ORANGE emoji as "tangerine."
-* [ ] Progressive slot machine grows the jackpot with each play that doesn't hit the jackpot.  Base amount is 5,000 coins, increases by 10 with every spin of the slot machine.  Can only with a wager of 5 or more.  This should span all services.
+* [ ] Progressive slot machine grows the jackpot with each play that doesn't hit the jackpot.  Base amount is 5,000 coins, increases by 10 with every spin of the slot machine.  Can only win with a wager of 5 or more.  This should span all services.
 
 
 ## Roulette

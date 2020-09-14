@@ -15,12 +15,16 @@ async function RollCrapsIntent(handlerInput) {
     else {
         for (let i = 0;i<result.outcome.length;i++) {
             console.log(`RESULT OUTCOME [i] ${JSON.stringify(result.outcome[i])}`)
-            speakOutput += `You bet ${result.outcome[i].fields.Amount} on ${result.outcome[i].fields.Position} `; 
-            if (result.outcome[i].fields.Payout > 0){
-                speakOutput += `and won ${result.outcome[i].fields.Payout} coins! `;
-                returnSpeech = "I've returned all of your coins from the table. ";
+            const positionObject = eval(`chatsino.craps.position.${result.outcome[i].fields.Position}`);
+            if (result.outcome[i].fields.Outcome === "WIN") {
+                speakOutput += `You bet ${result.outcome[i].fields.Amount} on ${positionObject.name} `; 
+                //TODO: THIS DOESN'T WORK!  NEED TO SAVE THE VALUE TO RESULT.
+                speakOutput += `and won ${result.outcome[i].fields.Result} coins! `;
             } 
-            else speakOutput += `and lost. `;
+            else if (result.outcome[i].fields.Outcome === "LOSE") {
+                speakOutput += `You bet ${result.outcome[i].fields.Amount} on ${positionObject.name} `; 
+                speakOutput += `and lost. `;
+            }
         }
     }
 
@@ -30,7 +34,7 @@ async function RollCrapsIntent(handlerInput) {
     }
     else speakOutput += `You lost a total of ${Math.abs(result.payout)} coins, `;
 
-    speakOutput += `which brings your total to ${result.user.fields.AvailableBalance}. ${returnSpeech} What would you like to do now?`;
+    speakOutput += `which brings your total to ${result.user.fields.AvailableBalance}. What would you like to do now?`;
 
 
     return (
