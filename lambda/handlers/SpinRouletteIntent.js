@@ -14,8 +14,8 @@ async function SpinRouletteIntent(handlerInput) {
     if (result.outcome.length === 0) speakOutput += "You didn't have any coins on the table.  You didn't win anything, but you also didn't lose anything, right? ";
     else {
         for (let i = 0;i<result.outcome.length;i++) {
-            console.log(`RESULT OUTCOME [i] ${JSON.stringify(result.outcome[i])}`)
-            speakOutput += `You bet ${result.outcome[i].fields.Amount} on ${result.outcome[i].fields.Position} `; 
+            const positionObject = eval(`chatsino.roulette.position.${result.outcome[i].fields.Position}`);
+            speakOutput += `You bet ${result.outcome[i].fields.Amount} on ${positionObject.name} `; 
             if (result.outcome[i].fields.Payout > 0){
                 speakOutput += `and won ${result.outcome[i].fields.Payout} coins! `;
                 returnSpeech = "I've returned all of your coins from the table. ";

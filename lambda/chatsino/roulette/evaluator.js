@@ -7,7 +7,7 @@ function evaluator(spin) {
   const result = { win: [], lose: [] };
 
   if (spin >= 1) {
-    console.log(`SPIN ${numwords(spin).replace(" ", "").toUpperCase()}`);
+    //console.log(`SPIN ${numwords(spin).replace(" ", "").toUpperCase()}`);
     result.win.push(eval(`position.${numwords(spin).replace(" ", "").toUpperCase()}`));
     result.lose.push(position.ZERO);
     result.lose.push(position.DOUBLEZERO);

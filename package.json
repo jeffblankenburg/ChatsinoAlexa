@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "cd lambda && bst proxy lambda index.js",
-    "test": "jest"
+    "test": "cd lambda && cd chatsino && jest --detectOpenHandles"
   },
   "author": "Jeff Blankenburg",
   "license": "ISC",
   "dependencies": {
     "num-words": "^1.2.0"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
   }
 }

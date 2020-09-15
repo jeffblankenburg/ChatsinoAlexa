@@ -29,14 +29,14 @@ async function play(user) {
                 const winnings = parseInt(wagers[i].fields.Amount) * getOdds(wagerPosition, point, total);
                 fields.Payout = wagers[i].fields.Payout + winnings;
                 fields.Outcome = "WIN";
-                //fields.Result = winnings.toString();
+                fields.Result = winnings.toString();
                 payout += winnings;
             }
             else if (evaluation.lose.includes(wagerPosition)) {
                 fields.Payout = wagers[i].fields.Payout - wagers[i].fields.Amount;
                 fields.Status = "Completed";
                 fields.Outcome = "LOSE";
-                //fields.Result = -wagers[i].fields.Amount.toString()
+                fields.Result = "-" + wagers[i].fields.Amount.toString();
                 payout -= wagers[i].fields.Amount;
             }
 
@@ -53,18 +53,21 @@ async function play(user) {
     }
 
     const updatedUser = await data.updateBalance(user, payout);
+    let updatedGame = 0;
     if (point === 0 && [4,5,6,8,9,10].includes(total)) {
-        const updatedPoint = await data.updatePoint(game, total);
+      updatedGame = await data.updatePoint(game, total);
     }
     else if (point === total) {
-        const noPoint = await data.updatePoint(game, 0);
+        updatedGame = await data.updatePoint(game, 0);
     }
+    else updatedGame = game;
     const saveRoll = await data.saveRoll(game, die1, die2);
 
     const result = {
         user: updatedUser,
         die1: die1,
         die2: die2,
+        game: updatedGame,
         result: evaluation,
         outcome: updateArray,
         payout: payout,

@@ -9,6 +9,7 @@
 * [ ] Craps
 * [ ] Blackjack
 * [ ] APL all the things!
+* [ ] Write all (ok most) of the tests!  (We need a good cleanup function too.)
 
 
 ## General Features

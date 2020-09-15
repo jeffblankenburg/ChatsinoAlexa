@@ -4,7 +4,6 @@ let user;
 
 beforeAll(() => {
   user = resetUser();
-  console.log(`USER ${JSON.stringify(user)}`);
 });
 
 test("User ID should match on return", async () => {
@@ -24,7 +23,7 @@ test("Invalid wager when more than AvailableBalance", async () => {
 function resetUser() {
   return {
     fields: {
-      RecordId: "reconrFfnURnb4e3R",
+      RecordId: "recbk1dFfqb0m8cLA",
       AvailableBalance: 110,
       Balance: 110,
     },

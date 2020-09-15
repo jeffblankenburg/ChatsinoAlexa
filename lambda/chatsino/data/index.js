@@ -6,6 +6,7 @@ const deleteUserWagersByPosition = require("./deleteUserWagersByPosition");
 const getGamesByUserRecordId = require("./getGamesByUserRecordId");
 const getLeaderboard = require("./getLeaderboard");
 const getPositionsByGameType = require("./getPositionsByGameType");
+const getUserByRecordId = require("./getUserByRecordId");
 const getUserByUserId = require("./getUserByUserId");
 const getUserByUsername = require("./getUserByUsername");
 const getWagersByGame = require("./getWagersByGame");
@@ -26,6 +27,7 @@ module.exports = {
   getGamesByUserRecordId,
   getLeaderboard,
   getPositionsByGameType,
+  getUserByRecordId,
   getUserByUserId,
   getUserByUsername,
   getWagersByGame,

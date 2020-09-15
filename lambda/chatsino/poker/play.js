@@ -28,15 +28,18 @@ async function play(user, wager) {
         const outcome = evaluator(hand);
 
         const pokerHand = await data.createPokerHand(game, hand, dealOutcome.deck);
+        const updatedUser = await data.getUserByRecordId(user.fields.RecordId);
+
+        //console.log({updatedUser});
         const result = {
-            user: user,
+            user: updatedUser,
             wager: wager,
             result: hand,
             deck: dealOutcome.deck,
             outcome: outcome,
             status: "BEFORE_DRAW",
           };
-          console.log(`POKER RESULT ${JSON.stringify(result)}`);
+          //console.log(`POKER RESULT ${JSON.stringify(result)}`);
         return result;
     }
     else return {user: user, wager: wager, status: "INVALID_WAGER"}

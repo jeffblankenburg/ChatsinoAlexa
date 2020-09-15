@@ -8,7 +8,7 @@ async function resolveBets(user, game, outcome, result) {
   const wagers = await data.getWagersByGame(game);
   let updateArray = [];
   let winnings = 0;
-  console.log(`OUTCOME ${JSON.stringify(outcome)}`);
+  //console.log(`OUTCOME ${JSON.stringify(outcome)}`);
   for (var i = 0; i < wagers.length; i++) {
     let fields = {Result: result.join(" ")};
 

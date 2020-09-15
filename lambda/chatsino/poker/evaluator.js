@@ -1,7 +1,7 @@
 const position = require('./position.js');
 
 function evaluator(hand) {
-  console.log(`POKERHAND ${JSON.stringify(hand)}`);
+  //console.log(`POKERHAND ${JSON.stringify(hand)}`);
   const sortedHand = hand.sort((a, b) => {return b.value.id - a.value.id});
 
   if (isRoyalFlush(sortedHand)) return position.ROYALFLUSH;
