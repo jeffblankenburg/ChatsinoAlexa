@@ -1,12 +1,13 @@
 const Airtable = require("airtable");
+const keys = require("../keys");
 
 async function ledger(user, amount, type) {
-  const airtable = new Airtable({ apiKey: process.env.airtable_api_key }).base(
-    process.env.airtable_base_data
+  const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
+    keys.airtable_base_data
   );
   return new Promise((resolve, reject) => {
     airtable("Ledger").create(
-      { User: [user.fields.RecordId], Amount: amount, GameTypeId: [type] },
+      { User: [user.RecordId], Amount: amount, GameTypeId: [type] },
       (err, record) => {
         if (err) {
           console.error(err);

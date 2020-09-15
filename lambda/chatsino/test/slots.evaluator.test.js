@@ -54,3 +54,8 @@ test('🍒 💎 🍊 returns ONECHERRY', () => {
   const result = slots.evaluator(['🍒', '💎', '🍊']);
   expect(result).toBe(slots.position.ONECHERRY);
 });
+
+test('💎 🍊 🍒 returns UNDEFINED', () => {
+  const result = slots.evaluator(['💎', '🍒', '🍊']);
+  expect(result).toBe(undefined);
+});

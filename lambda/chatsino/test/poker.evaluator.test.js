@@ -181,12 +181,12 @@ test('A 2 7 9 9 returns Pair', () => {
   expect(result).toBe(poker.position.PAIR);
 });
 
-test('A 2 7 8 9 returns Nothing', () => {
+test('A 2 7 8 9 returns UNDEFINED', () => {
   const hand = [{ suit: deck.suit.SPADES, value: deck.value._A },
     { suit: deck.suit.HEARTS, value: deck.value._2 },
     { suit: deck.suit.DIAMONDS, value: deck.value._7 },
     { suit: deck.suit.CLUBS, value: deck.value._8 },
     { suit: deck.suit.SPADES, value: deck.value._9 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.NOTHING);
+  expect(result).toBe(undefined);
 });

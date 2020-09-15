@@ -1,7 +1,7 @@
 {
   "name": "chatsino",
   "version": "1.0.0",
-  "description": "A casino engine for chatbots and voice assistants.",
+  "description": "A chat and voice based casino.",
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=bot:* nodemon ./index.js --start",
@@ -9,26 +9,30 @@
     "lint": "eslint '**/*.js'",
     "validate": "concurrently npm:lint npm:test -c \"bgGreen,bgCyan\""
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffblankenburg/CHATsino.git"
+  },
+  "keywords": [
+    "casino",
+    "poker",
+    "slots",
+    "roulette",
+    "blackjack",
+    "craps",
+    "voice",
+    "alexa"
+  ],
+  "author": "jeffblankenburg",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeffblankenburg/CHATsino/issues"
+  },
+  "homepage": "https://github.com/jeffblankenburg/CHATsino#readme",
   "dependencies": {
     "airtable": "^0.8.1",
-    "debug": "^4.1.1",
-    "lodash": "^4.17.15",
-    "node-fetch": "^2.6.0",
-    "tmi.js": "^1.5.0"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "eslint": "^7.4.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.13.1",
-    "eslint-plugin-prettier": "^3.1.3",
-    "jest-cli": "^26.0.1",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.0.5",
-    "supertest": "^4.0.2"
   }
 }

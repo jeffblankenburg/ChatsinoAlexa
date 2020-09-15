@@ -1,28 +1,18 @@
-const debug = require("debug");
-const roulettePosition = require("../roulette/position.js");
-
-const d = debug(`index:cashier:isValidPosition`);
-
 function isValidPosition(position, game) {
-  d(game);
   switch (game.fields.GameType.toString().toLowerCase()) {
     case "roulette":
-      if (position === "00") return true;
-      if (parseInt(position) >= 0 && parseInt(position) <= 36) return true;
-      if (parseInt(position) < 0 || parseInt(position) > 36) return false;
-      // if (wagerPosition === undefined) wagerPosition = "";
-      const positionString = position
-        .toString()
-        .trim()
-        .toUpperCase()
-        .replace("-", "");
-      position = eval(`roulettePosition.${positionString}`);
+      console.log({position});
+      const roulettePosition = require("../roulette/position.js");
+      position = eval(`roulettePosition.${position}`);
       if (position) return true;
       return false;
       break;
-    // case "craps":
-    //   const point = game.fields.Point;
-    //   const betPosition = eval(`crapsPosition.${wagerPosition.toUpperCase()}`);
+     case "craps":
+      const point = game.fields.Point;
+      const crapsPosition = require("../craps/position.js");
+      const betPosition = eval(`crapsPosition.${position}`);
+      if (betPosition) return true;
+      return false;
     //   // : NEED SOME LOGIC HERE TO MAKE SURE THAT BETS CAN ONLY HAPPEN AT THE RIGHT TIME.
     //   // THIS IS NOT DONE.
     //   if (betPosition) {
@@ -54,7 +44,7 @@ function isValidPosition(position, game) {
     //     return true;
     //   }
     //   return false;
-    //   break;
+       break;
     default:
       return false;
   }

@@ -4,23 +4,36 @@ const handlers = require(`./handlers`);
 const helper = require(`./helper`);
 const chatsino = require("./chatsino");
 
-const LaunchRequestHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
-    },
-    handle(handlerInput) {
-        return handlers.LaunchRequest(handlerInput);
-    }
-};
-const HelloWorldIntentHandler = {
+const BalanceIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BalanceIntent';
     },
     handle(handlerInput) {
-        return handlers.HelloWorldIntent(handlerInput);
+        return handlers.BalanceIntent(handlerInput);
     }
 };
+
+const BetSummaryIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BetSummaryIntent';
+    },
+    handle(handlerInput) {
+        return handlers.BetSummaryIntent(handlerInput);
+    }
+};
+
+const ClearRouletteIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ClearRouletteIntent';
+    },
+    handle(handlerInput) {
+        return handlers.ClearRouletteIntent(handlerInput);
+    }
+};
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -31,6 +44,55 @@ const HelpIntentHandler = {
     }
 };
 
+const LaunchRequestHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
+    },
+    handle(handlerInput) {
+        return handlers.LaunchRequest(handlerInput);
+    }
+};
+
+const LeaderboardIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LeaderboardIntent';
+    },
+    handle(handlerInput) {
+        return handlers.LeaderboardIntent(handlerInput);
+    }
+};
+
+const PaytableIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PaytableIntent';
+    },
+    handle(handlerInput) {
+        return handlers.PaytableIntent(handlerInput);
+    }
+};
+
+const PokerDealIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PokerDealIntent';
+    },
+    handle(handlerInput) {
+        return handlers.PokerDealIntent(handlerInput);
+    }
+};
+
+const PokerHoldIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PokerHoldIntent';
+    },
+    handle(handlerInput) {
+        return handlers.PokerHoldIntent(handlerInput);
+    }
+};
+
 const RepeatIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -38,6 +100,76 @@ const RepeatIntentHandler = {
     },
     handle(handlerInput) {
         return AMAZON.RepeatIntent(handlerInput);
+    }
+};
+
+const RollCrapsIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RollCrapsIntent';
+    },
+    handle(handlerInput) {
+        return handlers.RollCrapsIntent(handlerInput);
+    }
+};
+
+const SpinRouletteHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SpinRouletteIntent';
+    },
+    handle(handlerInput) {
+        return handlers.SpinRouletteIntent(handlerInput);
+    }
+};
+
+const StartCrapsHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'StartCrapsIntent';
+    },
+    handle(handlerInput) {
+        return handlers.StartCrapsIntent(handlerInput);
+    }
+};
+
+const StartPokerHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'StartPokerIntent';
+    },
+    handle(handlerInput) {
+        return handlers.StartPokerIntent(handlerInput);
+    }
+};
+
+const StartSlotsHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'StartSlotsIntent';
+    },
+    handle(handlerInput) {
+        return handlers.StartSlotsIntent(handlerInput);
+    }
+};
+
+const StartRouletteHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'StartRouletteIntent';
+    },
+    handle(handlerInput) {
+        return handlers.StartRouletteIntent(handlerInput);
+    }
+};
+
+const UserAccountIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'UserAccountIntent';
+    },
+    handle(handlerInput) {
+        return handlers.UserAccountIntent(handlerInput);
     }
 };
 
@@ -88,10 +220,10 @@ const ErrorHandler = {
 
 const RequestLog = {
     async process(handlerInput) {
-      console.log(`REQ ENV ${JSON.stringify(handlerInput.requestEnvelope)}`);
+      //console.log(`REQ ENV ${JSON.stringify(handlerInput.requestEnvelope)}`);
       const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
       const userRecord = await chatsino.data.getUserByUserId(handlerInput.requestEnvelope.session.user.userId);
-      sessionAttributes.user = userRecord.fields;
+      sessionAttributes.user = userRecord;
       sessionAttributes.isError = false;
       //console.log("USER RECORD = " + JSON.stringify(userRecord.fields));
     },
@@ -111,10 +243,23 @@ const RequestLog = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HelloWorldIntentHandler,
+        StartPokerHandler,
+        StartSlotsHandler,
+        StartRouletteHandler,
+        StartCrapsHandler,
+        SpinRouletteHandler,
+        RollCrapsIntentHandler,
+        PokerDealIntentHandler,
+        PokerHoldIntentHandler,
+        BetSummaryIntentHandler,
+        LeaderboardIntentHandler,
+        BalanceIntentHandler,
         HelpIntentHandler,
         RepeatIntentHandler,
+        ClearRouletteIntentHandler,
+        PaytableIntentHandler,
         CancelAndStopIntentHandler,
+        UserAccountIntentHandler,
         SessionEndedRequestHandler,
         IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
         ) 

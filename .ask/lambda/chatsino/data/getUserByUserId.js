@@ -1,16 +1,14 @@
 //const d = debug("index:data:getUserByUsername");
 const Airtable = require("airtable");
 const fetch = require("node-fetch");
-const dotenv = require('dotenv');
-
-dotenv.config();
+const keys = require("../keys");
 
 function getUserByUserId(userId) {
   const url = `https://api.airtable.com/v0/${
-    process.env.airtable_base_data
+    keys.airtable_base_data
   }/User?api_key=${
-    process.env.airtable_api_key
-  }&filterByFormula=AND(UserId%3D"${encodeURIComponent(userId)}")`;
+    keys.airtable_api_key
+  }&filterByFormula=AND(AlexaUserId%3D"${encodeURIComponent(userId)}")`;
   //console.log(`FULL PATH ${url}`);
   const options = { method: "GET" };
 
@@ -24,9 +22,9 @@ function getUserByUserId(userId) {
 }
 
 function createUserRecord(userId) {
-  const values = { UserId: userId, Currency: 100 };
-  const airtable = new Airtable({ apiKey: process.env.airtable_api_key }).base(
-    process.env.airtable_base_data
+  const values = { AlexaUserId: userId, Balance: 100 };
+  const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
+    keys.airtable_base_data
   );
   return new Promise((resolve, reject) => {
     airtable("User").create(values, (err, record) => {
@@ -40,14 +38,14 @@ function createUserRecord(userId) {
 }
 
 function updateScore(user) {
-  const airtable = new Airtable({ apiKey: process.env.airtable_api_key }).base(
-    process.env.airtable_base_data
+  const airtable = new Airtable({ apiKey: keys.airtable_api_key }).base(
+    keys.airtable_base_data
   );
   return new Promise((resolve, reject) => {
     airtable("User").update(
       user.fields.RecordId,
       {
-        Currency: user.fields.Currency + 1,
+        Balance: user.fields.Balance + 1,
       },
       (err, record) => {
         if (err) {

@@ -1,6 +1,7 @@
 const position = require('./position.js');
 
 function evaluator(hand) {
+  //console.log(`POKERHAND ${JSON.stringify(hand)}`);
   const sortedHand = hand.sort((a, b) => {return b.value.id - a.value.id});
 
   if (isRoyalFlush(sortedHand)) return position.ROYALFLUSH;
@@ -12,6 +13,7 @@ function evaluator(hand) {
   if (isThreeOfAKind(sortedHand)) return position.THREEOFAKIND;
   if (isTwoPair(sortedHand)) return position.TWOPAIR;
   if (isPair(sortedHand)) return position.PAIR;
+  return undefined;
 }
 
 function isRoyalFlush(hand) {

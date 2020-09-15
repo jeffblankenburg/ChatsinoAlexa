@@ -93,22 +93,23 @@
                             ]
                         },
                         {
-                            "name": "position",
+                            "name": "rouletteposition",
                             "type": "RoulettePosition",
                             "samples": [
-                                "put it on {position}",
-                                "place it on {position}",
-                                "{position} please",
-                                "{position}"
+                                "put it on {rouletteposition}",
+                                "place it on {rouletteposition}",
+                                "{rouletteposition} please",
+                                "{rouletteposition}"
                             ]
                         }
                     ],
                     "samples": [
+                        "put {wager} on {rouletteposition}",
                         "play roulette",
-                        "play {wager} on {position}",
+                        "play {wager} on {rouletteposition}",
                         "bet {wager} on roulette",
-                        "bet {wager} on {position}",
-                        "bet {wager} on {position} in roulette"
+                        "bet {wager} on {rouletteposition}",
+                        "bet {wager} on {rouletteposition} in roulette"
                     ]
                 },
                 {
@@ -185,25 +186,97 @@
                         "what are my bets",
                         "what are my current bets"
                     ]
+                },
+                {
+                    "name": "ClearRouletteIntent",
+                    "slots": [
+                        {
+                            "name": "position",
+                            "type": "RoulettePosition",
+                            "samples": [
+                                "{position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "remove wagers from {position}",
+                        "clear my bets on {position}",
+                        "remove my coins from {position}",
+                        "empty {position}",
+                        "take down {position}",
+                        "remove {position}",
+                        "clear {position}"
+                    ]
+                },
+                {
+                    "name": "PaytableIntent",
+                    "slots": [
+                        {
+                            "name": "game",
+                            "type": "Game",
+                            "samples": [
+                                "{game}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "what are the odds for {game}",
+                        "{game} odds",
+                        "{game} pay table",
+                        "paytable {game}",
+                        "give me the {game} paytable",
+                        "show me the paytable for {game}",
+                        "what is the {game} paytable"
+                    ]
+                },
+                {
+                    "name": "LeaderboardIntent",
+                    "slots": [],
+                    "samples": [
+                        "let me hear the leaderboard",
+                        "give me the leaderboard",
+                        "leaderboard",
+                        "what is the leader board",
+                        "what position am I in",
+                        "who is in first place",
+                        "who is winning",
+                        "show me the leader board"
+                    ]
+                },
+                {
+                    "name": "StartCrapsIntent",
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "crapsposition",
+                            "type": "CrapsPosition"
+                        }
+                    ],
+                    "samples": [
+                        "{wager} on {crapsposition}",
+                        "bet {wager} on {crapsposition}",
+                        "put {wager} on {crapsposition}"
+                    ]
+                },
+                {
+                    "name": "RollCrapsIntent",
+                    "slots": [],
+                    "samples": [
+                        "roll the bones",
+                        "throw the dice",
+                        "shoot the dice",
+                        "dice are out",
+                        "roll the dice"
+                    ]
                 }
             ],
             "types": [
                 {
                     "name": "Game",
                     "values": [
-                        {
-                            "name": {
-                                "value": "blackjack",
-                                "synonyms": [
-                                    "21"
-                                ]
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "craps"
-                            }
-                        },
                         {
                             "name": {
                                 "value": "roulette"
@@ -228,289 +301,334 @@
                     "name": "RoulettePosition",
                     "values": [
                         {
+                            "id": "COL_3",
                             "name": {
-                                "value": "ROW THREE"
+                                "value": "row three",
+                                "synonyms": [
+                                    "column three"
+                                ]
                             }
                         },
                         {
+                            "id": "COL_2",
                             "name": {
-                                "value": "ROW TWO"
+                                "value": "row two",
+                                "synonyms": [
+                                    "column two"
+                                ]
                             }
                         },
                         {
+                            "id": "COL_1",
                             "name": {
-                                "value": "ROW ONE"
+                                "value": "row one",
+                                "synonyms": [
+                                    "column one"
+                                ]
                             }
                         },
                         {
+                            "id": "-1",
                             "name": {
-                                "value": "DOUBLE ZERO"
+                                "value": "double zero"
                             }
                         },
                         {
+                            "id": "0",
                             "name": {
-                                "value": "ZERO"
+                                "value": "zero"
                             }
                         },
                         {
-                            "id": "36",
+                            "id": "THIRTYSIX",
                             "name": {
-                                "value": "THIRTYSIX"
+                                "value": "thirty six"
                             }
                         },
                         {
-                            "id": "35",
+                            "id": "THIRTYFIVE",
                             "name": {
-                                "value": "THIRTYFIVE"
+                                "value": "thirty five"
                             }
                         },
                         {
-                            "id": "34",
+                            "id": "THIRTYFOUR",
                             "name": {
-                                "value": "THIRTYFOUR"
+                                "value": "thirty four"
                             }
                         },
                         {
-                            "id": "33",
+                            "id": "THIRTYTHREE",
                             "name": {
-                                "value": "THIRTYTHREE"
+                                "value": "thirty three"
                             }
                         },
                         {
-                            "id": "32",
+                            "id": "THIRTYTWO",
                             "name": {
-                                "value": "THIRTYTWO"
+                                "value": "thirty two"
                             }
                         },
                         {
-                            "id": "31",
+                            "id": "THIRTYONE",
                             "name": {
-                                "value": "THIRTYONE"
+                                "value": "thirty one"
                             }
                         },
                         {
-                            "id": "30",
+                            "id": "THIRTY",
                             "name": {
-                                "value": "THIRTY"
+                                "value": "thirty"
                             }
                         },
                         {
-                            "id": "29",
+                            "id": "TWENTYNINE",
                             "name": {
-                                "value": "TWENTYNINE"
+                                "value": "twenty nine"
                             }
                         },
                         {
-                            "id": "28",
+                            "id": "TWENTYEIGHT",
                             "name": {
-                                "value": "TWENTYEIGHT"
+                                "value": "twenty eight"
                             }
                         },
                         {
-                            "id": "27",
+                            "id": "TWENTYSEVEN",
                             "name": {
-                                "value": "TWENTYSEVEN"
+                                "value": "twenty seven"
                             }
                         },
                         {
-                            "id": "26",
+                            "id": "TWENTYSIX",
                             "name": {
-                                "value": "TWENTYSIX"
+                                "value": "twenty six"
                             }
                         },
                         {
-                            "id": "25",
+                            "id": "TWENTYFIVE",
                             "name": {
-                                "value": "TWENTYFIVE"
+                                "value": "twenty five"
                             }
                         },
                         {
-                            "id": "24",
+                            "id": "TWENTYFOUR",
                             "name": {
-                                "value": "TWENTYFOUR"
+                                "value": "twenty four"
                             }
                         },
                         {
-                            "id": "23",
+                            "id": "TWENTYTHREE",
                             "name": {
-                                "value": "TWENTYTHREE"
+                                "value": "twenty three"
                             }
                         },
                         {
-                            "id": "22",
+                            "id": "TWENTYTWO",
                             "name": {
-                                "value": "TWENTYTWO"
+                                "value": "twenty two"
                             }
                         },
                         {
-                            "id": "21",
+                            "id": "TWENTYONE",
                             "name": {
-                                "value": "TWENTYONE"
+                                "value": "twenty one"
                             }
                         },
                         {
-                            "id": "20",
+                            "id": "TWENTY",
                             "name": {
-                                "value": "TWENTY"
+                                "value": "twenty"
                             }
                         },
                         {
-                            "id": "19",
+                            "id": "NINETEEN",
                             "name": {
-                                "value": "NINETEEN"
+                                "value": "nineteen"
                             }
                         },
                         {
-                            "id": "18",
+                            "id": "EIGHTEEN",
                             "name": {
-                                "value": "EIGHTEEN"
+                                "value": "eighteen"
                             }
                         },
                         {
-                            "id": "17",
+                            "id": "SEVENTEEN",
                             "name": {
-                                "value": "SEVENTEEN"
+                                "value": "seventeen"
                             }
                         },
                         {
-                            "id": "16",
+                            "id": "SIXTEEN",
                             "name": {
-                                "value": "SIXTEEN"
+                                "value": "sixteen"
                             }
                         },
                         {
-                            "id": "15",
+                            "id": "FIFTEEN",
                             "name": {
-                                "value": "FIFTEEN"
+                                "value": "fifteen"
                             }
                         },
                         {
-                            "id": "14",
+                            "id": "FOURTEEN",
                             "name": {
-                                "value": "FOURTEEN"
+                                "value": "fourteen"
                             }
                         },
                         {
-                            "id": "13",
+                            "id": "THIRTEEN",
                             "name": {
-                                "value": "THIRTEEN"
+                                "value": "thirteen"
                             }
                         },
                         {
-                            "id": "12",
+                            "id": "TWELVE",
                             "name": {
-                                "value": "TWELVE"
+                                "value": "twelve"
                             }
                         },
                         {
-                            "id": "11",
+                            "id": "ELEVEN",
                             "name": {
-                                "value": "ELEVEN"
+                                "value": "eleven"
                             }
                         },
                         {
-                            "id": "10",
+                            "id": "TEN",
                             "name": {
-                                "value": "TEN"
+                                "value": "ten"
                             }
                         },
                         {
-                            "id": "9",
+                            "id": "NINE",
                             "name": {
-                                "value": "NINE"
+                                "value": "nine"
                             }
                         },
                         {
-                            "id": "8",
+                            "id": "EIGHT",
                             "name": {
-                                "value": "EIGHT"
+                                "value": "eight"
                             }
                         },
                         {
-                            "id": "7",
+                            "id": "SEVEN",
                             "name": {
-                                "value": "SEVEN"
+                                "value": "seven"
                             }
                         },
                         {
-                            "id": "6",
+                            "id": "SIX",
                             "name": {
-                                "value": "SIX"
+                                "value": "six"
                             }
                         },
                         {
-                            "id": "5",
+                            "id": "FIVE",
                             "name": {
-                                "value": "FIVE"
+                                "value": "five"
                             }
                         },
                         {
-                            "id": "4",
+                            "id": "FOUR",
                             "name": {
-                                "value": "FOUR"
+                                "value": "four"
                             }
                         },
                         {
-                            "id": "3",
+                            "id": "THREE",
                             "name": {
-                                "value": "THREE"
+                                "value": "three"
                             }
                         },
                         {
-                            "id": "2",
+                            "id": "TWO",
                             "name": {
-                                "value": "TWO"
+                                "value": "two"
                             }
                         },
                         {
-                            "id": "1",
+                            "id": "ONE",
                             "name": {
-                                "value": "ONE"
+                                "value": "one"
                             }
                         },
                         {
+                            "id": "LOW",
                             "name": {
-                                "value": "LOW"
+                                "value": "low",
+                                "synonyms": [
+                                    "bottom third",
+                                    "one to twelve",
+                                    "lower third"
+                                ]
                             }
                         },
                         {
+                            "id": "MIDDLE",
                             "name": {
-                                "value": "MIDDLE"
+                                "value": "middle",
+                                "synonyms": [
+                                    "thirteen to twenty four",
+                                    "middle third"
+                                ]
                             }
                         },
                         {
+                            "id": "HIGH",
                             "name": {
-                                "value": "HIGH"
+                                "value": "high",
+                                "synonyms": [
+                                    "top third",
+                                    "twenty five to thirty six",
+                                    "high third"
+                                ]
                             }
                         },
                         {
+                            "id": "BOTTOM",
                             "name": {
-                                "value": "BOTTOM"
+                                "value": "bottom",
+                                "synonyms": [
+                                    "one to eighteen",
+                                    "bottom half"
+                                ]
                             }
                         },
                         {
+                            "id": "TOP",
                             "name": {
-                                "value": "TOP"
+                                "value": "top",
+                                "synonyms": [
+                                    "nineteen to thirty six",
+                                    "top half"
+                                ]
                             }
                         },
                         {
+                            "id": "EVEN",
                             "name": {
-                                "value": "EVEN"
+                                "value": "even"
                             }
                         },
                         {
+                            "id": "ODD",
                             "name": {
-                                "value": "ODD"
+                                "value": "odd"
                             }
                         },
                         {
+                            "id": "BLACK",
                             "name": {
-                                "value": "BLACK"
+                                "value": "black"
                             }
                         },
                         {
+                            "id": "RED",
                             "name": {
-                                "value": "RED"
+                                "value": "red"
                             }
                         }
                     ]
@@ -670,6 +788,281 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "CrapsPosition",
+                    "values": [
+                        {
+                            "id": "WORLD",
+                            "name": {
+                                "value": "world",
+                                "synonyms": [
+                                    "world bet"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PLACE_10",
+                            "name": {
+                                "value": "place ten"
+                            }
+                        },
+                        {
+                            "id": "PLACE_9",
+                            "name": {
+                                "value": "place nine"
+                            }
+                        },
+                        {
+                            "id": "PLACE_8",
+                            "name": {
+                                "value": "place eight"
+                            }
+                        },
+                        {
+                            "id": "PLACE_6",
+                            "name": {
+                                "value": "place six"
+                            }
+                        },
+                        {
+                            "id": "PLACE_5",
+                            "name": {
+                                "value": "place five"
+                            }
+                        },
+                        {
+                            "id": "PLACE_4",
+                            "name": {
+                                "value": "place four"
+                            }
+                        },
+                        {
+                            "id": "PASSODDS",
+                            "name": {
+                                "value": "pass odds",
+                                "synonyms": [
+                                    "pass line odds"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PASS",
+                            "name": {
+                                "value": "pass",
+                                "synonyms": [
+                                    "pass line"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "ONEROLL_12",
+                            "name": {
+                                "value": "one roll twelve"
+                            }
+                        },
+                        {
+                            "id": "ONEROLL_11",
+                            "name": {
+                                "value": "one roll eleven"
+                            }
+                        },
+                        {
+                            "id": "ONEROLL_3",
+                            "name": {
+                                "value": "one roll three"
+                            }
+                        },
+                        {
+                            "id": "ONEROLL_2",
+                            "name": {
+                                "value": "one roll two"
+                            }
+                        },
+                        {
+                            "id": "LAY_10",
+                            "name": {
+                                "value": "lay ten"
+                            }
+                        },
+                        {
+                            "id": "LAY_9",
+                            "name": {
+                                "value": "lay nine"
+                            }
+                        },
+                        {
+                            "id": "LAY_8",
+                            "name": {
+                                "value": "lay eight"
+                            }
+                        },
+                        {
+                            "id": "LAY_6",
+                            "name": {
+                                "value": "lay six"
+                            }
+                        },
+                        {
+                            "id": "LAY_5",
+                            "name": {
+                                "value": "lay five"
+                            }
+                        },
+                        {
+                            "id": "LAY_4",
+                            "name": {
+                                "value": "lay four"
+                            }
+                        },
+                        {
+                            "id": "HORN",
+                            "name": {
+                                "value": "horn",
+                                "synonyms": [
+                                    "horn bet"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "HI_LO",
+                            "name": {
+                                "value": "high low"
+                            }
+                        },
+                        {
+                            "id": "HARD_10",
+                            "name": {
+                                "value": "hard ten"
+                            }
+                        },
+                        {
+                            "id": "HARD_8",
+                            "name": {
+                                "value": "hard eight"
+                            }
+                        },
+                        {
+                            "id": "HARD_6",
+                            "name": {
+                                "value": "hard six"
+                            }
+                        },
+                        {
+                            "id": "HARD_4",
+                            "name": {
+                                "value": "hard four"
+                            }
+                        },
+                        {
+                            "id": "FIELD",
+                            "name": {
+                                "value": "field"
+                            }
+                        },
+                        {
+                            "id": "DONTPASSODDS",
+                            "name": {
+                                "value": "don't pass odds"
+                            }
+                        },
+                        {
+                            "id": "DONTPASS",
+                            "name": {
+                                "value": "don't pass"
+                            }
+                        },
+                        {
+                            "id": "DONTCOMEODDS",
+                            "name": {
+                                "value": "don't come odds"
+                            }
+                        },
+                        {
+                            "id": "DONTCOME",
+                            "name": {
+                                "value": "don't come"
+                            }
+                        },
+                        {
+                            "id": "COMEODDS",
+                            "name": {
+                                "value": "come odds"
+                            }
+                        },
+                        {
+                            "id": "COME",
+                            "name": {
+                                "value": "come"
+                            }
+                        },
+                        {
+                            "id": "C_E",
+                            "name": {
+                                "value": "c and e"
+                            }
+                        },
+                        {
+                            "id": "BUY_10",
+                            "name": {
+                                "value": "buy ten"
+                            }
+                        },
+                        {
+                            "id": "BUY_9",
+                            "name": {
+                                "value": "buy nine"
+                            }
+                        },
+                        {
+                            "id": "BUY_8",
+                            "name": {
+                                "value": "buy eight"
+                            }
+                        },
+                        {
+                            "id": "BUY_6",
+                            "name": {
+                                "value": "buy six"
+                            }
+                        },
+                        {
+                            "id": "BUY_5",
+                            "name": {
+                                "value": "buy five"
+                            }
+                        },
+                        {
+                            "id": "BUY_4",
+                            "name": {
+                                "value": "buy four"
+                            }
+                        },
+                        {
+                            "id": "BIG_8",
+                            "name": {
+                                "value": "big eight"
+                            }
+                        },
+                        {
+                            "id": "BIG_6",
+                            "name": {
+                                "value": "big six"
+                            }
+                        },
+                        {
+                            "id": "ANYCRAPS",
+                            "name": {
+                                "value": "any craps"
+                            }
+                        },
+                        {
+                            "id": "ANY_7",
+                            "name": {
+                                "value": "any seven"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -722,7 +1115,7 @@
                             }
                         },
                         {
-                            "name": "position",
+                            "name": "rouletteposition",
                             "type": "RoulettePosition",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
@@ -757,6 +1150,38 @@
                             "confirmationRequired": false,
                             "elicitationRequired": false,
                             "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "ClearRouletteIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "position",
+                            "type": "RoulettePosition",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1515245127134.441477358427"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "PaytableIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "game",
+                            "type": "Game",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1378785981015.461186872080"
+                            }
                         }
                     ]
                 }
@@ -884,6 +1309,36 @@
                     {
                         "type": "PlainText",
                         "value": "I heard you say you want to hold {position_number} .  Is that correct?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1515245127134.441477358427",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which roulette bet do you want to remove?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Where do you want to remove your bet from on the roulette table?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which position do you want to clear on the roulette table?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1378785981015.461186872080",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want the paytable for video poker, roulette, or slots?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "We have pay tables for video poker, roulette, or slots.  Which game do you want the paytable for?"
                     }
                 ]
             }

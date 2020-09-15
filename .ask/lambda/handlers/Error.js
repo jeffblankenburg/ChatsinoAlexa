@@ -2,9 +2,10 @@ const data = require("../data");
 const helper = require("../helper");
 
 async function Error(handlerInput, error) {
-    console.log("<=== handlers/stopIntent.js ===>");
+    console.log("<=== handlers/error.js ===>");
     const locale = helper.getLocale(handlerInput);
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    helper.setAction(handlerInput, `ERROR`);
     sessionAttributes.isError = true;
     console.log(`ERROR HANDLED: ${error.stack}`);
     const speakOutput = "Jeff, there was an error."; //await data.getRandomSpeech("Error", locale);

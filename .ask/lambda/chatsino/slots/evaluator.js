@@ -14,7 +14,7 @@ function evaluator(spinResult) {
     default:
       if (spinResult[0] === '🍒' && spinResult[1] === '🍒') return position.TWOCHERRIES;
       if (spinResult[0] === '🍒') return position.ONECHERRY;
-      return position.NOTHING;
+      return undefined;//position.NOTHING;
       break;
   }
 }

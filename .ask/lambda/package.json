@@ -17,7 +17,8 @@
     "ask-sdk-core": "^2.6.0",
     "ask-sdk-model": "^1.18.0",
     "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "num-words": "^1.2.0"
   },
   "devDependencies": {
     "bespoken-tools": "^2.4.65",

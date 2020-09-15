@@ -127,18 +127,63 @@ function setAction(handlerInput, action) {
         .replace("</speak>", "");
     }
   }
+
+function getCardSpeech(hand) {
+  let speech = "";
+  for (let i=0;i<hand.length;i++) {
+    if (i == hand.length - 1 && i != 0) speech += " and ";
+    speech += `${hand[i].value.name} of ${hand[i].suit.name}, `;
+  }
+  return speech;
+}
+
+function getSlotSpeech(spinResult) {
+  let speech = "";
+  for (let i=0;i<spinResult.length;i++) {
+    //if (i == spinResult.length - 1) speech += " and ";
+    if (spinResult[i] === '💎') speech += "<sub alias='diamond'>💎</sub> ";
+    else if (spinResult[i] === '🍊') speech += "<sub alias='orange'>🍊</sub> ";
+    else speech += `${spinResult[i]} `;
+  }
+  return speech;
+}
+
+function getSlotAudio(spinResult) {
+  let speech = "";
+  for (let i=0;i<spinResult.length;i++) {
+    //if (i == spinResult.length - 1) speech += " and ";
+    switch(spinResult[i]) {
+      case "💎": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_c.mp3" />`;
+      break;
+      case "🍋": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_bflat.mp3" />`
+      break;
+      case "🔔": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_a.mp3" />`
+      break;
+      case "🍇": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_g.mp3" />`
+      break;
+      case "🍊": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_f.mp3" />`
+      break;
+      case "🍒": speech += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/note_e.mp3" />`
+      break; 
+    }
+  }
+  return speech;
+}
   
-  module.exports = {
-    getSpokenWords,
-    getResolvedWords,
-    getRandomItem,
-    getIntentName,
-    supportsAPL,
-    isEntitled,
-    wrapSpeechcon,
-    changeVoice,
-    setAction,
-    getLocale,
-    putRepeatData,
-  };
+module.exports = {
+  changeVoice,
+  getCardSpeech,
+  getIntentName,
+  getLocale,
+  getSlotAudio,
+  getSlotSpeech,
+  getSpokenWords,
+  getResolvedWords,
+  getRandomItem,
+  isEntitled,
+  putRepeatData,
+  setAction,
+  supportsAPL,
+  wrapSpeechcon,
+};
   
