@@ -93,6 +93,16 @@ const PokerHoldIntentHandler = {
     }
 };
 
+const PositionIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PositionIntent';
+    },
+    handle(handlerInput) {
+        return handlers.PositionIntent(handlerInput);
+    }
+};
+
 const RepeatIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -252,6 +262,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         PokerDealIntentHandler,
         PokerHoldIntentHandler,
         BetSummaryIntentHandler,
+        PositionIntentHandler,
         LeaderboardIntentHandler,
         BalanceIntentHandler,
         HelpIntentHandler,

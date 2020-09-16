@@ -22,8 +22,8 @@ async function StartRouletteIntent(handlerInput) {
 
         break;
         case "INVALID_POSITION":
-            handlerInput.responseBuilder.addElicitSlotDirective("position");
-            speakOutput += `The position you indicated is invalid. The valid positions you can bet on are double zero, any of the numbers zero through thirty-six, and also red, black, even, odd, top, bottom, high, middle, low, column 1, column 2, and column 3. Please try your roulette wager again.`;
+            handlerInput.responseBuilder.addElicitSlotDirective("rouletteposition");
+            speakOutput += `The position you indicated is invalid. The valid positions you can bet on are double zero, any of the numbers zero through thirty-six, and also red, black, even, odd, top, bottom, high, middle, low, column 1, column 2, and column 3. Where do you want to place your ${wager} coins?.`;
         break;
         case "INVALID_WAGER":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");

@@ -9,7 +9,7 @@ async function wager(user, wager, position) {
             activeGame = await data.createGame(user, helper.CRAPS);
         } else activeGame = activeGame[0];
         //console.log(`ACTIVE GAME ${JSON.stringify(activeGame)}`);
-        if (cashier.isValidPosition(position, activeGame)) {
+        if (await cashier.isValidPosition(position, activeGame)) {
             const bet = await data.createWager(user, wager, position, activeGame);
             const crapsPosition = require("../craps/position.js");
             const betPosition = eval(`crapsPosition.${position}`);

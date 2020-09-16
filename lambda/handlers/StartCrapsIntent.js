@@ -20,8 +20,8 @@ async function StartCrapsIntent(handlerInput) {
 
         break;
         case "INVALID_POSITION":
-            handlerInput.responseBuilder.addElicitSlotDirective("position");
-            speakOutput += `The position you indicated is invalid. Where do you want to place your ${wager} coins? .`;
+            handlerInput.responseBuilder.addElicitSlotDirective("crapsposition");
+            speakOutput += `The position you indicated isn't valid.  For a list of valid positions, you can say something like, where can I bet. Where do you want to place your ${wager} coins? .`;
         break;
         case "INVALID_WAGER":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");

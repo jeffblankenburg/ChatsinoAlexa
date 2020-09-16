@@ -3,6 +3,7 @@
 ## Must Happen Before Publication
 * [ ] In-skill purchasing
 * [ ] Achievements
+* [ ] Levels.  Each level allows you a specific minimum and maximum bet. 
 * [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
 * [ ] Randomize most speech strings
 * [x] Website?  Not sure if this is required at launch, but Quick Links would be cool. (Quick links are only after certification.)

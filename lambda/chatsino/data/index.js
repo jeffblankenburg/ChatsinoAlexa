@@ -6,6 +6,7 @@ const deleteAllCrapsRollsByUser = require("./deleteAllCrapsRollsByUser");
 const deleteAllRouletteSpinsByUser = require("./deleteAllRouletteSpinsByUser");
 const deleteAllVideoPokerHandsByUser = require("./deleteAllVideoPokerHandsByUser");
 const deleteUserWagersByPosition = require("./deleteUserWagersByPosition");
+const doesUserHavePassOrDontPassBet = require("./doesUserHavePassOrDontPassBet");
 const getAllWagersByUser = require("./getAllWagersByUser");
 const getGamesByUserRecordId = require("./getGamesByUserRecordId");
 const getLeaderboard = require("./getLeaderboard");
@@ -35,6 +36,7 @@ module.exports = {
   deleteAllRouletteSpinsByUser,
   deleteAllVideoPokerHandsByUser,
   deleteUserWagersByPosition,
+  doesUserHavePassOrDontPassBet,
   getAllWagersByUser,
   getGamesByUserRecordId,
   getLeaderboard,

@@ -8,6 +8,7 @@ const LeaderboardIntent = require("./LeaderboardIntent");
 const PaytableIntent = require("./PaytableIntent");
 const PokerDealIntent = require("./PokerDealIntent");
 const PokerHoldIntent = require("./PokerHoldIntent");
+const PositionIntent = require("./PositionIntent");
 const RollCrapsIntent = require("./RollCrapsIntent");
 const SpinRouletteIntent = require("./SpinRouletteIntent");
 const StartCrapsIntent = require("./StartCrapsIntent");
@@ -27,6 +28,7 @@ module.exports = {
     PaytableIntent,
     PokerDealIntent,
     PokerHoldIntent,
+    PositionIntent,
     RollCrapsIntent,
     SpinRouletteIntent,
     StartCrapsIntent,
