@@ -17,7 +17,20 @@ async function PokerDealIntent(handlerInput) {
             if (result.outcome) {
                 speakOutput += '<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />';
                 speakOutput += await data.getRandomSpeech("YAY", "en-US");
-                speakOutput += `You won ${result.winnings} coins with a ${result.outcome.symbol}! `;
+                speakOutput += `<amazon:emotion name="excited" intensity="high">You won ${result.winnings} coins with a ${result.outcome.symbol} `;
+                const pokerPosition = chatsino.poker.position;
+                switch(result.outcome) {
+                    case pokerPosition.ROYALFLUSH: speakOutput += `in ${result.evaluation.suit}! ` ; break;
+                    case pokerPosition.STRAIGHTFLUSH: speakOutput += `in ${result.evaluation} to the ${result.evaluation.highcard}! ` ;
+                    case pokerPosition.FOUROFAKIND: speakOutput += `of ${result.evaluation.fourofakind}'s! ` ; break;
+                    case pokerPosition.FULLHOUSE: speakOutput += `${result.evaluation.highcard.value}'s over ${result.evaluation.lowcard}! `; break;
+                    case pokerPosition.FLUSH: speakOutput += `in ${result.evaluation.suit} with a high card ${result.evaluation.highcard}! `; break;
+                    case pokerPosition.STRAIGHT: speakOutput += `to the ${result.evaluation.highcard}! `; break;
+                    case pokerPosition.THREEOFAKIND: speakOutput += `of ${result.evaluation.threeofakind}'s! `; break;
+                    //case pokerPosition.TWOPAIR: speakOut
+                    case pokerPosition.PAIR: speakOutput += `of ${result.evaluation.pair}'s! `; break;
+                }
+                speakOutput += "</amazon:emotion> ";
             }
             else {
                 speakOutput += await data.getRandomSpeech("DARN", "en-US");

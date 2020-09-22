@@ -6,7 +6,7 @@ const reels = require("./reels");
 const getUserByRecordId = require("../data/getUserByRecordId");
 
 async function play(user, wager) {
-  if (cashier.isValidWager(user, wager)) {
+  if (cashier.isValidWager(user, wager).isValid) {
     const game = await data.createGame(user, helper.SLOTS);
     // console.log(`GAME ${JSON.stringify(game)}`);
     const bet = await data.createWager(user, wager, "", game);
@@ -23,8 +23,8 @@ async function play(user, wager) {
     // else action = await cashier.withdraw(user, wager, helper.SLOTS);
 
     user = await data.getUserByRecordId(user.fields.RecordId);
-    const fields = user.fields
-    console.log({fields});
+    //const fields = user.fields
+    //console.log({fields});
 
     return {
       user: user,

@@ -57,7 +57,7 @@ async function play(user) {
     if (point === 0 && [4,5,6,8,9,10].includes(total)) {
       updatedGame = await data.updatePoint(game, total);
     }
-    else if (point === total) {
+    if (point === 7 || point === total) {
         updatedGame = await data.updatePoint(game, 0);
     }
     else updatedGame = game;

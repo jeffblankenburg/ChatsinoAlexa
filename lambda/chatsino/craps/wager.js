@@ -3,7 +3,7 @@ const data = require("../data");
 const helper = require("../helper");
 
 async function wager(user, wager, position) {
-    if (cashier.isValidWager(user, wager)) {
+    if (cashier.isValidWager(user, wager).isValid) {
         let activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.CRAPS);
         if (activeGame.length === 0) {
             activeGame = await data.createGame(user, helper.CRAPS);

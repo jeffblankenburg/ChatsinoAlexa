@@ -7,7 +7,9 @@ async function StartRouletteIntent(handlerInput) {
     const wager = helper.getSpokenWords(handlerInput, "wager");
     const position = helper.getResolvedWords(handlerInput, "rouletteposition");
 
-    const result = await chatsino.roulette.wager(sessionAttributes.user, parseInt(wager), position[0].value.id);
+    let result = {};
+    if (position) result = await chatsino.roulette.wager(sessionAttributes.user, parseInt(wager), position[0].value.id);
+    else result.status = "INVALID_POSITION";
     //TODO: Catch the situations in which they didn't manage to match one of our slot values.
     //const speakOutput = `You wagered ${wager} coins on ${position[0].value.name} in roulette.`;
 
@@ -23,7 +25,7 @@ async function StartRouletteIntent(handlerInput) {
         break;
         case "INVALID_POSITION":
             handlerInput.responseBuilder.addElicitSlotDirective("rouletteposition");
-            speakOutput += `The position you indicated is invalid. The valid positions you can bet on are double zero, any of the numbers zero through thirty-six, and also red, black, even, odd, top, bottom, high, middle, low, column 1, column 2, and column 3. Where do you want to place your ${wager} coins?.`;
+            speakOutput += `The position you indicated is invalid. ${await chatsino.cashier.getPositionList("roulette")} Where do you want to place your ${wager} coins?.`;
         break;
         case "INVALID_WAGER":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");

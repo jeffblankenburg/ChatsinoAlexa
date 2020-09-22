@@ -3,7 +3,7 @@ const data = require("../data");
 async function isValidPosition(position, game) {
   switch (game.fields.GameType.toString().toLowerCase()) {
     case "roulette":
-      console.log({position});
+      //console.log({position});
       const roulettePosition = require("../roulette/position.js");
       position = eval(`roulettePosition.${position}`);
       if (position) return true;
@@ -18,7 +18,7 @@ async function isValidPosition(position, game) {
       //TODO: THIS IN NOT COMPLETE.  WE NEED TO MAKE SURE THAT USERS CAN ONLY MAKE BETS AT THE APPROPRIATE TIMES.
 
       if (passBets.length > 0 || betPosition === crapsPosition.PASS || betPosition === crapsPosition.DONTPASS) {
-        console.log({point})
+        //console.log({point})
         if (point === 0) {
           switch (betPosition) {
             case crapsPosition.COME: return false;

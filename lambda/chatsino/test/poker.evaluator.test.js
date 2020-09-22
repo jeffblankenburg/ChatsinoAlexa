@@ -8,7 +8,8 @@ test('A K Q J 10 of Hearts returns Royal Flush', () => {
     { suit: deck.suit.HEARTS, value: deck.value._J },
     { suit: deck.suit.HEARTS, value: deck.value._10 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.ROYALFLUSH);
+  expect(result.suit).toBe(deck.suit.HEARTS);
+  expect(result.outcome).toBe(poker.position.ROYALFLUSH);
 });
 
 test('K Q J A 10 of Hearts returns Royal Flush', () => {
@@ -18,7 +19,7 @@ test('K Q J A 10 of Hearts returns Royal Flush', () => {
     { suit: deck.suit.HEARTS, value: deck.value._A },
     { suit: deck.suit.HEARTS, value: deck.value._10 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.ROYALFLUSH);
+  expect(result.outcome).toBe(poker.position.ROYALFLUSH);
 });
 
 test('Two, Three, Four, Five, Six of Hearts returns Straight Flush', () => {
@@ -28,7 +29,7 @@ test('Two, Three, Four, Five, Six of Hearts returns Straight Flush', () => {
     { suit: deck.suit.HEARTS, value: deck.value._5 },
     { suit: deck.suit.HEARTS, value: deck.value._6 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.STRAIGHTFLUSH);
+  expect(result.outcome).toBe(poker.position.STRAIGHTFLUSH);
 });
 
 test('A 2 3 4 5 of Spades returns Straight Flush', () => {
@@ -38,7 +39,7 @@ test('A 2 3 4 5 of Spades returns Straight Flush', () => {
     { suit: deck.suit.SPADES, value: deck.value._5 },
     { suit: deck.suit.SPADES, value: deck.value._A }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.STRAIGHTFLUSH);
+  expect(result.outcome).toBe(poker.position.STRAIGHTFLUSH);
 });
 
 test('A 3 3 3 3 returns Four of a Kind', () => {
@@ -48,7 +49,7 @@ test('A 3 3 3 3 returns Four of a Kind', () => {
     { suit: deck.suit.CLUBS, value: deck.value._3 },
     { suit: deck.suit.SPADES, value: deck.value._A }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.FOUROFAKIND);
+  expect(result.outcome).toBe(poker.position.FOUROFAKIND);
 });
 
 test('7 7 7 7 6 returns Four of a Kind', () => {
@@ -58,7 +59,7 @@ test('7 7 7 7 6 returns Four of a Kind', () => {
     { suit: deck.suit.CLUBS, value: deck.value._7 },
     { suit: deck.suit.SPADES, value: deck.value._6 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.FOUROFAKIND);
+  expect(result.outcome).toBe(poker.position.FOUROFAKIND);
 });
 
 test('8 8 8 Q Q returns Full House', () => {
@@ -68,7 +69,7 @@ test('8 8 8 Q Q returns Full House', () => {
     { suit: deck.suit.CLUBS, value: deck.value._Q },
     { suit: deck.suit.SPADES, value: deck.value._Q }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.FULLHOUSE);
+  expect(result.outcome).toBe(poker.position.FULLHOUSE);
 });
 
 test('4 4 Q Q Q returns Full House', () => {
@@ -78,7 +79,7 @@ test('4 4 Q Q Q returns Full House', () => {
     { suit: deck.suit.CLUBS, value: deck.value._4 },
     { suit: deck.suit.SPADES, value: deck.value._4 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.FULLHOUSE);
+  expect(result.outcome).toBe(poker.position.FULLHOUSE);
 });
 
 test('2 3 4 5 7 of Clubs returns Flush', () => {
@@ -88,7 +89,7 @@ test('2 3 4 5 7 of Clubs returns Flush', () => {
     { suit: deck.suit.CLUBS, value: deck.value._5 },
     { suit: deck.suit.CLUBS, value: deck.value._7 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.FLUSH);
+  expect(result.outcome).toBe(poker.position.FLUSH);
 });
 
 test('2 3 4 5 6 returns Straight', () => {
@@ -98,7 +99,7 @@ test('2 3 4 5 6 returns Straight', () => {
     { suit: deck.suit.CLUBS, value: deck.value._5 },
     { suit: deck.suit.CLUBS, value: deck.value._6 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.STRAIGHT);
+  expect(result.outcome).toBe(poker.position.STRAIGHT);
 });
 
 test('4 5 Q Q Q returns Three of a Kind', () => {
@@ -108,7 +109,7 @@ test('4 5 Q Q Q returns Three of a Kind', () => {
     { suit: deck.suit.CLUBS, value: deck.value._Q },
     { suit: deck.suit.SPADES, value: deck.value._Q }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.THREEOFAKIND);
+  expect(result.outcome).toBe(poker.position.THREEOFAKIND);
 });
 
 test('4 K 7 7 7 returns Three of a Kind', () => {
@@ -118,7 +119,7 @@ test('4 K 7 7 7 returns Three of a Kind', () => {
     { suit: deck.suit.CLUBS, value: deck.value._7 },
     { suit: deck.suit.SPADES, value: deck.value._7 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.THREEOFAKIND);
+  expect(result.outcome).toBe(poker.position.THREEOFAKIND);
 });
 
 test('5 5 9 9 K returns Two Pair', () => {
@@ -128,7 +129,7 @@ test('5 5 9 9 K returns Two Pair', () => {
     { suit: deck.suit.CLUBS, value: deck.value._9 },
     { suit: deck.suit.SPADES, value: deck.value._K }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.TWOPAIR);
+  expect(result.outcome).toBe(poker.position.TWOPAIR);
 });
 
 test('A A J 7 7 returns Two Pair', () => {
@@ -138,7 +139,7 @@ test('A A J 7 7 returns Two Pair', () => {
     { suit: deck.suit.CLUBS, value: deck.value._7 },
     { suit: deck.suit.SPADES, value: deck.value._7 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.TWOPAIR);
+  expect(result.outcome).toBe(poker.position.TWOPAIR);
 });
 
 test('A A 2 7 9 returns Pair', () => {
@@ -148,7 +149,7 @@ test('A A 2 7 9 returns Pair', () => {
     { suit: deck.suit.CLUBS, value: deck.value._7 },
     { suit: deck.suit.SPADES, value: deck.value._9 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.PAIR);
+  expect(result.outcome).toBe(poker.position.PAIR);
 });
 
 test('A 2 2 7 9 returns Pair', () => {
@@ -158,7 +159,7 @@ test('A 2 2 7 9 returns Pair', () => {
     { suit: deck.suit.CLUBS, value: deck.value._7 },
     { suit: deck.suit.SPADES, value: deck.value._9 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.PAIR);
+  expect(result.outcome).toBe(poker.position.PAIR);
 });
 
 test('A 2 7 7 9 returns Pair', () => {
@@ -168,7 +169,7 @@ test('A 2 7 7 9 returns Pair', () => {
     { suit: deck.suit.CLUBS, value: deck.value._7 },
     { suit: deck.suit.SPADES, value: deck.value._9 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.PAIR);
+  expect(result.outcome).toBe(poker.position.PAIR);
 });
 
 test('A 2 7 9 9 returns Pair', () => {
@@ -178,7 +179,7 @@ test('A 2 7 9 9 returns Pair', () => {
     { suit: deck.suit.CLUBS, value: deck.value._9 },
     { suit: deck.suit.SPADES, value: deck.value._9 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(poker.position.PAIR);
+  expect(result.outcome).toBe(poker.position.PAIR);
 });
 
 test('A 2 7 8 9 returns UNDEFINED', () => {

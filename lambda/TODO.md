@@ -1,10 +1,11 @@
 ## Alexa Casino To-Do
 
 ## Must Happen Before Publication
-* [ ] In-skill purchasing
+* [ ] In-skill purchasing?
 * [ ] Achievements
 * [ ] Levels.  Each level allows you a specific minimum and maximum bet. 
 * [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
+* [ ] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
 * [x] Website?  Not sure if this is required at launch, but Quick Links would be cool. (Quick links are only after certification.)
 * [ ] Craps
@@ -32,7 +33,6 @@
 * [ ] Lottery scratchers?
 
 ## Poker
-* [ ] Why does using multi-value slots with AMAZON.Number result in concatenating the digits into one number?
 * [x] We need to add the turn that video poker allows.
 * [ ] Add APL card reveal.
 * [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
@@ -53,11 +53,13 @@
 * [x] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
 * [x] We haven't built a way to spin the wheel yet.
 * [x] Record every spin for analytics purposes.
+* [ ] If a user makes a bet on a position that they already have, the amount should be added to that wager, it shouldn't just create another wager.
 
 ## Craps
 * [ ] We need to check IsValidWager() to make sure that only valid bets are made at valid bet times.
-* [ ] We need to compare the wagers to the evaluation to determine wins and losses.
-* [ ] We need to recite the outcomes of the wagers to the user properly.
+* [x] We need to compare the wagers to the evaluation to determine wins and losses.
+* [x] We need to recite the outcomes of the wagers to the user properly.
+* [ ] If a user makes a bet on a position that they already have, the amount should be added to that wager, it shouldn't just create another wager.
 
 ## Blackjack
 * [ ] Have not even started this. 
