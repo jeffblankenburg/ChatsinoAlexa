@@ -1,6 +1,8 @@
 ## Alexa Casino To-Do
 
 ## Must Happen Before Publication
+* [ ] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken.
+* [ ] Build functions to handle the INVALID WAGER cases, rather than doing each game manually. 
 * [ ] In-skill purchasing?
 * [ ] Achievements
 * [ ] Levels.  Each level allows you a specific minimum and maximum bet. 
@@ -35,7 +37,8 @@
 ## Poker
 * [x] We need to add the turn that video poker allows.
 * [ ] Add APL card reveal.
-* [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
+* [x] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
+* [ ] We still don't tell the user what their TWOPAIR is.  It was too hard at the time.
 * [x] If a user makes an invalid wager, we don't have an effective way to let them indicate a new bet.
 * [x] What if a user says hold the 10s, when they have a pair of tens?  How do we handle references to the actual cards?
 
