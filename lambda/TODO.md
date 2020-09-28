@@ -1,13 +1,13 @@
 ## Alexa Casino To-Do
 
 ## Must Happen Before Publication
-* [ ] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken.
+* [x] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken.
 * [ ] Build functions to handle the INVALID WAGER cases, rather than doing each game manually. 
 * [ ] In-skill purchasing?
 * [ ] Achievements
-* [ ] Levels.  Each level allows you a specific minimum and maximum bet. 
+* [x] Levels.  Each level allows you a specific minimum and maximum bet. 
 * [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
-* [ ] Minimum and maximum bets based on your balance.
+* [x] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
 * [x] Website?  Not sure if this is required at launch, but Quick Links would be cool. (Quick links are only after certification.)
 * [ ] Craps

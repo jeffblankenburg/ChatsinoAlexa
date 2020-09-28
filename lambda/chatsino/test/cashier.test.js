@@ -49,6 +49,14 @@ test('User bets -73, returns false object', () => {
     //expect(craps.evaluator(1, 1, 0).win).toContain(craps.position.ONEROLL_2); 
 });
 
+test('User bets 0, returns false object', () => {
+    setUserBalance(100);
+    const validWagerCheck = cashier.isValidWager(user, 0);
+    expect(validWagerCheck.isValid).toBe(false);
+    expect(validWagerCheck.status).toBe("BELOW_MINIMUM_LIMIT");
+    //expect(craps.evaluator(1, 1, 0).win).toContain(craps.position.ONEROLL_2); 
+});
+
 test('User bets 50 with balance of 100, returns true', () => {
     setUserBalance(100);
     const validWagerCheck = cashier.isValidWager(user, 50);

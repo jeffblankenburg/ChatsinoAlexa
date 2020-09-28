@@ -17,7 +17,7 @@ async function PokerDealIntent(handlerInput) {
             if (result.outcome) {
                 speakOutput += '<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />';
                 speakOutput += await data.getRandomSpeech("YAY", "en-US");
-                speakOutput += `<amazon:emotion name="excited" intensity="high">You won ${result.winnings} coins with a ${result.outcome.symbol} `;
+                speakOutput += `<amazon:emotion name="excited" intensity="high">You won ${result.winnings} coins with a ${result.outcome.symbol}! `;
                 const pokerPosition = chatsino.poker.position;
                 switch(result.outcome) {
                     case pokerPosition.ROYALFLUSH: speakOutput += `in ${result.evaluation.suit}! ` ; break;

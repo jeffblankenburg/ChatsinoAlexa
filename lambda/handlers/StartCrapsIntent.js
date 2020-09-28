@@ -12,6 +12,8 @@ async function StartCrapsIntent(handlerInput) {
 
     let speakOutput = ``;
 
+    const positionName = eval(`chatsino.craps.position.${result.position}`);
+
     switch(result.status) {
         case "ACTIVE_GAME":
             speakOutput += `You wagered ${result.wager} coins on ${result.position.name}. What would you like to do next? You can place another bet, or you can say, roll the dice, when you're ready. `;
@@ -23,9 +25,17 @@ async function StartCrapsIntent(handlerInput) {
             handlerInput.responseBuilder.addElicitSlotDirective("crapsposition");
             speakOutput += `The position you indicated isn't valid.  For a list of valid positions, you can say something like, where can I bet. Where do you want to place your ${wager} coins? .`;
         break;
-        case "INVALID_WAGER":
+        case "ABOVE_MAXIMUM_LIMIT":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");
-            speakOutput += `Your wager is invalid. Your current available balance is ${result.user.fields.AvailableBalance} coins. You can bet any amount up to your balance. How much did you want to wager on ${position[0].value.name}? `;
+            speakOutput += `Your wager was above your maximum bet of ${result.maximum}. Your balance is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins, so you can make bets between <say-as interpret-as="cardinal">${result.minimum}</say-as> and <say-as interpret-as="cardinal">${result.maximum}</say-as>. How many coins would you like to bet on ${positionName.name}?`;
+        break;
+        case "BELOW_MINIMUM_LIMIT":
+            handlerInput.responseBuilder.addElicitSlotDirective("wager");
+            speakOutput += `Your wager was below your minimum bet of ${result.minimum}. Your balance is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins, so you can make bets between <say-as interpret-as="cardinal">${result.minimum}</say-as> and <say-as interpret-as="cardinal">${result.maximum}</say-as>. How many coins would you like to bet on ${positionName.name}?`;
+        break;
+        case "BET_ABOVE_AVAILABLE_BALANCE":
+            handlerInput.responseBuilder.addElicitSlotDirective("wager");
+            speakOutput += `Your wager was higher than your current balance, which is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins. You can bet any amount up to your available balance. How many coins would you like to bet on ${positionName.name}?`;
         break;
     }
 

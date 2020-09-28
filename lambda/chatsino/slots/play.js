@@ -6,7 +6,8 @@ const reels = require("./reels");
 const getUserByRecordId = require("../data/getUserByRecordId");
 
 async function play(user, wager) {
-  if (cashier.isValidWager(user, wager).isValid) {
+  const checkWager = cashier.isValidWager(user, wager);
+  if (checkWager.isValid) {
     const game = await data.createGame(user, helper.SLOTS);
     // console.log(`GAME ${JSON.stringify(game)}`);
     const bet = await data.createWager(user, wager, "", game);
@@ -36,7 +37,7 @@ async function play(user, wager) {
     // if (outcome) return await win(user, wager, spinResult, outcome);
     // return await lose(user, wager, spinResult);
   }
-  else return {user: user, wager: wager, status: "INVALID_WAGER"}
+  else return {user: user, wager: wager, status: checkWager.status, minimum: checkWager.minimum, maximum: checkWager.maximum};
 }
 
 function spin() {
