@@ -17,7 +17,7 @@ async function PokerDealIntent(handlerInput) {
             if (result.outcome) {
                 speakOutput += '<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />';
                 speakOutput += await data.getRandomSpeech("YAY", "en-US");
-                speakOutput += `<amazon:emotion name="excited" intensity="high">You won ${result.winnings} coins with a ${result.outcome.symbol}! `;
+                speakOutput += `<amazon:emotion name="excited" intensity="high">You won ${result.winnings} coins with a ${result.outcome.symbol} `;
                 const pokerPosition = chatsino.poker.position;
                 switch(result.outcome) {
                     case pokerPosition.ROYALFLUSH: speakOutput += `in ${result.evaluation.suit}! ` ; break;
@@ -27,7 +27,7 @@ async function PokerDealIntent(handlerInput) {
                     case pokerPosition.FLUSH: speakOutput += `in ${result.evaluation.suit} with a high card ${result.evaluation.highcard}! `; break;
                     case pokerPosition.STRAIGHT: speakOutput += `to the ${result.evaluation.highcard}! `; break;
                     case pokerPosition.THREEOFAKIND: speakOutput += `of ${result.evaluation.threeofakind}'s! `; break;
-                    //case pokerPosition.TWOPAIR: speakOut
+                    case pokerPosition.TWOPAIR: speakOutput += `. `;
                     case pokerPosition.PAIR: speakOutput += `of ${result.evaluation.pair}'s! `; break;
                 }
                 speakOutput += "</amazon:emotion> ";
@@ -42,6 +42,8 @@ async function PokerDealIntent(handlerInput) {
             speakOutput = "You don't currently have an active game of video poker.  To start a new game, say something like bet five on poker.";
         break;
     }
+
+    result.achievements.forEach(a => speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/><amazon:emotion name="excited" intensity="high">You got an achievement! ${a.fields.Description} You get ${a.fields.Bonus} bonus coins! </amazon:emotion>`);
     
     return handlerInput.responseBuilder
           .speak(speakOutput + 'What do you want to do next?')

@@ -20,6 +20,7 @@ const getAllVideoPokerHandsByUser = require("./getAllVideoPokerHandsByUser");
 const getWagersByGame = require("./getWagersByGame");
 const getWagersByPosition = require("./getWagersByPosition");
 const getWagersByUser = require("./getWagersByUser");
+const giveAchievement = require("./giveAchievement");
 const resetTestUser = require("./resetTestUser");
 const saveRoll = require("./saveRoll");
 const saveSpin = require("./saveSpin");
@@ -50,6 +51,7 @@ module.exports = {
   getWagersByGame,
   getWagersByPosition,
   getWagersByUser,
+  giveAchievement,
   resetTestUser,
   saveRoll,
   saveSpin,

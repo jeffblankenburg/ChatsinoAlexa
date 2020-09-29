@@ -22,8 +22,11 @@ async function StartSlotsIntent(handlerInput) {
             }
             else {
                 const darn = await data.getRandomSpeech("DARN", "en-US");
-                speakOutput += `${darn} You got ${helper.getSlotSpeech(result.result)}. That is not a winning spin.  You lost <say-as interpret-as="cardinal">${wager}</say-as> coins. What do you want to play next?`;
+                speakOutput += `${darn} You got ${helper.getSlotSpeech(result.result)}. That is not a winning spin.  You lost <say-as interpret-as="cardinal">${wager}</say-as> coins. `;
             }
+            result.achievements.forEach(a => speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/><amazon:emotion name="excited" intensity="high">You got an achievement! ${a.fields.Description} You get ${a.fields.Bonus} bonus coins! </amazon:emotion>`);
+
+            speakOutput += "What do you want to play next?";
         break;
         case "ABOVE_MAXIMUM_LIMIT":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");

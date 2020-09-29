@@ -4,6 +4,7 @@ const evaluator = require("./evaluator");
 const helper = require("../helper.js");
 const reels = require("./reels");
 const getUserByRecordId = require("../data/getUserByRecordId");
+const achievement = require("./achievement");
 
 async function play(user, wager) {
   const checkWager = cashier.isValidWager(user, wager);
@@ -24,6 +25,7 @@ async function play(user, wager) {
     // else action = await cashier.withdraw(user, wager, helper.SLOTS);
 
     user = await data.getUserByRecordId(user.fields.RecordId);
+    let achievementArray = await achievement(user);
     //const fields = user.fields
     //console.log({fields});
 
@@ -32,6 +34,7 @@ async function play(user, wager) {
       wager: wager,
       result: spinResult,
       outcome: outcome,
+      achievements: achievementArray,
       status: "COMPLETED",
     };
     // if (outcome) return await win(user, wager, spinResult, outcome);

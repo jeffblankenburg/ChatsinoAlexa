@@ -3,6 +3,7 @@ const data = require("../data");
 const deck = require("../deck");
 const evaluator = require("./evaluator");
 const helper = require("../helper");
+const achievement = require("./achievement");
 
 async function deal(user) {
     const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
@@ -49,6 +50,7 @@ async function deal(user) {
         const isGameCompleted = await cashier.completeGame(activeGame[0]);
 
         user = await data.updateBalance(user, winnings);
+        let achievementArray = await achievement(user);
 
         return {
             user: user,
@@ -56,6 +58,7 @@ async function deal(user) {
             outcome: evaluation.outcome,
             winnings: winnings,
             evaluation: evaluation,
+            achievements: achievementArray,
             status: "COMPLETED",
         }
 
