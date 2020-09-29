@@ -9,13 +9,16 @@
 * [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
 * [x] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
-* [x] Website?  Not sure if this is required at launch, but Quick Links would be cool. (Quick links are only after certification.)
+* [x] Website?
+* [ ] Quick Links would be cool on website. (Quick links are only after certification.)
 * [ ] Craps
 * [ ] Blackjack
 * [ ] APL all the things!
 * [ ] Write all (ok most) of the tests!  (We need a good cleanup function too.)
 * [ ] Remove all of the unnecessary fields from our queries.
 
+
+ls
 
 ## General Features
 * [ ] What is the first-time experience like?  How do we detect it?

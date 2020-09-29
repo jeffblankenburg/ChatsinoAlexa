@@ -23,11 +23,11 @@ async function PokerDealIntent(handlerInput) {
                     case pokerPosition.ROYALFLUSH: speakOutput += `in ${result.evaluation.suit}! ` ; break;
                     case pokerPosition.STRAIGHTFLUSH: speakOutput += `in ${result.evaluation} to the ${result.evaluation.highcard}! ` ;
                     case pokerPosition.FOUROFAKIND: speakOutput += `of ${result.evaluation.fourofakind}'s! ` ; break;
-                    case pokerPosition.FULLHOUSE: speakOutput += `${result.evaluation.highcard.value}'s over ${result.evaluation.lowcard}! `; break;
+                    case pokerPosition.FULLHOUSE: speakOutput += `${result.evaluation.highcard}'s over ${result.evaluation.lowcard}! `; break;
                     case pokerPosition.FLUSH: speakOutput += `in ${result.evaluation.suit} with a high card ${result.evaluation.highcard}! `; break;
                     case pokerPosition.STRAIGHT: speakOutput += `to the ${result.evaluation.highcard}! `; break;
                     case pokerPosition.THREEOFAKIND: speakOutput += `of ${result.evaluation.threeofakind}'s! `; break;
-                    case pokerPosition.TWOPAIR: speakOutput += `. `;
+                    case pokerPosition.TWOPAIR: speakOutput += `. `;break;
                     case pokerPosition.PAIR: speakOutput += `of ${result.evaluation.pair}'s! `; break;
                 }
                 speakOutput += "</amazon:emotion> ";
@@ -39,11 +39,17 @@ async function PokerDealIntent(handlerInput) {
             speakOutput += `Your new balance is ${result.user.fields.AvailableBalance}. Your final hand was ${helper.getCardSpeech(result.game.fields.ClosingHand)}. `;
         break;
         case "NO_ACTIVE_GAME":
-            speakOutput = "You don't currently have an active game of video poker.  To start a new game, say something like bet five on poker.";
+            speakOutput = "You don't currently have an active game of video poker.  To start a new game, say something like bet five on poker. ";
         break;
     }
-
-    result.achievements.forEach(a => speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/><amazon:emotion name="excited" intensity="high">You got an achievement! ${a.fields.Description} You get ${a.fields.Bonus} bonus coins! </amazon:emotion>`);
+    if (result.achievements.length > 0) {
+        speakOutput += '<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/>';
+        if (result.achievements.length === 1) speakOutput += `<amazon:emotion name="excited" intensity="high">You got an achievement!</amazon:emotion> `;
+        else speakOutput += `<amazon:emotion name="excited" intensity="high">You got ${result.achievements.length} achievements!</amazon:emotion> `;
+        speakOutput += `<amazon:emotion name="excited" intensity="medium">`;
+        result.achievements.forEach(a => speakOutput += `${a.fields.Description} You get ${a.fields.Bonus} bonus coins! `);
+        speakOutput += `</amazon:emotion>`;
+    }
     
     return handlerInput.responseBuilder
           .speak(speakOutput + 'What do you want to do next?')

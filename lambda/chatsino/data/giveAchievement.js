@@ -5,7 +5,7 @@ const updateBalance = require("./updateBalance");
 
 async function giveAchievement(user, achievement) {
     const url = `https://api.airtable.com/v0/${keys.airtable_base_data}/Achievement?api_key=${keys.airtable_api_key}&filterByFormula=AND(IsDisabled%3DFALSE(),Code=%22${achievement}%22)`;
-    console.log(`FULL PATH ${url}`);
+    //console.log(`FULL PATH ${url}`);
     const options = {
         method: "GET",
     };

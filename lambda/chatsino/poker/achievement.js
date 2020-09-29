@@ -48,7 +48,7 @@ async function achievement(user) {
         achievementArray.push(ach);
     }
 
-    return achievementArray.filter(a => a != undefined);
+    return achievementArray.filter(a => a !== undefined);
 }
 
 module.exports = achievement;
