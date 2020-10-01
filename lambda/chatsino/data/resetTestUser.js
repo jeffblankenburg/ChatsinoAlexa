@@ -1,4 +1,5 @@
 const deleteAllAchievementsByUser = require("./deleteAllAchievementsByUser");
+const deleteAllUserSessions = require("./deleteAllUserSessions");
 const deleteAllVideoPokerHandsByUser = require("./deleteAllVideoPokerHandsByUser");
 const deleteAllRouletteSpinsByUser = require("./deleteAllRouletteSpinsByUser");
 const deleteAllCrapsRollsByUser = require("./deleteAllCrapsRollsByUser");
@@ -23,6 +24,7 @@ async function resetTestUser() {
     const wagers = await deleteAllUserWagers(user);
     const games = await deleteAllGamesByUser(user);
     const achievements = await deleteAllAchievementsByUser(user);
+    const sessions = await deleteAllUserSessions(user);
 
     return user;
 }

@@ -31,8 +31,8 @@
   "homepage": "https://github.com/jeffblankenburg/CHATsino#readme",
   "dependencies": {
     "airtable": "^0.8.1",
+    "date-streaks": "^1.2.1",
     "node-fetch": "^2.6.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

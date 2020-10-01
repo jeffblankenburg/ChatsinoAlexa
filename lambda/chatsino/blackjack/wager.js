@@ -1,13 +1,10 @@
 const cashier = require("../cashier");
 const data = require("../data");
-const deck = require("../deck");
-const evaluator = require("./evaluator");
-const helper = require("../helper");
 
-async function play(user, wager) {
-  const checkWager = cashier.isValidWager(user, wager);
-  if (checkWager.isValid) {
-      const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
+async function wager(user, wager) {
+    const checkWager = cashier.isValidWager(user, wager);
+    if (checkWager.isValid) {
+        const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
       if (activeGame.length > 0) {
         const evaluation = evaluator(JSON.parse(activeGame[0].fields.OpeningHand));
         console.log({evaluation});
@@ -39,13 +36,15 @@ async function play(user, wager) {
           wager: wager,
           result: hand,
           deck: dealOutcome.deck,
-          outcome: evaluation,
+          outcome: evaluation.outcome,
           status: "BEFORE_DRAW",
         };
         //console.log(`POKER RESULT ${JSON.stringify(result)}`);
       return result;
   }
   else return {user: user, wager: wager, status: checkWager.status, minimum: checkWager.minimum, maximum: checkWager.maximum};
+
+    
 }
 
-module.exports = play;
+module.exports = wager;

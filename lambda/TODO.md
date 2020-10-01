@@ -1,28 +1,33 @@
 ## Alexa Casino To-Do
 
 ## Must Happen Before Publication
-* [x] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken.
-* [ ] Build functions to handle the INVALID WAGER cases, rather than doing each game manually. 
-* [ ] In-skill purchasing?
-* [ ] Achievements
+* [x] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken. 
+* [ ] Achievements (poker done, slots done, roulette started)
 * [x] Levels.  Each level allows you a specific minimum and maximum bet. 
-* [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
+* [x] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
 * [x] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
 * [x] Website?
-* [ ] Quick Links would be cool on website. (Quick links are only after certification.)
 * [ ] Craps
 * [ ] Blackjack
 * [ ] APL all the things!
 * [ ] Write all (ok most) of the tests!  (We need a good cleanup function too.)
 * [ ] Remove all of the unnecessary fields from our queries.
+* [ ] Legal approval to publish from Amazon.
 
-
-ls
+## Achievements
+* [ ] Playing multiple games
+* [ ] Winning an amount over a certain amount(s).
+* [ ] Impressive losing streak?  Five losing spins on slots, for example?
+* [ ] Dice rolling achievements?  You rolled 7 20 times.
+* [ ] Roulette spin achievements?  You spun red 100 times.  
 
 ## General Features
 * [ ] What is the first-time experience like?  How do we detect it?
+* [ ] Build functions to handle the INVALID WAGER cases, rather than doing each game manually.
 * [ ] Offer tips and statistics like "63% of users typically bet 40 or more coins on this."
+* [ ] Quick Links would be cool on website. (Quick links are only after certification.)
+* [ ] In-skill purchasing?
 * [ ] Review https://elements.envato.com/sound-effects/game-sounds/slots for sound effects from lockedinaus
 * [ ] SOUND EFFECTS!
 * [x] User analytics.  "You've played slots 89% of the time."

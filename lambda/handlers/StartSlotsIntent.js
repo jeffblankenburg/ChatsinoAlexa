@@ -18,15 +18,14 @@ async function StartSlotsIntent(handlerInput) {
             speakOutput += `${helper.getSlotAudio(result.result)}`;
             if (result.outcome) {
                 const yay = await data.getRandomSpeech("YAY", "en-US");
-                speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/slot_machine_win.mp3" /> ${yay} You got ${helper.getSlotSpeech(result.result)}. You won <say-as interpret-as="cardinal">${result.outcome.odds * wager}</say-as> coins.`;
+                speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/slot_machine_win.mp3" /> ${yay} You got ${helper.getSlotSpeech(result.result)}. You won <say-as interpret-as="cardinal">${result.outcome.odds * wager}</say-as> coins. Your new balance is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as>. `;
             }
             else {
                 const darn = await data.getRandomSpeech("DARN", "en-US");
-                speakOutput += `${darn} You got ${helper.getSlotSpeech(result.result)}. That is not a winning spin.  You lost <say-as interpret-as="cardinal">${wager}</say-as> coins. `;
+                speakOutput += `${darn} You got ${helper.getSlotSpeech(result.result)}. That is not a winning spin.  You lost <say-as interpret-as="cardinal">${wager}</say-as> coins. Your new balance is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins. `;
             }
-            result.achievements.forEach(a => speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/><amazon:emotion name="excited" intensity="high">You got an achievement! ${a.fields.Description} You get ${a.fields.Bonus} bonus coins! </amazon:emotion>`);
+            //result.achievements.forEach(a => speakOutput += `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/><amazon:emotion name="excited" intensity="high">You got an achievement! ${a.fields.Description} You get ${a.fields.Bonus} bonus coins! </amazon:emotion>`);
 
-            speakOutput += "What do you want to play next?";
         break;
         case "ABOVE_MAXIMUM_LIMIT":
             handlerInput.responseBuilder.addElicitSlotDirective("wager");
@@ -40,6 +39,16 @@ async function StartSlotsIntent(handlerInput) {
             handlerInput.responseBuilder.addElicitSlotDirective("wager");
             speakOutput += `Your wager was higher than your current balance, which is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins. You can bet any amount up to your available balance. How much would you like to bet on slots?`;
         break;
+    }
+
+    if (result.achievements.length > 0) {
+        speakOutput += '<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/>';
+        if (result.achievements.length === 1) speakOutput += `<amazon:emotion name="excited" intensity="high">You got an achievement!</amazon:emotion> `;
+        else speakOutput += `<amazon:emotion name="excited" intensity="high">You got ${result.achievements.length} achievements!</amazon:emotion> `;
+        speakOutput += `<amazon:emotion name="excited" intensity="medium">`;
+        result.achievements.forEach(a => speakOutput += `${a.fields.Description} You get ${a.fields.Bonus} bonus coins! `);
+        speakOutput += `</amazon:emotion>`;
+        speakOutput += "What do you want to play next?";
     }
     
     return (

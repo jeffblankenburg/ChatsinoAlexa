@@ -11,7 +11,7 @@ function evaluator(hand) {
   if (isFlush(sortedHand)) return {outcome: position.FLUSH, suit:whichFlush(sortedHand), highcard:sortedHand[0].value.name};
   if (isStraight(sortedHand)) return {outcome: position.STRAIGHT, highcard:sortedHand[0].value.name};
   if (isThreeOfAKind(sortedHand)) return {outcome: position.THREEOFAKIND, threeofakind:whichThreeOfAKind(sortedHand).name};
-  if (isTwoPair(sortedHand)) return {outcome: position.TWOPAIR};
+  if (isTwoPair(sortedHand)) return {outcome: position.TWOPAIR, highcard:whichTwoPairHigh(sortedHand).name, lowcard:whichTwoPairLow(sortedHand).name};
   if (isPair(sortedHand)) return {outcome: position.PAIR, pair:whichPair(sortedHand).name};
   return {outcome: undefined};
 }
@@ -94,6 +94,18 @@ function whichFlush(hand) {
     return hand[0].suit.name;
   }
   return 0;
+}
+
+function whichTwoPairHigh(hand) {
+  if (hand[0].value.id === hand[1].value.id) return hand[0].value;
+  if (hand[1].value.id === hand[2].value.id) return hand[1].value;
+  return {id: 0};
+}
+
+function whichTwoPairLow(hand) {
+  if (hand[2].value.id === hand[3].value.id) return hand[2].value;
+  if (hand[3].value.id === hand[4].value.id) return hand[3].value;
+  return {id: 0};
 }
 
 module.exports = evaluator;

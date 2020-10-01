@@ -22,7 +22,7 @@ async function wager(user, wager, position) {
               };
             return result;
         }
-        else return {user: user, wager: wager, position: position, status: "INVALID_WAGER", status: checkWager.status, minimum: checkWager.minimum, maximum: checkWager.maximum};
+        else return {user: user, wager: wager, position: position, status: checkWager.status, minimum: checkWager.minimum, maximum: checkWager.maximum};
     }
     else return {user: user, wager: wager, position: position, status: "INVALID_POSITION"};
 }

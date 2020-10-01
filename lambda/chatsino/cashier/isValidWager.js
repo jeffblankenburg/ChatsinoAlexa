@@ -1,13 +1,7 @@
 function isValidWager(user, wager) {
     //if (user.fields.TwitchUsername === 'jeffblankenburg') return true;
     if (Number.isNaN(parseInt(wager))) return { status: "NOT_A_NUMBER", isValid: false};;
-    //if (wager <= 0) return { status: "NEGATIVE_BET", isValid: false};
     if (wager > (user.fields.AvailableBalance)) return { status: "BET_ABOVE_AVAILABLE_BALANCE", isValid: false};
-    //if (isBelowMinimumBet(user.fields.Balance, wager)) return { status: "BELOW_MINIMUM_LIMIT", isValid: false};
-    //if (isAboveMaximumBet(user.fields.Balance, wager)) return { status: "ABOVE_MAXIMUM_LIMIT", isValid: false};
-    //const wagerRangeStatus = isOutsideWagerRange(balance, wager);
-    //if (!wagerRangeStatus.isValid) return wagerRangeStatus;
-    //return ;
     return checkWagerRange(user.fields.AvailableBalance, wager);
 }
 

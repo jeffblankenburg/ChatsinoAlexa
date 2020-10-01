@@ -3,7 +3,7 @@ const ROULETTE = "recrsMFmQpjZEsj2L";
 const SLOTS = "recX7XeoYwX4h3w0V";
 const CRAPS = "recNsV0lP4FAvnKf5";
 const GIVE = "recMbwMQ7azl9FVv8";
-const BLACKJACK = "rec4O7OagOgKRutXD";
+const BLACKJACK = "recARvwTmah8jQDWU";
 const RPS = "receut7cPw5OJBLyb";
 
 function shuffle(items) {

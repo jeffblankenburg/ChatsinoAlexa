@@ -230,12 +230,20 @@ const ErrorHandler = {
 
 const RequestLog = {
     async process(handlerInput) {
-      //console.log(`REQ ENV ${JSON.stringify(handlerInput.requestEnvelope)}`);
-      const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-      const userRecord = await chatsino.data.getUserByUserId(handlerInput.requestEnvelope.session.user.userId);
-      sessionAttributes.user = userRecord;
-      sessionAttributes.isError = false;
-      //console.log("USER RECORD = " + JSON.stringify(userRecord.fields));
+        //console.log(`REQ ENV ${JSON.stringify(handlerInput.requestEnvelope)}`);
+        const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+        const userRecord = await chatsino.data.getUserByUserId(handlerInput.requestEnvelope.session.user.userId);
+        sessionAttributes.user = userRecord;
+        sessionAttributes.isError = false;
+
+        if (handlerInput.requestEnvelope.session.new === true) {
+            const streak = await chatsino.data.getUserStreak(sessionAttributes.user);
+            const session = await chatsino.data.saveSession(sessionAttributes.user, "alexa");
+            sessionAttributes.user = await chatsino.data.getUserByUserId(handlerInput.requestEnvelope.session.user.userId);
+            sessionAttributes.user.streak = streak;
+        }
+        //TODO: WE NEED TO STORE THE streak VALUE IN THE USER'S SESSION SO THAT WE CAN AWARD THINGS.
+        //console.log("USER RECORD = " + JSON.stringify(userRecord.fields));
     },
   };
   

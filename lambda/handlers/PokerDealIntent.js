@@ -27,7 +27,7 @@ async function PokerDealIntent(handlerInput) {
                     case pokerPosition.FLUSH: speakOutput += `in ${result.evaluation.suit} with a high card ${result.evaluation.highcard}! `; break;
                     case pokerPosition.STRAIGHT: speakOutput += `to the ${result.evaluation.highcard}! `; break;
                     case pokerPosition.THREEOFAKIND: speakOutput += `of ${result.evaluation.threeofakind}'s! `; break;
-                    case pokerPosition.TWOPAIR: speakOutput += `. `;break;
+                    case pokerPosition.TWOPAIR: speakOutput += `of ${result.evaluation.highcard}'s and ${result.evaluation.lowcard}'s! `;break;
                     case pokerPosition.PAIR: speakOutput += `of ${result.evaluation.pair}'s! `; break;
                 }
                 speakOutput += "</amazon:emotion> ";
@@ -52,9 +52,9 @@ async function PokerDealIntent(handlerInput) {
     }
     
     return handlerInput.responseBuilder
-          .speak(speakOutput + 'What do you want to do next?')
-          .reprompt('What do you want to do next?')
-          .getResponse();
+        .speak(speakOutput + 'What do you want to do next?')
+        .reprompt('What do you want to do next?')
+        .getResponse();
 
 }
 

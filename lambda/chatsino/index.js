@@ -1,3 +1,4 @@
+const blackjack = require("./blackjack");
 const cashier = require("./cashier");
 const craps = require("./craps");
 const data = require("./data");

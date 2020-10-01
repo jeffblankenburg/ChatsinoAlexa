@@ -15,7 +15,7 @@ function getUserByUserId(userId) {
   return fetch(url, options)
     .then((res) => res.json())
     .then((r) => {
-      console.log(`R ${JSON.stringify(r)}`);
+      //console.log(`R ${JSON.stringify(r)}`);
       if (r.records.length === 0) return createUserRecord(userId);
       return updateScore(r.records[0]);
     });

@@ -7,19 +7,19 @@ async function StartPokerIntent(handlerInput) {
     const wager = helper.getSpokenWords(handlerInput, "wager");
 
     const result = await chatsino.poker.play(sessionAttributes.user, parseInt(wager));
-    console.log(`RESULT ${JSON.stringify(result)}`);
-
+    //console.log(`RESULT ${JSON.stringify(result)}`);
+    console.log(`RESULT.OUTCOME ${JSON.stringify(result.outcome)}`);
     let speakOutput = ``;
 
     switch(result.status) {
         case "ACTIVE_GAME":
             speakOutput += `You already have an active game of video poker waiting for you. You wagered ${result.wager} coins. `
-            if (result.outcome) speakOutput += `You already have a ${result.outcome.symbol}! `;
+            if (result.outcome.outcome) speakOutput += `You already have a ${result.outcome.outcome.name}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "BEFORE_DRAW":
             speakOutput += "<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/5_card_deal.mp3' />";
-            if (result.outcome) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.symbol}! `;
+            if (result.outcome.outcome !== undefined) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.outcome.name}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "ABOVE_MAXIMUM_LIMIT":
