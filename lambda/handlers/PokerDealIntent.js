@@ -42,7 +42,7 @@ async function PokerDealIntent(handlerInput) {
             speakOutput = "You don't currently have an active game of video poker.  To start a new game, say something like bet five on poker. ";
         break;
     }
-    if (result.achievements.length > 0) {
+    if (result.achievements && result.achievements.length > 0) {
         speakOutput += '<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/>';
         if (result.achievements.length === 1) speakOutput += `<amazon:emotion name="excited" intensity="high">You got an achievement!</amazon:emotion> `;
         else speakOutput += `<amazon:emotion name="excited" intensity="high">You got ${result.achievements.length} achievements!</amazon:emotion> `;
