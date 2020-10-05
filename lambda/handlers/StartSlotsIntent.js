@@ -41,7 +41,7 @@ async function StartSlotsIntent(handlerInput) {
         break;
     }
 
-    if (result.achievements.length > 0) {
+    if (result.achievements && result.achievements.length > 0) {
         speakOutput += '<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/>';
         if (result.achievements.length === 1) speakOutput += `<amazon:emotion name="excited" intensity="high">You got an achievement!</amazon:emotion> `;
         else speakOutput += `<amazon:emotion name="excited" intensity="high">You got ${result.achievements.length} achievements!</amazon:emotion> `;

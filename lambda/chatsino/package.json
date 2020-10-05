@@ -32,7 +32,8 @@
   "dependencies": {
     "airtable": "^0.8.1",
     "date-streaks": "^1.2.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "number-to-words": "^1.2.4"
   },
   "devDependencies": {}
 }

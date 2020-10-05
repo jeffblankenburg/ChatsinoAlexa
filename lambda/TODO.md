@@ -14,6 +14,7 @@
 * [ ] Write all (ok most) of the tests!  (We need a good cleanup function too.)
 * [ ] Remove all of the unnecessary fields from our queries.
 * [ ] Legal approval to publish from Amazon.
+* [ ] Revisit all of the help messages, and make sure you have good coverage.
 
 ## Achievements
 * [ ] Playing multiple games

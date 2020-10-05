@@ -1,4 +1,4 @@
-const craps = require("../blackjack");
+const blackjack = require("../blackjack");
 const data = require("../data");
 
 let user;

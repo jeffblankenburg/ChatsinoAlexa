@@ -1,3 +1,4 @@
+const createBlackjackHand = require("./createBlackjackHand");
 const createGame = require("./createGame");
 const createLedgerItem = require("./createLedgerItem");
 const createPokerHand = require("./createPokerHand");
@@ -35,6 +36,7 @@ const updatePoint = require("./updatePoint");
 const updatePokerHand = require("./updatePokerHand");
 
 module.exports = {
+  createBlackjackHand,
   createGame,
   createLedgerItem,
   createPokerHand,

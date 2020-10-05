@@ -133,6 +133,16 @@ const SpinRouletteHandler = {
     }
 };
 
+const StartBlackjackHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'StartBlackjackIntent';
+    },
+    handle(handlerInput) {
+        return handlers.StartBlackjackHandler(handlerInput);
+    }
+};
+
 const StartCrapsHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -265,6 +275,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         StartSlotsHandler,
         StartRouletteHandler,
         StartCrapsHandler,
+        StartBlackjackHandler,
         SpinRouletteHandler,
         RollCrapsIntentHandler,
         PokerDealIntentHandler,

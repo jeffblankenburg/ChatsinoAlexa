@@ -11,6 +11,7 @@ const PokerHoldIntent = require("./PokerHoldIntent");
 const PositionIntent = require("./PositionIntent");
 const RollCrapsIntent = require("./RollCrapsIntent");
 const SpinRouletteIntent = require("./SpinRouletteIntent");
+const StartBlackjackIntent = require("./StartBlackjackIntent");
 const StartCrapsIntent = require("./StartCrapsIntent");
 const StartPokerIntent = require("./StartPokerIntent");
 const StartSlotsIntent = require("./StartSlotsIntent");
@@ -31,6 +32,7 @@ module.exports = {
     PositionIntent,
     RollCrapsIntent,
     SpinRouletteIntent,
+    StartBlackjackIntent,
     StartCrapsIntent,
     StartPokerIntent,
     StartSlotsIntent,
