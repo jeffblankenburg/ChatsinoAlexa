@@ -2,19 +2,18 @@
 
 ## Must Happen Before Publication
 * [x] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken. 
-* [ ] Achievements (poker done, slots done, roulette started)
+* [x] Achievements (poker done, slots done, roulette done)
 * [x] Levels.  Each level allows you a specific minimum and maximum bet. 
 * [x] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
 * [x] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
 * [x] Website?
-* [ ] Craps
-* [ ] Blackjack
 * [ ] APL all the things!
 * [ ] Write all (ok most) of the tests!  (We need a good cleanup function too.)
 * [ ] Remove all of the unnecessary fields from our queries.
-* [ ] Legal approval to publish from Amazon.
+* [x] Legal approval to publish from Amazon.
 * [ ] Revisit all of the help messages, and make sure you have good coverage.
+* [ ] Add roulette achievements for each individual number
 
 ## Achievements
 * [ ] Playing multiple games

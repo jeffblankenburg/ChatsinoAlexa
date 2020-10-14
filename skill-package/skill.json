@@ -1,30 +1,64 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-US": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "name": "CHATsino",
-          "description": "Sample Full Description"
-        }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "KNOWLEDGE_AND_TRIVIA",
-      "distributionCountries": []
-    },
     "apis": {
       "custom": {
         "endpoint": {
           "uri": "arn:aws:lambda:us-east-1:679180307287:function:ChatsinoAlexa"
-        }
+        },
+        "interfaces": []
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "containsAds": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "http://jeffblankenburg.com/privacy"
+        }
+      },
+      "usesPersonalInfo": false
+    },
+    "publishingInformation": {
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "category": "CARD_GAMES",
+      "distributionCountries": [],
+      "isAvailableWorldwide": true,
+      "locales": {
+        "en-US": {
+          "description": "This is a complete casino experience!  Sound effects, achievements, and all of your favorite casino games are right here.  You can play video poker, slots, and roulette with your voice!\n\nYou start with 100 coins.  Can you climb the leaderboard?",
+          "examplePhrases": [
+            "Alexa open chat sino",
+            "bet five on poker",
+            "play ten on red"
+          ],
+          "keywords": [
+            "casino",
+            "poker",
+            "cards",
+            "games",
+            "gamble",
+            "gambling",
+            "video",
+            "poker",
+            "roulette",
+            "slots",
+            "slot",
+            "machine",
+            "wager",
+            "bet"
+          ],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3d76/2902a066359f4ff18693ddc29a55a340/APP_ICON_LARGE?versionId=TV.oH_.7y9HsZCMSmc3vRjks.Ez6RpjF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201014T150410Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHAYALYJ7%2F20201014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9428632ca2e03552eb89f2ab16106d6da49a7a0a1885faa77a99d69adb657ffb",
+          "name": "CHATsino",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4818/7e1799f6bda442d8bc86ab78182aabd1/APP_ICON?versionId=ZzVRaA63irEhDVNE5Jtdh48T_Z5Naxhi&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201014T150410Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHAYALYJ7%2F20201014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f84e2f70637831ca95ad1ffcf2770d2df763ca45631818fffcabfe329b1e7d30",
+          "summary": "A complete voice-enabled casino! Play slots, video poker, and roulette any time.  Just say, \"Alexa, open chatsino.\""
+        }
+      },
+      "testingInstructions": "No specific instructions needed."
+    }
   }
 }

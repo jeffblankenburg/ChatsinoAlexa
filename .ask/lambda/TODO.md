@@ -1,21 +1,33 @@
 ## Alexa Casino To-Do
 
 ## Must Happen Before Publication
-* [ ] In-skill purchasing
-* [ ] Achievements
-* [ ] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
+* [x] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken. 
+* [x] Achievements (poker done, slots done, roulette done)
+* [x] Levels.  Each level allows you a specific minimum and maximum bet. 
+* [x] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
+* [x] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
-* [x] Website?  Not sure if this is required at launch, but Quick Links would be cool. (Quick links are only after certification.)
-* [ ] Craps
-* [ ] Blackjack
+* [x] Website?
 * [ ] APL all the things!
 * [ ] Write all (ok most) of the tests!  (We need a good cleanup function too.)
 * [ ] Remove all of the unnecessary fields from our queries.
+* [x] Legal approval to publish from Amazon.
+* [ ] Revisit all of the help messages, and make sure you have good coverage.
+* [ ] Add roulette achievements for each individual number
 
+## Achievements
+* [ ] Playing multiple games
+* [ ] Winning an amount over a certain amount(s).
+* [ ] Impressive losing streak?  Five losing spins on slots, for example?
+* [ ] Dice rolling achievements?  You rolled 7 20 times.
+* [ ] Roulette spin achievements?  You spun red 100 times.  
 
 ## General Features
 * [ ] What is the first-time experience like?  How do we detect it?
+* [ ] Build functions to handle the INVALID WAGER cases, rather than doing each game manually.
 * [ ] Offer tips and statistics like "63% of users typically bet 40 or more coins on this."
+* [ ] Quick Links would be cool on website. (Quick links are only after certification.)
+* [ ] In-skill purchasing?
 * [ ] Review https://elements.envato.com/sound-effects/game-sounds/slots for sound effects from lockedinaus
 * [ ] SOUND EFFECTS!
 * [x] User analytics.  "You've played slots 89% of the time."
@@ -31,10 +43,10 @@
 * [ ] Lottery scratchers?
 
 ## Poker
-* [ ] Why does using multi-value slots with AMAZON.Number result in concatenating the digits into one number?
 * [x] We need to add the turn that video poker allows.
 * [ ] Add APL card reveal.
-* [ ] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
+* [x] When a user gets three of a kind, two pair, pair, or full house, tell them what they got.  Like "You won with a pair of 4s.";
+* [ ] We still don't tell the user what their TWOPAIR is.  It was too hard at the time.
 * [x] If a user makes an invalid wager, we don't have an effective way to let them indicate a new bet.
 * [x] What if a user says hold the 10s, when they have a pair of tens?  How do we handle references to the actual cards?
 
@@ -52,11 +64,13 @@
 * [x] We need to give the user a way to hear all of their current wagers on the table (this will apply to craps later, also).
 * [x] We haven't built a way to spin the wheel yet.
 * [x] Record every spin for analytics purposes.
+* [ ] If a user makes a bet on a position that they already have, the amount should be added to that wager, it shouldn't just create another wager.
 
 ## Craps
 * [ ] We need to check IsValidWager() to make sure that only valid bets are made at valid bet times.
-* [ ] We need to compare the wagers to the evaluation to determine wins and losses.
-* [ ] We need to recite the outcomes of the wagers to the user properly.
+* [x] We need to compare the wagers to the evaluation to determine wins and losses.
+* [x] We need to recite the outcomes of the wagers to the user properly.
+* [ ] If a user makes a bet on a position that they already have, the amount should be added to that wager, it shouldn't just create another wager.
 
 ## Blackjack
 * [ ] Have not even started this. 

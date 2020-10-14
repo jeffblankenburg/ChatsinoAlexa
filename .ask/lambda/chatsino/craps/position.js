@@ -10,6 +10,7 @@ const BUY_9 = { name: 'Buy 9', odds: 1.5, id: 'BUY_9' };
 const BUY_10 = { name: 'Buy 10', odds: 2, id: 'BUY_10' };
 const C_E = { name: 'C & E', id: 'C_E' };
 const COME = { name: 'Come', odds: 1, id: 'COME' };
+//const COME_4 = { name: 'Come Four', id: 'COME_4'};
 const COMEODDS = { name: 'Come Odds', id: 'COMEODDS' };
 const DONTCOME = { name: "Don't Come", id: 'DONTCOME' };
 const DONTCOMEODDS = { name: "Don't Come Odds", id: 'DONTCOMEODDS' };

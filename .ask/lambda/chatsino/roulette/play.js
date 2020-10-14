@@ -1,3 +1,4 @@
+const achievement = require("./achievement");
 const cashier = require('../cashier');
 const data = require('../data');
 const evaluator = require('./evaluator');
@@ -51,9 +52,8 @@ async function play(user) {
     }
     const updatedUser = await data.updateBalance(user, payout);
     const saveSpin = await data.saveSpin(game, spinResult);
-    
 
-    console.log(`UPDATEARRAY ${JSON.stringify(updateArray)}`);
+    let achievementArray = await achievement(user);
 
     const result = {
         user: updatedUser,
@@ -61,6 +61,7 @@ async function play(user) {
         result: evaluation,
         outcome: updateArray,
         payout: payout,
+        achievements: achievementArray,
         status: "COMPLETED",  
     };
 

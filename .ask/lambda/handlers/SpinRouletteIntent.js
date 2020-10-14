@@ -8,7 +8,6 @@ async function SpinRouletteIntent(handlerInput) {
     const result = await chatsino.roulette.play(sessionAttributes.user);
     console.log(`RESULT ${JSON.stringify(result)}`);
     let returnSpeech = "";
-    //TODO: THIS SOUND EFFECT IS WAY TOO LONG.  FIND SOMETHING BETTER.
     let speakOutput = `<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/roulette_spin.mp3' />The wheel landed on ${result.spinResult}. `;
 
     if (result.outcome.length === 0) speakOutput += "You didn't have any coins on the table.  You didn't win anything, but you also didn't lose anything, right? ";
@@ -30,13 +29,21 @@ async function SpinRouletteIntent(handlerInput) {
     }
     else speakOutput += `You lost a total of ${Math.abs(result.payout)} coins, `;
 
-    speakOutput += `which brings your total to ${result.user.fields.AvailableBalance}. ${returnSpeech} What would you like to do now?`;
+    speakOutput += `which brings your total to ${result.user.fields.AvailableBalance}. ${returnSpeech} `;
 
+    if (result.achievements.length > 0) {
+        speakOutput += '<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/>';
+        if (result.achievements.length === 1) speakOutput += `<amazon:emotion name="excited" intensity="high">You got an achievement!</amazon:emotion> `;
+        else speakOutput += `<amazon:emotion name="excited" intensity="high">You got ${result.achievements.length} achievements!</amazon:emotion> `;
+        speakOutput += `<amazon:emotion name="excited" intensity="medium">`;
+        result.achievements.forEach(a => speakOutput += `${a.fields.Description} You get ${a.fields.Bonus} bonus coins! `);
+        speakOutput += `</amazon:emotion>`;
+    }
 
     return (
         handlerInput.responseBuilder
-          .speak(speakOutput)
-          .reprompt(speakOutput)
+          .speak(speakOutput + "What would you like to do now?")
+          .reprompt(speakOutput + "What would you like to do now?")
           .getResponse()
       );
 

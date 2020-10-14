@@ -3,6 +3,7 @@ const data = require("../data");
 const deck = require("../deck");
 const evaluator = require("./evaluator");
 const helper = require("../helper");
+const achievement = require("./achievement");
 
 async function deal(user) {
     const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
@@ -27,11 +28,11 @@ async function deal(user) {
         pokerHand = pokerHand.sort((a, b) => {return b.value.id - a.value.id});
         activeGame[0].fields.ClosingHand = pokerHand;
         const videoPokerRecord = await data.updatePokerHand(activeGame[0], JSON.parse(activeGame[0].fields.OpeningHand), pokerDeck, pokerHand)
-        const outcome = evaluator(pokerHand);
+        const evaluation = evaluator(pokerHand);
         let winnings = 0;
         
-        if (outcome) {
-            winnings = parseInt(activeWager[0].fields.Amount) * parseInt(outcome.odds);
+        if (evaluation.outcome) {
+            winnings = parseInt(activeWager[0].fields.Amount) * parseInt(evaluation.outcome.odds);
         }
         else {
             winnings = -activeWager[0].fields.Amount;
@@ -41,7 +42,7 @@ async function deal(user) {
             id: activeWager[0].fields.RecordId,
             fields: {
                 Status: "Completed",
-                Outcome: JSON.stringify(outcome),
+                Outcome: JSON.stringify(evaluation.outcome),
                 Payout: winnings
             }
         }];
@@ -49,12 +50,15 @@ async function deal(user) {
         const isGameCompleted = await cashier.completeGame(activeGame[0]);
 
         user = await data.updateBalance(user, winnings);
+        let achievementArray = await achievement(user);
 
         return {
             user: user,
             game: activeGame[0],
-            outcome: outcome,
+            outcome: evaluation.outcome,
             winnings: winnings,
+            evaluation: evaluation,
+            achievements: achievementArray,
             status: "COMPLETED",
         }
 

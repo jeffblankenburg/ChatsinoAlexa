@@ -17,7 +17,8 @@ async function BetSummaryIntent(handlerInput) {
                 case "Roulette":
                     if (oldGameType != "Roulette") speakOutput += "In roulette, you have "
                     if ((oldGameType === "Roulette") && result[i+1] && (result[i+1].fields.GameType != "Roulette")) speakOutput += "Finally, you have "
-                    speakOutput += `${result[i].fields.Amount} coins bet on ${result[i].fields.Position}. `;
+                    const positionName = eval(`chatsino.roulette.position.${result[i].fields.Position}`);
+                    speakOutput += `${result[i].fields.Amount} coins bet on ${positionName.symbol}. `;
                     
                 break;
             }

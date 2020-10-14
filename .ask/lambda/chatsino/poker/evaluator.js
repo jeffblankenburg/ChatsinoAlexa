@@ -4,16 +4,16 @@ function evaluator(hand) {
   //console.log(`POKERHAND ${JSON.stringify(hand)}`);
   const sortedHand = hand.sort((a, b) => {return b.value.id - a.value.id});
 
-  if (isRoyalFlush(sortedHand)) return position.ROYALFLUSH;
-  if (isStraightFlush(sortedHand)) return position.STRAIGHTFLUSH;
-  if (isFourOfAKind(sortedHand)) return position.FOUROFAKIND;
-  if (isFullHouse(sortedHand)) return position.FULLHOUSE;
-  if (isFlush(sortedHand)) return position.FLUSH;
-  if (isStraight(sortedHand)) return position.STRAIGHT;
-  if (isThreeOfAKind(sortedHand)) return position.THREEOFAKIND;
-  if (isTwoPair(sortedHand)) return position.TWOPAIR;
-  if (isPair(sortedHand)) return position.PAIR;
-  return undefined;
+  if (isRoyalFlush(sortedHand)) return {outcome: position.ROYALFLUSH, suit:whichFlush(sortedHand)};
+  if (isStraightFlush(sortedHand)) return {outcome: position.STRAIGHTFLUSH, suit:whichFlush(sortedHand), highcard:sortedHand[0].value.name};
+  if (isFourOfAKind(sortedHand)) return {outcome: position.FOUROFAKIND, fourofakind: whichFourOfAKind(sortedHand).name};
+  if (isFullHouse(sortedHand)) return {outcome: position.FULLHOUSE, threeofakind:sortedHand[0].value.name, pair:sortedHand[4].value.name};
+  if (isFlush(sortedHand)) return {outcome: position.FLUSH, suit:whichFlush(sortedHand), highcard:sortedHand[0].value.name};
+  if (isStraight(sortedHand)) return {outcome: position.STRAIGHT, highcard:sortedHand[0].value.name};
+  if (isThreeOfAKind(sortedHand)) return {outcome: position.THREEOFAKIND, threeofakind:whichThreeOfAKind(sortedHand).name};
+  if (isTwoPair(sortedHand)) return {outcome: position.TWOPAIR, highcard:whichTwoPairHigh(sortedHand).name, lowcard:whichTwoPairLow(sortedHand).name};
+  if (isPair(sortedHand)) return {outcome: position.PAIR, pair:whichPair(sortedHand).name};
+  return {outcome: undefined};
 }
 
 function isRoyalFlush(hand) {
@@ -27,7 +27,8 @@ function isStraightFlush(hand) {
 }
 
 function isFourOfAKind(hand) {
-  if (whichFourOfAKind(hand) != 0) return true;
+  const fourOfAKind = whichFourOfAKind(hand);
+  if (fourOfAKind.id != 0) return true;
   return false;
 }
 
@@ -51,7 +52,7 @@ function isStraight(hand) {
 }
 
 function isThreeOfAKind(hand) {
-  if (whichThreeOfAKind(hand) != 0) return true;
+  if (whichThreeOfAKind(hand).id != 0) return true;
   return false;
 }
 
@@ -63,29 +64,48 @@ function isTwoPair(hand) {
 }
 
 function isPair(hand) {
-  if (whichPair(hand) != 0) return true;
+  if (whichPair(hand).id != 0) return true;
   return false;
 }
 
 function whichPair(hand) {
-  if (hand[0].value.id === hand[1].value.id) return hand[0].value.id;
-  if (hand[1].value.id === hand[2].value.id) return hand[1].value.id;
-  if (hand[2].value.id === hand[3].value.id) return hand[2].value.id;
-  if (hand[3].value.id === hand[4].value.id) return hand[3].value.id;
-  return 0;
+  if (hand[0].value.id === hand[1].value.id) return hand[0].value;
+  if (hand[1].value.id === hand[2].value.id) return hand[1].value;
+  if (hand[2].value.id === hand[3].value.id) return hand[2].value;
+  if (hand[3].value.id === hand[4].value.id) return hand[3].value;
+  return {id: 0};
 }
 
 function whichThreeOfAKind(hand) {
-  if (hand[0].value.id === hand[2].value.id) return hand[0].value.id;
-  if (hand[1].value.id === hand[3].value.id) return hand[1].value.id;
-  if (hand[2].value.id === hand[4].value.id) return hand[0].value.id;
-  return 0;
+  if (hand[0].value.id === hand[2].value.id) return hand[0].value;
+  if (hand[1].value.id === hand[3].value.id) return hand[1].value;
+  if (hand[2].value.id === hand[4].value.id) return hand[0].value;
+  return {id: 0};
 }
 
 function whichFourOfAKind(hand) {
-  if (hand[0].value.id === hand[3].value.id) return hand[0].value.id;
-  if (hand[1].value.id === hand[4].value.id) return hand[1].value.id;
+  if (hand[0].value.id === hand[3].value.id) return hand[0].value;
+  if (hand[1].value.id === hand[4].value.id) return hand[1].value;
+  return {id: 0};
+}
+
+function whichFlush(hand) {
+  if (isFlush(hand)) {
+    return hand[0].suit.name;
+  }
   return 0;
+}
+
+function whichTwoPairHigh(hand) {
+  if (hand[0].value.id === hand[1].value.id) return hand[0].value;
+  if (hand[1].value.id === hand[2].value.id) return hand[1].value;
+  return {id: 0};
+}
+
+function whichTwoPairLow(hand) {
+  if (hand[2].value.id === hand[3].value.id) return hand[2].value;
+  if (hand[3].value.id === hand[4].value.id) return hand[3].value;
+  return {id: 0};
 }
 
 module.exports = evaluator;
