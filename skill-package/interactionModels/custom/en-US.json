@@ -9,7 +9,9 @@
                 },
                 {
                     "name": "AMAZON.HelpIntent",
-                    "samples": []
+                    "samples": [
+                        "what can I do"
+                    ]
                 },
                 {
                     "name": "AMAZON.StopIntent",
@@ -47,6 +49,7 @@
                         }
                     ],
                     "samples": [
+                        "slots",
                         "{wager} slots",
                         "{wager} on slots",
                         "slots {wager}",
@@ -71,6 +74,13 @@
                         }
                     ],
                     "samples": [
+                        "poker",
+                        "video poker",
+                        "{wager} on video poker",
+                        "{wager} video poker",
+                        "bet {wager} coins on video poker",
+                        "video poker {wager}",
+                        "bet {wager} on video poker",
                         "play poker for {wager} coins",
                         "bet {wager} coins on poker",
                         "{wager} on poker",
@@ -104,6 +114,7 @@
                         }
                     ],
                     "samples": [
+                        "roulette",
                         "put {wager} on {rouletteposition}",
                         "play roulette",
                         "play {wager} on {rouletteposition}",
@@ -241,35 +252,6 @@
                         "who is in first place",
                         "who is winning",
                         "show me the leader board"
-                    ]
-                },
-                {
-                    "name": "StartCrapsIntent",
-                    "slots": [
-                        {
-                            "name": "wager",
-                            "type": "AMAZON.NUMBER"
-                        },
-                        {
-                            "name": "crapsposition",
-                            "type": "CrapsPosition"
-                        }
-                    ],
-                    "samples": [
-                        "{wager} on {crapsposition}",
-                        "bet {wager} on {crapsposition}",
-                        "put {wager} on {crapsposition}"
-                    ]
-                },
-                {
-                    "name": "RollCrapsIntent",
-                    "slots": [],
-                    "samples": [
-                        "roll the bones",
-                        "throw the dice",
-                        "shoot the dice",
-                        "dice are out",
-                        "roll the dice"
                     ]
                 }
             ],

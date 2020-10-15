@@ -1,0 +1,30 @@
+
+                {
+                    "name": "StartCrapsIntent",
+                    "slots": [
+                        {
+                            "name": "wager",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "crapsposition",
+                            "type": "CrapsPosition"
+                        }
+                    ],
+                    "samples": [
+                        "{wager} on {crapsposition}",
+                        "bet {wager} on {crapsposition}",
+                        "put {wager} on {crapsposition}"
+                    ]
+                },
+                {
+                    "name": "RollCrapsIntent",
+                    "slots": [],
+                    "samples": [
+                        "roll the bones",
+                        "throw the dice",
+                        "shoot the dice",
+                        "dice are out",
+                        "roll the dice"
+                    ]
+                }

@@ -9,7 +9,7 @@ function PaytableIntent(handlerInput) {
     let speakOutput = "";
     if (!gameType[0]) {
         handlerInput.responseBuilder.addElicitSlotDirective("game");
-        speakOutput = "Which game did you want the paytable for? ";
+        speakOutput = "Which game did you want the pay table for? ";
     }
     else {
         const positions = chatsino.data.getPositionsByGameType(gameType[0].value.name);

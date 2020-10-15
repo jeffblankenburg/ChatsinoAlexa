@@ -13,7 +13,17 @@
 * [ ] Remove all of the unnecessary fields from our queries.
 * [x] Legal approval to publish from Amazon.
 * [ ] Revisit all of the help messages, and make sure you have good coverage.
-* [ ] Add roulette achievements for each individual number
+* [ ] Add roulette achievements for each individual number.  (Zero and double zero are done.)
+* [ ] What is the position intent for?
+
+## Feedback
+* [x] When you say “Alexa, open chatsino” it starts with letting me know my balance and asks “What would you like to do?” I answer with “What can I do?” it then exits.
+* [ ] When I ask “Help” after it doesn’t response to “What would you like to do” it also exists and doesn’t say anything.
+* [ ] Playing video poker is actually tough not having visual.  When it said I had a pair I said "keep the pair" but that didn’t work.  Then it told me that I had 5 coins bet on video poker and asked what I wanted to play so I said video poker but it didn’t recognize that.
+* [ ] In video poker it exits really quickly when trying to tell it to hold cards.
+* [x] When you have an active game and you say play poker it asks for you to bet but then tells you that you already have a active game.
+* [ ] It said I had 10 d 10 s 9 s 8 c 8 d but it wouldn’t let me drop the 9s and then deal only would allow me to deal
+* [ ] Slots: When a user gets something like cherries, cherries, grapes, we should say "Two cherries and a grapes. (@CoachBear)
 
 ## Achievements
 * [ ] Playing multiple games
@@ -41,6 +51,9 @@
 * [ ] What do we do when a user wants to clear ALL of their bets?  Poker, roulette, craps, etc?
 * [ ] BINGO? (Would this need to be multiplayer?  How does solo Bingo work?)
 * [ ] Lottery scratchers?
+* [ ] @catull (Twitch) said they could help with Italian, German, and French translations.
+* [ ] Sports betting?
+* [ ] E-sports?
 
 ## Poker
 * [x] We need to add the turn that video poker allows.

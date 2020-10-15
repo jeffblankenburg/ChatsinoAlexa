@@ -2,7 +2,7 @@ const helper = require("../helper");
 
 async function UserAccountIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-    helper.setAction(handlerInput, `USERACCOUNTINTENT`);
+    helper.setAction(handlerInput, `USERACCOUNT`);
     const locale = helper.getLocale(handlerInput);
 
     const userId = sessionAttributes.user.fields.RecordId.substr(sessionAttributes.user.fields.RecordId.length-6);
