@@ -11,21 +11,6 @@ function HelpIntent(handlerInput) {
         case "BETSUMMARY":
             speakOutput = `To finish your poker or roulette wagers, you can say, deal, for poker, or, spin the wheel, for roulette. `
         break;
-        case "CLEARROULETTE":
-            speakOutput = `You just cleared all of your roulette wagers from the table.  To add more coins in roulette, just say something like, bet ten on red.`;
-        break;
-        case "ERROR":
-
-        break;
-        case "LAUNCHREQUEST":
-            speakOutput = `You just got here!  And you already need help? ${speakOutput}`
-        break;
-        case "LEADERBOARD":
-
-        break;
-        case "PAYTABLE":
-
-        break;
         case "POKERDEAL":
             speakOutput = "You just finished a game of video poker.  Your final hand is compared to our poker pay table to determine if you are a winner. To hear a list of the winning hands, you can say, give me the poker pay table."
         break;
@@ -44,9 +29,6 @@ function HelpIntent(handlerInput) {
         break;
         case "STARTSLOTS":
             speakOutput = "Each spin of the slot machine results in three reels spinning.  You are trying to match three of a kind, or a few other specific outcomes.  To hear the list of outcomes, you can say, what is the pay table for slots. ";
-        break;
-        case "USERACCOUNT":
-
         break;
     }
 

@@ -18,7 +18,7 @@
 
 ## Feedback
 * [x] When you say “Alexa, open chatsino” it starts with letting me know my balance and asks “What would you like to do?” I answer with “What can I do?” it then exits.
-* [ ] When I ask “Help” after it doesn’t response to “What would you like to do” it also exists and doesn’t say anything.
+* [x] When I ask “Help” after it doesn’t response to “What would you like to do” it also exists and doesn’t say anything.
 * [ ] Playing video poker is actually tough not having visual.  When it said I had a pair I said "keep the pair" but that didn’t work.  Then it told me that I had 5 coins bet on video poker and asked what I wanted to play so I said video poker but it didn’t recognize that.
 * [ ] In video poker it exits really quickly when trying to tell it to hold cards.
 * [x] When you have an active game and you say play poker it asks for you to bet but then tells you that you already have a active game.
