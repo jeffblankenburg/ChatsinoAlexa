@@ -1,0 +1,122 @@
+{
+    "type": "APL",
+    "version": "1.4",
+    "settings": {},
+    "theme": "dark",
+    "import": [
+        {
+      "name": "alexa-layouts",
+      "version": "1.2.0"
+    }],
+    "resources": [],
+    "styles": {},
+    "onMount": [],
+    "graphics": {},
+    "commands": {},
+    "layouts": {
+        "CardImage": {
+            "description": "A basic header with a title and a logo",
+            "parameters": [
+              {
+                  "name": "suit",
+                  "type": "string"
+              },
+              {
+                  "name": "value",
+                  "type": "string"
+              }
+            ],
+            "items": [
+                {
+                    "type": "Container",
+                    "items": [
+                        {
+                            "type": "TouchWrapper",
+                            "onPress": {
+                                "type": "SendEvent",
+                                "arguments": [
+                                    "${suit}", "${value}"
+                                ]
+                            },
+                            "item": {
+                                "type": "Frame",
+                                "height": "45vh",
+                                "width": "19vw",
+                                "backgroundColor": "white",
+                                "item": {
+                                  "type": "AlexaImage",
+                                  "imageSource": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${value}_of_${suit}.png",
+                                  "imageRoundedCorner": true,
+                                  "imageScale": "best-fit",
+                                  "imageAlignment": "center",
+                                  "imageHeight": "100%",
+                                  "imageBlurredBackground": false
+                                    
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "height": "100vh",
+                "width": "100vw",
+                "paddingTop": "0dp",
+                "paddingLeft": "0dp",
+                "paddingRight": "0dp",
+                "paddingBottom": "0dp",
+                "alignItems": "center",
+
+                "items": [
+                    {
+                        "type": "Container",
+                        "height": "50vh",
+                        "width": "100%",
+                        "paddingTop": "1vh",
+                        "paddingLeft": "1vw",
+                        "paddingRight": "1vw",
+                        "paddingBottom": "1vh",
+                        "direction": "row",
+                        "alignItems": "center",
+                        "justifyContent": "spaceBetween",
+                        "items": [
+                            {
+                            	"type": "CardImage",
+                            	"suit": "spades",
+                            	"value": "king"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"suit": "spades",
+                            	"value": "queen"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"suit": "spades",
+                            	"value": "9"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"suit": "spades",
+                            	"value": "4"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"suit": "spades",
+                            	"value": "ace"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

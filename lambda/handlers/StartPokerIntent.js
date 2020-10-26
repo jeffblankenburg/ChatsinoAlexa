@@ -1,3 +1,4 @@
+const Alexa = require('ask-sdk-core');
 const helper = require("../helper.js");
 const chatsino = require("../chatsino");
 
@@ -8,7 +9,7 @@ async function StartPokerIntent(handlerInput) {
 
     const result = await chatsino.poker.play(sessionAttributes.user, parseInt(wager));
     //console.log(`RESULT ${JSON.stringify(result)}`);
-    console.log(`RESULT.OUTCOME ${JSON.stringify(result.outcome)}`);
+    //console.log(`RESULT.OUTCOME ${JSON.stringify(result.outcome)}`);
     let speakOutput = ``;
 
     switch(result.status) {
@@ -35,6 +36,17 @@ async function StartPokerIntent(handlerInput) {
             speakOutput += `Your wager was higher than your current balance, which is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins. You can bet any amount up to your available balance. How many coins would you like to bet on video poker?`;
         break;
     }
+
+    console.log("CHECKING FOR APL");
+    if (handlerInput.requestEnvelope.context.System.device.supportedInterfaces["Alexa.Presentation.APL"]) {//(Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
+        console.log("SHOULD WRITE APL.");
+        const pokerAPL = require("../APL/poker.json");
+        handlerInput.responseBuilder.addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            document: pokerAPL
+        });
+    }
+    else console.log("NO APL.");
 
     return (
         handlerInput.responseBuilder

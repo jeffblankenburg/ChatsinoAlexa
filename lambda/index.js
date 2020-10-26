@@ -259,11 +259,7 @@ const RequestLog = {
   
   const ResponseLog = {
     process(handlerInput) {
-      console.log(
-        `RESPONSE BUILDER = ${JSON.stringify(
-          handlerInput.responseBuilder.getResponse()
-        )}`
-      );
+      //console.log(`RESPONSE BUILDER = ${JSON.stringify(handlerInput.responseBuilder.getResponse())}`);
       helper.putRepeatData(handlerInput);
     },
   };

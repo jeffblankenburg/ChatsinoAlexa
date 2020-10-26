@@ -5,7 +5,53 @@
         "endpoint": {
           "uri": "arn:aws:lambda:us-east-1:679180307287:function:ChatsinoAlexa"
         },
-        "interfaces": []
+        "interfaces": [
+          {
+            "supportedViewports": [
+              {
+                "maxHeight": 540,
+                "maxWidth": 960,
+                "minHeight": 540,
+                "minWidth": 960,
+                "mode": "TV",
+                "shape": "RECTANGLE"
+              },
+              {
+                "maxHeight": 480,
+                "maxWidth": 480,
+                "minHeight": 480,
+                "minWidth": 480,
+                "mode": "HUB",
+                "shape": "ROUND"
+              },
+              {
+                "maxHeight": 600,
+                "maxWidth": 1024,
+                "minHeight": 600,
+                "minWidth": 1024,
+                "mode": "HUB",
+                "shape": "RECTANGLE"
+              },
+              {
+                "maxHeight": 800,
+                "maxWidth": 1280,
+                "minHeight": 800,
+                "minWidth": 1280,
+                "mode": "HUB",
+                "shape": "RECTANGLE"
+              },
+              {
+                "maxHeight": 480,
+                "maxWidth": 960,
+                "minHeight": 480,
+                "minWidth": 960,
+                "mode": "HUB",
+                "shape": "RECTANGLE"
+              }
+            ],
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
       }
     },
     "manifestVersion": "1.0",
@@ -52,9 +98,9 @@
             "wager",
             "bet"
           ],
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3d76/2902a066359f4ff18693ddc29a55a340/APP_ICON_LARGE?versionId=TV.oH_.7y9HsZCMSmc3vRjks.Ez6RpjF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201014T150410Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHAYALYJ7%2F20201014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9428632ca2e03552eb89f2ab16106d6da49a7a0a1885faa77a99d69adb657ffb",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3d76/2902a066359f4ff18693ddc29a55a340/APP_ICON_LARGE?versionId=TV.oH_.7y9HsZCMSmc3vRjks.Ez6RpjF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201026T140650Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHAYALYJ7%2F20201026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ee589d0c4505fbb64b1af83b041866286bfe7324ca75b08c24a9f87cd6a02e15",
           "name": "CHATsino",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4818/7e1799f6bda442d8bc86ab78182aabd1/APP_ICON?versionId=ZzVRaA63irEhDVNE5Jtdh48T_Z5Naxhi&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201014T150410Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHAYALYJ7%2F20201014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f84e2f70637831ca95ad1ffcf2770d2df763ca45631818fffcabfe329b1e7d30",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4818/7e1799f6bda442d8bc86ab78182aabd1/APP_ICON?versionId=ZzVRaA63irEhDVNE5Jtdh48T_Z5Naxhi&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201026T140650Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHAYALYJ7%2F20201026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9d8405ae3a52bd2d716de37ee0fd31d9f1f62a240ddaa2de4fa3567d0c7d9146",
           "summary": "A complete voice-enabled casino! Play slots, video poker, and roulette any time.  Just say, \"Alexa, open chatsino.\""
         }
       },

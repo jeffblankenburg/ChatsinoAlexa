@@ -1,0 +1,104 @@
+{
+    "type": "APL",
+    "version": "1.4",
+    "settings": {},
+    "theme": "dark",
+    "import": [
+        {
+      "name": "alexa-layouts",
+      "version": "1.2.0"
+    }],
+    "resources": [],
+    "styles": {},
+    "onMount": [],
+    "graphics": {},
+    "commands": {},
+    "layouts": {
+        "CardImage": {
+            "description": "A basic header with a title and a logo",
+            "parameters": [
+              {
+                "name": "imagePath",
+                "type": "string"
+              }
+            ],
+            "items": [
+                {
+                    "type": "Container",
+                    "items": [
+                        {
+                            "type": "Frame",
+                            "height": "45vh",
+                            "width": "19vw",
+                            "backgroundColor": "white",
+                            "item": {
+                              "type": "AlexaImage",
+                              "imageSource": "${imagePath}",
+                              "imageRoundedCorner": true,
+                              "imageScale": "best-fit",
+                              "imageAlignment": "center",
+                              "imageHeight": "100%",
+                              "imageBlurredBackground": false
+                                
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "height": "100vh",
+                "width": "100vw",
+                "paddingTop": "0dp",
+                "paddingLeft": "0dp",
+                "paddingRight": "0dp",
+                "paddingBottom": "0dp",
+                "alignItems": "center",
+
+                "items": [
+                    {
+                        "type": "Container",
+                        "height": "50vh",
+                        "width": "100%",
+                        "paddingTop": "1vh",
+                        "paddingLeft": "1vw",
+                        "paddingRight": "1vw",
+                        "paddingBottom": "1vh",
+                        "direction": "row",
+                        "alignItems": "center",
+                        "justifyContent": "spaceBetween",
+                        "items": [
+                            {
+                            	"type": "CardImage",
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/king_of_spades.png"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/queen_of_spades.png"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/9_of_spades.png"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/4_of_spades.png"
+                            },
+                            {
+                            	"type": "CardImage",
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/ace_of_spades.png"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
