@@ -73,6 +73,7 @@ async function hold(user, action, suit, value) {
             action: action,
             suit: suit,
             value: value,
+            result: openingHand,
             game: activeGame[0],
             status: "CARD_HOLD_UPDATED"
         }

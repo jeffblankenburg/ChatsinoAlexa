@@ -24,12 +24,29 @@
               {
                   "name": "value",
                   "type": "string"
+              },
+              {
+                  "name": "isHeld",
+                  "type": "boolean"
               }
             ],
             "items": [
                 {
                     "type": "Container",
                     "items": [
+                        {
+                            "type": "Frame",
+                            "height": "4vh",
+                            "width": "19vw",
+                            "item": {
+                                "type": "Text",
+                                "text": "${isHeld == true ? 'HELD' : ' '}",
+                                "fontSize": "20dp",
+                                "textAlign": "center",
+                                "width": "100%",
+                                "fontWeight": "bold"
+                            }
+                        },
                         {
                             "type": "TouchWrapper",
                             "onPress": {
@@ -62,7 +79,7 @@
     },
     "mainTemplate": {
         "parameters": [
-            "payload"
+            "pokerData"
         ],
         "items": [
             {
@@ -74,48 +91,99 @@
                 "paddingRight": "0dp",
                 "paddingBottom": "0dp",
                 "alignItems": "center",
-
-                "items": [
-                    {
+                "item": {
+                    "type": "Frame",
+                    "backgroundColor": "blue",
+                    "width": "100%",
+                    "height": "100%",
+                    "item": {
                         "type": "Container",
-                        "height": "50vh",
                         "width": "100%",
-                        "paddingTop": "1vh",
-                        "paddingLeft": "1vw",
-                        "paddingRight": "1vw",
-                        "paddingBottom": "1vh",
-                        "direction": "row",
-                        "alignItems": "center",
-                        "justifyContent": "spaceBetween",
+                        "height": "100%",
                         "items": [
                             {
-                            	"type": "CardImage",
-                            	"suit": "spades",
-                            	"value": "king"
+                                "type": "Text",
+                                "text": "TWO PAIR",
+                                "fontSize": "40dp",
+                                "fontWeight": "bold",
+                                "textAlign": "center",
+                                "color": "yellow"
                             },
                             {
-                            	"type": "CardImage",
-                            	"suit": "spades",
-                            	"value": "queen"
+                                "type": "Container",
+                                "height": "50vh",
+                                "width": "100%",
+                                "paddingTop": "1vh",
+                                "paddingLeft": "1vw",
+                                "paddingRight": "1vw",
+                                "paddingBottom": "1vh",
+                                "direction": "row",
+                                "alignItems": "center",
+                                "justifyContent": "spaceBetween",
+                                "items": [
+                                    {
+                                    	"type": "CardImage",
+                                    	"suit": "${pokerData.cards[0].suit}",
+                                    	"value": "${pokerData.cards[0].value}",
+                                    	"isHeld": "${pokerData.cards[0].isHeld}"
+                                    },
+                                    {
+                                    	"type": "CardImage",
+                                    	"suit": "${pokerData.cards[1].suit}",
+                                    	"value": "${pokerData.cards[1].value}",
+                                    	"isHeld": "${pokerData.cards[1].isHeld}"
+                                    },
+                                    {
+                                    	"type": "CardImage",
+                                    	"suit": "${pokerData.cards[2].suit}",
+                                    	"value": "${pokerData.cards[2].value}",
+                                    	"isHeld": "${pokerData.cards[2].isHeld}"
+                                    },
+                                    {
+                                    	"type": "CardImage",
+                                    	"suit": "${pokerData.cards[3].suit}",
+                                    	"value": "${pokerData.cards[3].value}",
+                                    	"isHeld": "${pokerData.cards[3].isHeld}"
+                                    },
+                                    {
+                                    	"type": "CardImage",
+                                    	"suit": "${pokerData.cards[4].suit}",
+                                    	"value": "${pokerData.cards[4].value}",
+                                    	"isHeld": "${pokerData.cards[4].isHeld}"
+                                    }
+                                ]
                             },
                             {
-                            	"type": "CardImage",
-                            	"suit": "spades",
-                            	"value": "9"
-                            },
-                            {
-                            	"type": "CardImage",
-                            	"suit": "spades",
-                            	"value": "4"
-                            },
-                            {
-                            	"type": "CardImage",
-                            	"suit": "spades",
-                            	"value": "ace"
+                                "type": "Container",
+                                "height": "50vh",
+                                "width": "100%",
+                                "paddingTop": "1vh",
+                                "paddingLeft": "1vw",
+                                "paddingRight": "1vw",
+                                "paddingBottom": "1vh",
+                                "direction": "row",
+                                "items": [
+                                    {
+                                        "type": "Text",
+                                        "text": "$10748"
+                                    },
+                                    {
+                                      "type": "AlexaButton",
+                                      "buttonText": "DEAL",
+                                      "id": "containedButtonId",
+                                      "primaryAction": {
+                                        "type": "SendEvent",
+                                        "componentId": "containedButtonId",
+                                        "arguments": [
+                                          "contained"
+                                        ]
+                                      }
+                                     }
+                                ]
                             }
                         ]
                     }
-                ]
+                }
             }
         ]
     }
