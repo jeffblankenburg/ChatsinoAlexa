@@ -31,7 +31,6 @@ async function PokerHoldIntent(handlerInput) {
     }
 
     if (handlerInput.requestEnvelope.context.System.device.supportedInterfaces["Alexa.Presentation.APL"]) {//(Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
-        console.log("SHOULD WRITE APL.");
         const pokerAPL = require("../APL/poker.json");
         //const pokerData = require("");
         //pokerAPL.mainTemplate.items[0].item.item.items[1].items[0].suit = 
