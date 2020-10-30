@@ -4,6 +4,15 @@ const handlers = require(`./handlers`);
 const helper = require(`./helper`);
 const chatsino = require("./chatsino");
 
+const UserEventHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'Alexa.Presentation.APL.UserEvent';
+    },
+    handle(handlerInput) {
+        return handlers.UserEvent(handlerInput);
+    }
+};
+
 const BalanceIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -283,6 +292,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         HelpIntentHandler,
         RepeatIntentHandler,
         ClearRouletteIntentHandler,
+        UserEventHandler,
         PaytableIntentHandler,
         CancelAndStopIntentHandler,
         UserAccountIntentHandler,

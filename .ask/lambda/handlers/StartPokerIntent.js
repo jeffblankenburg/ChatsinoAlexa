@@ -1,3 +1,4 @@
+const Alexa = require('ask-sdk-core');
 const helper = require("../helper.js");
 const chatsino = require("../chatsino");
 
@@ -8,7 +9,7 @@ async function StartPokerIntent(handlerInput) {
 
     const result = await chatsino.poker.play(sessionAttributes.user, parseInt(wager));
     //console.log(`RESULT ${JSON.stringify(result)}`);
-    console.log(`RESULT.OUTCOME ${JSON.stringify(result.outcome)}`);
+    //console.log(`RESULT.OUTCOME ${JSON.stringify(result.outcome)}`);
     let speakOutput = ``;
 
     switch(result.status) {
@@ -34,6 +35,49 @@ async function StartPokerIntent(handlerInput) {
             handlerInput.responseBuilder.addElicitSlotDirective("wager");
             speakOutput += `Your wager was higher than your current balance, which is <say-as interpret-as="cardinal">${result.user.fields.AvailableBalance}</say-as> coins. You can bet any amount up to your available balance. How many coins would you like to bet on video poker?`;
         break;
+    }
+
+    if (handlerInput.requestEnvelope.context.System.device.supportedInterfaces["Alexa.Presentation.APL"]) {//(Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
+        console.log("SHOULD WRITE APL.");
+        const pokerAPL = require("../APL/poker.json");
+        //const pokerData = require("");
+        //pokerAPL.mainTemplate.items[0].item.item.items[1].items[0].suit = 
+        handlerInput.responseBuilder.addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            document: pokerAPL,
+            datasources: {
+                "pokerData": 
+                {
+                    "cards": [
+                        {
+                            "suit": `${result.result[0].suit.name.toLowerCase()}`,
+                            "value": `${result.result[0].value.id}`,
+                            "isHeld": result.result[0].held
+                        },
+                        {
+                            "suit": `${result.result[1].suit.name.toLowerCase()}`,
+                            "value": `${result.result[1].value.id}`,
+                            "isHeld": result.result[1].held
+                        },
+                        {
+                            "suit": `${result.result[2].suit.name.toLowerCase()}`,
+                            "value": `${result.result[2].value.id}`,
+                            "isHeld": result.result[2].held
+                        },
+                        {
+                            "suit": `${result.result[3].suit.name.toLowerCase()}`,
+                            "value": `${result.result[3].value.id}`,
+                            "isHeld": result.result[3].held
+                        },
+                        {
+                            "suit": `${result.result[4].suit.name.toLowerCase()}`,
+                            "value": `${result.result[4].value.id}`,
+                            "isHeld": result.result[4].held
+                        }
+                    ]  
+                }
+            }
+        });
     }
 
     return (

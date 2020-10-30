@@ -1,16 +1,29 @@
-const helper = require("../helper.js");
+const helper = require("../helper");
 const chatsino = require("../chatsino");
 
-async function PokerHoldIntent(handlerInput) {
+async function UserEvent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-    helper.setAction(handlerInput, `POKERHOLD`);
-    const action = helper.getResolvedWords(handlerInput, "holdType");
-    const cardSuit = helper.getResolvedWords(handlerInput, "cardSuit");
-    const cardValue = helper.getResolvedWords(handlerInput, "cardValue");
+    helper.setAction(handlerInput, `USEREVENT`);
 
-    const result = await chatsino.poker.hold(sessionAttributes.user, action, cardSuit, cardValue);
+    const arguments = handlerInput.requestEnvelope.request.arguments;
+    console.log({arguments});
 
-    let speakOutput = `This is the poker hold intent.`;
+    let speakOutput = "Hello.";
+    let result;
+
+    const suit = [{value: {name: arguments[1]}}];
+    const value = [{value: {id: arguments[2]}}];
+
+    switch(arguments[0]) {
+        case "PokerHold":
+            let hold = [{value: {name: "hold"}}];
+            result = await chatsino.poker.hold(sessionAttributes.user, hold, suit, value);
+        break;
+        case "PokerDrop":
+            let drop = [{value: {name: "discard"}}];
+            result = await chatsino.poker.hold(sessionAttributes.user, drop, suit, value);
+        break;
+    }
 
     let holdSpeech = `You are not currently holding any cards. `;
     const heldCardSpeech = helper.getCardSpeech(result.game.fields.OpeningHand.filter(card => card.held === true))
@@ -71,12 +84,15 @@ async function PokerHoldIntent(handlerInput) {
             }
         });
     }
-    
-    return handlerInput.responseBuilder
-          .speak(speakOutput)
-          .reprompt('What do you want to do next?')
-          .getResponse();
 
+    
+    const actionQuery = "What now?";
+
+
+    return handlerInput.responseBuilder
+        .speak(`${speakOutput} ${actionQuery}`)
+        .reprompt(actionQuery)
+        .getResponse();
 }
 
-module.exports = PokerHoldIntent;
+module.exports = UserEvent;

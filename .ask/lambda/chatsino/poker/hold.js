@@ -16,7 +16,7 @@ async function hold(user, action, suit, value) {
             }
             else if (value && !suit) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                    if (value[0].value.id.toLowerCase() === openingHand[i].value.id.toLowerCase()) {
                         if (action[0].value.name === "hold") openingHand[i].held = true;
                         else if (action[0].value.name === "discard") openingHand[i].held = false;
                     }
@@ -32,9 +32,13 @@ async function hold(user, action, suit, value) {
             }
             else if (suit && value) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                    console.log(`suit[0].value.name.toLowerCase() = ${suit[0].value.name.toLowerCase()}`);
+                    console.log(`openingHand[i].suit.name.toLowerCase() = ${openingHand[i].suit.name.toLowerCase()}`);
+                    console.log(`value[0].value.id = ${value[0].value.id}`);
+                    console.log(`openingHand[i].value.id = ${openingHand[i].value.id}`);
+                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && parseInt(value[0].value.id) === parseInt(openingHand[i].value.id)) {
                         if (action[0].value.name === "hold") openingHand[i].held = true;
-                        else if (action[0].value.name === "discard") openingHand[i].help = false;
+                        else if (action[0].value.name === "discard") openingHand[i].held = false;
                     }
                 }
             }
@@ -42,7 +46,7 @@ async function hold(user, action, suit, value) {
         else {
             if (!suit && value) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                    if (value[0].value.id.toLowerCase() === openingHand[i].value.id.toLowerCase()) {
                         openingHand[i].held = true;
                     }
                 }
@@ -56,7 +60,7 @@ async function hold(user, action, suit, value) {
             }
             else if (suit && value) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && value[0].value.name.toLowerCase() === openingHand[i].value.name.toLowerCase()) {
+                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && parseInt(value[0].value.id) === parseInt(openingHand[i].value.id)) {
                         openingHand[i].held = true;
                     }
                 }
@@ -73,6 +77,7 @@ async function hold(user, action, suit, value) {
             action: action,
             suit: suit,
             value: value,
+            result: openingHand,
             game: activeGame[0],
             status: "CARD_HOLD_UPDATED"
         }

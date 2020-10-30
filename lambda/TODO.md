@@ -4,7 +4,7 @@
 * [x] Change INVALID_WAGER cases to handle all of the new options.  This is currently broken. 
 * [x] Achievements (poker done, slots done, roulette done)
 * [x] Levels.  Each level allows you a specific minimum and maximum bet. 
-* [x] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7 - SOMETHING AWESOME.
+* [x] Daily Reward - each day for 7 days, you receive an escalated prize.  Day 1 - 1000 coins.  Day 7.
 * [x] Minimum and maximum bets based on your balance.
 * [ ] Randomize most speech strings
 * [x] Website?

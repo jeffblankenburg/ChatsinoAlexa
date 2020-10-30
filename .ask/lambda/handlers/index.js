@@ -17,6 +17,7 @@ const StartPokerIntent = require("./StartPokerIntent");
 const StartSlotsIntent = require("./StartSlotsIntent");
 const StartRouletteIntent = require("./StartRouletteIntent");
 const UserAccountIntent = require("./UserAccountIntent");
+const UserEvent = require("./UserEvent");
 
 module.exports = {
     BalanceIntent,
@@ -38,4 +39,5 @@ module.exports = {
     StartSlotsIntent,
     StartRouletteIntent,
     UserAccountIntent,
+    UserEvent
 };
