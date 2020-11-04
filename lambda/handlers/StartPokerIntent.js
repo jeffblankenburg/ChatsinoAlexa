@@ -41,7 +41,9 @@ async function StartPokerIntent(handlerInput) {
         console.log("SHOULD WRITE APL.");
         const pokerAPL = require("../APL/poker.json");
         //const pokerData = require("");
-        //pokerAPL.mainTemplate.items[0].item.item.items[1].items[0].suit = 
+        //pokerAPL.mainTemplate.items[0].item.item.items[1].items[0].suit = \
+        const temp = result.result;
+        console.log({temp});
         handlerInput.responseBuilder.addDirective({
             type: 'Alexa.Presentation.APL.RenderDocument',
             document: pokerAPL,
@@ -52,26 +54,31 @@ async function StartPokerIntent(handlerInput) {
                         {
                             "suit": `${result.result[0].suit.name.toLowerCase()}`,
                             "value": `${result.result[0].value.id}`,
+                            "symbol": `${result.result[0].value.symbol.toLowerCase()}`,
                             "isHeld": result.result[0].held
                         },
                         {
                             "suit": `${result.result[1].suit.name.toLowerCase()}`,
                             "value": `${result.result[1].value.id}`,
+                            "symbol": `${result.result[1].value.symbol}`,
                             "isHeld": result.result[1].held
                         },
                         {
                             "suit": `${result.result[2].suit.name.toLowerCase()}`,
                             "value": `${result.result[2].value.id}`,
+                            "symbol": `${result.result[2].value.symbol}`,
                             "isHeld": result.result[2].held
                         },
                         {
                             "suit": `${result.result[3].suit.name.toLowerCase()}`,
                             "value": `${result.result[3].value.id}`,
+                            "symbol": `${result.result[3].value.symbol}`,
                             "isHeld": result.result[3].held
                         },
                         {
                             "suit": `${result.result[4].suit.name.toLowerCase()}`,
                             "value": `${result.result[4].value.id}`,
+                            "symbol": `${result.result[4].value.symbol}`,
                             "isHeld": result.result[4].held
                         }
                     ]  
