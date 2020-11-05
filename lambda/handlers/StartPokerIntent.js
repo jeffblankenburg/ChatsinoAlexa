@@ -54,31 +54,31 @@ async function StartPokerIntent(handlerInput) {
                         {
                             "suit": `${result.result[0].suit.name.toLowerCase()}`,
                             "value": `${result.result[0].value.id}`,
-                            "symbol": `${result.result[0].value.symbol.toLowerCase()}`,
+                            "symbol": result.result[0].value.symbol.toLowerCase(),
                             "isHeld": result.result[0].held
                         },
                         {
                             "suit": `${result.result[1].suit.name.toLowerCase()}`,
                             "value": `${result.result[1].value.id}`,
-                            "symbol": `${result.result[1].value.symbol}`,
+                            "symbol": result.result[1].value.symbol.toLowerCase(),
                             "isHeld": result.result[1].held
                         },
                         {
                             "suit": `${result.result[2].suit.name.toLowerCase()}`,
                             "value": `${result.result[2].value.id}`,
-                            "symbol": `${result.result[2].value.symbol}`,
+                            "symbol": result.result[2].value.symbol.toLowerCase(),
                             "isHeld": result.result[2].held
                         },
                         {
                             "suit": `${result.result[3].suit.name.toLowerCase()}`,
                             "value": `${result.result[3].value.id}`,
-                            "symbol": `${result.result[3].value.symbol}`,
+                            "symbol": `${result.result[3].value.symbol.toLowerCase()}`,
                             "isHeld": result.result[3].held
                         },
                         {
                             "suit": `${result.result[4].suit.name.toLowerCase()}`,
                             "value": `${result.result[4].value.id}`,
-                            "symbol": `${result.result[4].value.symbol}`,
+                            "symbol": `${result.result[4].value.symbol.toLowerCase()}`,
                             "isHeld": result.result[4].held
                         }
                     ]  
@@ -86,6 +86,16 @@ async function StartPokerIntent(handlerInput) {
             }
         });
     }
+    // const val = result.result[0].value.symbol.toLowerCase();
+    // const st = result.result[0].suit.name.toLowerCase();
+    // console.log(val);
+    // console.log(st);
+
+    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[0].value.symbol.toLowerCase()}_of_${result.result[0].suit.name.toLowerCase()}.png`)
+    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[1].value.symbol.toLowerCase()}_of_${result.result[1].suit.name.toLowerCase()}.png`)
+    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[2].value.symbol.toLowerCase()}_of_${result.result[2].suit.name.toLowerCase()}.png`)
+    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[3].value.symbol.toLowerCase()}_of_${result.result[3].suit.name.toLowerCase()}.png`)
+    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[4].value.symbol.toLowerCase()}_of_${result.result[4].suit.name.toLowerCase()}.png`)
 
     return (
         handlerInput.responseBuilder
