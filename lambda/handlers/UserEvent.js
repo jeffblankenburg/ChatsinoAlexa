@@ -1,5 +1,7 @@
 const helper = require("../helper");
 const chatsino = require("../chatsino");
+const PokerDealIntent = require("./PokerDealIntent");
+const APL = require("../APL");
 
 async function UserEvent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
@@ -23,6 +25,9 @@ async function UserEvent(handlerInput) {
             let drop = [{value: {name: "discard"}}];
             result = await chatsino.poker.hold(sessionAttributes.user, drop, suit, value);
         break;
+        case "PokerDeal":
+            return await PokerDealIntent(handlerInput);
+        break;
     }
 
     let holdSpeech = `You are not currently holding any cards. `;
@@ -44,45 +49,8 @@ async function UserEvent(handlerInput) {
     }
 
     if (handlerInput.requestEnvelope.context.System.device.supportedInterfaces["Alexa.Presentation.APL"]) {//(Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
-        const pokerAPL = require("../APL/poker.json");
-        //const pokerData = require("");
-        //pokerAPL.mainTemplate.items[0].item.item.items[1].items[0].suit = 
-        handlerInput.responseBuilder.addDirective({
-            type: 'Alexa.Presentation.APL.RenderDocument',
-            document: pokerAPL,
-            datasources: {
-                "pokerData": 
-                {
-                    "cards": [
-                        {
-                            "suit": `${result.result[0].suit.name.toLowerCase()}`,
-                            "value": `${result.result[0].value.symbol}`,
-                            "isHeld": result.result[0].held
-                        },
-                        {
-                            "suit": `${result.result[1].suit.name.toLowerCase()}`,
-                            "value": `${result.result[1].value.symbol}`,
-                            "isHeld": result.result[1].held
-                        },
-                        {
-                            "suit": `${result.result[2].suit.name.toLowerCase()}`,
-                            "value": `${result.result[2].value.symbol}`,
-                            "isHeld": result.result[2].held
-                        },
-                        {
-                            "suit": `${result.result[3].suit.name.toLowerCase()}`,
-                            "value": `${result.result[3].value.symbol}`,
-                            "isHeld": result.result[3].held
-                        },
-                        {
-                            "suit": `${result.result[4].suit.name.toLowerCase()}`,
-                            "value": `${result.result[4].value.symbol}`,
-                            "isHeld": result.result[4].held
-                        }
-                    ]  
-                }
-            }
-        });
+        const directive = APL.poker(sessionAttributes.user, result);
+        handlerInput.responseBuilder.addDirective(directive);
     }
 
     

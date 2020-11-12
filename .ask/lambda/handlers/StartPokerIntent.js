@@ -15,12 +15,12 @@ async function StartPokerIntent(handlerInput) {
     switch(result.status) {
         case "ACTIVE_GAME":
             speakOutput += `Oops! You already have an active game of video poker waiting for you. You wagered ${result.wager} coins. `
-            if (result.outcome.outcome) speakOutput += `You already have a ${result.outcome.outcome.name}! `;
+            if (result.outcome) speakOutput += `You already have a ${result.outcome.name}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "BEFORE_DRAW":
             speakOutput += "<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/5_card_deal.mp3' />";
-            if (result.outcome.outcome !== undefined) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.outcome.name}! `;
+            if (result.outcome !== undefined) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.name}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "ABOVE_MAXIMUM_LIMIT":

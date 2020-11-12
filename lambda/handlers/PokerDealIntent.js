@@ -1,6 +1,7 @@
 const helper = require("../helper.js");
 const data = require("../data");
 const chatsino = require("../chatsino");
+const APL = require("../APL");
 
 async function PokerDealIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
@@ -49,6 +50,11 @@ async function PokerDealIntent(handlerInput) {
         speakOutput += `<amazon:emotion name="excited" intensity="medium">`;
         result.achievements.forEach(a => speakOutput += `${a.fields.Description} You get ${a.fields.Bonus} bonus coins! `);
         speakOutput += `</amazon:emotion>`;
+    }
+
+    if (handlerInput.requestEnvelope.context.System.device.supportedInterfaces["Alexa.Presentation.APL"]) {//(Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
+        const directive = APL.poker(sessionAttributes.user, result);
+        handlerInput.responseBuilder.addDirective(directive);
     }
     
     return handlerInput.responseBuilder

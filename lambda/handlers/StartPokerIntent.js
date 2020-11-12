@@ -1,6 +1,7 @@
 const Alexa = require('ask-sdk-core');
 const helper = require("../helper.js");
 const chatsino = require("../chatsino");
+const APL = require("../APL");
 
 async function StartPokerIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
@@ -8,19 +9,17 @@ async function StartPokerIntent(handlerInput) {
     const wager = helper.getSpokenWords(handlerInput, "wager");
 
     const result = await chatsino.poker.play(sessionAttributes.user, parseInt(wager));
-    //console.log(`RESULT ${JSON.stringify(result)}`);
-    //console.log(`RESULT.OUTCOME ${JSON.stringify(result.outcome)}`);
     let speakOutput = ``;
 
     switch(result.status) {
         case "ACTIVE_GAME":
             speakOutput += `Oops! You already have an active game of video poker waiting for you. You wagered ${result.wager} coins. `
-            if (result.outcome.outcome) speakOutput += `You already have a ${result.outcome.outcome.name}! `;
+            if (result.outcome) speakOutput += `You already have a ${result.outcome.name}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "BEFORE_DRAW":
             speakOutput += "<audio src='https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/5_card_deal.mp3' />";
-            if (result.outcome.outcome !== undefined) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.outcome.name}! `;
+            if (result.outcome !== undefined) speakOutput += `<audio src="https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/sfx/video_poker_winning_hand.mp3" />You already have a ${result.outcome.name}! `;
             speakOutput += `You were dealt ${helper.getCardSpeech(result.result)}.  Which cards do you want to hold?`;
         break;
         case "ABOVE_MAXIMUM_LIMIT":
@@ -38,64 +37,9 @@ async function StartPokerIntent(handlerInput) {
     }
 
     if (handlerInput.requestEnvelope.context.System.device.supportedInterfaces["Alexa.Presentation.APL"]) {//(Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
-        console.log("SHOULD WRITE APL.");
-        const pokerAPL = require("../APL/poker.json");
-        //const pokerData = require("");
-        //pokerAPL.mainTemplate.items[0].item.item.items[1].items[0].suit = \
-        const temp = result.result;
-        console.log({temp});
-        handlerInput.responseBuilder.addDirective({
-            type: 'Alexa.Presentation.APL.RenderDocument',
-            document: pokerAPL,
-            datasources: {
-                "pokerData": 
-                {
-                    "cards": [
-                        {
-                            "suit": `${result.result[0].suit.name.toLowerCase()}`,
-                            "value": `${result.result[0].value.id}`,
-                            "symbol": result.result[0].value.symbol.toLowerCase(),
-                            "isHeld": result.result[0].held
-                        },
-                        {
-                            "suit": `${result.result[1].suit.name.toLowerCase()}`,
-                            "value": `${result.result[1].value.id}`,
-                            "symbol": result.result[1].value.symbol.toLowerCase(),
-                            "isHeld": result.result[1].held
-                        },
-                        {
-                            "suit": `${result.result[2].suit.name.toLowerCase()}`,
-                            "value": `${result.result[2].value.id}`,
-                            "symbol": result.result[2].value.symbol.toLowerCase(),
-                            "isHeld": result.result[2].held
-                        },
-                        {
-                            "suit": `${result.result[3].suit.name.toLowerCase()}`,
-                            "value": `${result.result[3].value.id}`,
-                            "symbol": `${result.result[3].value.symbol.toLowerCase()}`,
-                            "isHeld": result.result[3].held
-                        },
-                        {
-                            "suit": `${result.result[4].suit.name.toLowerCase()}`,
-                            "value": `${result.result[4].value.id}`,
-                            "symbol": `${result.result[4].value.symbol.toLowerCase()}`,
-                            "isHeld": result.result[4].held
-                        }
-                    ]  
-                }
-            }
-        });
+        const directive = APL.poker(sessionAttributes.user, result);
+        handlerInput.responseBuilder.addDirective(directive);
     }
-    // const val = result.result[0].value.symbol.toLowerCase();
-    // const st = result.result[0].suit.name.toLowerCase();
-    // console.log(val);
-    // console.log(st);
-
-    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[0].value.symbol.toLowerCase()}_of_${result.result[0].suit.name.toLowerCase()}.png`)
-    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[1].value.symbol.toLowerCase()}_of_${result.result[1].suit.name.toLowerCase()}.png`)
-    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[2].value.symbol.toLowerCase()}_of_${result.result[2].suit.name.toLowerCase()}.png`)
-    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[3].value.symbol.toLowerCase()}_of_${result.result[3].suit.name.toLowerCase()}.png`)
-    // console.log(`https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${result.result[4].value.symbol.toLowerCase()}_of_${result.result[4].suit.name.toLowerCase()}.png`)
 
     return (
         handlerInput.responseBuilder

@@ -107,7 +107,7 @@
                         "items": [
                             {
                                 "type": "Text",
-                                "text": "TWO PAIR",
+                                "text": "${pokerData.outcome}",
                                 "fontSize": "40dp",
                                 "fontWeight": "bold",
                                 "textAlign": "center",
@@ -175,7 +175,7 @@
                                 "items": [
                                     {
                                         "type": "Text",
-                                        "text": "$10748"
+                                        "text": "${pokerData.balance}"
                                     },
                                     {
                                       "type": "AlexaButton",
@@ -185,7 +185,7 @@
                                         "type": "SendEvent",
                                         "componentId": "containedButtonId",
                                         "arguments": [
-                                          "contained"
+                                          "PokerDeal"
                                         ]
                                       }
                                      }
