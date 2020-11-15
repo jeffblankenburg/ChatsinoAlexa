@@ -5,6 +5,11 @@ const evaluator = require("./evaluator");
 
 async function hold(user, action, suit, value) {
 
+    console.log({action});
+    console.log({suit});
+    console.log({value});
+
+
     const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
     if (activeGame.length > 0) {
         let openingHand = JSON.parse(activeGame[0].fields.OpeningHand);
@@ -17,7 +22,7 @@ async function hold(user, action, suit, value) {
             }
             else if (value && !suit) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (value[0].value.id === openingHand[i].value.id) {
+                    if (parseInt(value[0].value.id) === openingHand[i].value.id) {
                         if (action[0].value.name === "hold") openingHand[i].held = true;
                         else if (action[0].value.name === "discard") openingHand[i].held = false;
                     }
