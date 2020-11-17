@@ -16,7 +16,7 @@ async function play(user, wager) {
               wager: activeGame[0].fields.WageredAmount,
               result: JSON.parse(activeGame[0].fields.OpeningHand),
               deck: JSON.parse(activeGame[0].fields.Deck),
-              outcome: evaluation,
+              outcome: evaluation.outcome,
               status: "ACTIVE_GAME",
             };
           return result;
@@ -33,13 +33,12 @@ async function play(user, wager) {
       const pokerHand = await data.createPokerHand(game, hand, dealOutcome.deck);
       const updatedUser = await data.getUserByRecordId(user.fields.RecordId);
 
-      //console.log({updatedUser});
       const result = {
           user: updatedUser,
           wager: wager,
           result: hand,
           deck: dealOutcome.deck,
-          outcome: evaluation,
+          outcome: evaluation.outcome,
           status: "BEFORE_DRAW",
         };
         //console.log(`POKER RESULT ${JSON.stringify(result)}`);

@@ -28,6 +28,10 @@
               {
                   "name": "isHeld",
                   "type": "boolean"
+              },
+              {
+                  "name": "symbol",
+                  "type": "string"
               }
             ],
             "items": [
@@ -62,7 +66,7 @@
                                 "backgroundColor": "white",
                                 "item": {
                                   "type": "AlexaImage",
-                                  "imageSource": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${value}_of_${suit}.png",
+                                  "imageSource": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/${symbol}_of_${suit}.png",
                                   "imageRoundedCorner": true,
                                   "imageScale": "best-fit",
                                   "imageAlignment": "center",
@@ -103,7 +107,7 @@
                         "items": [
                             {
                                 "type": "Text",
-                                "text": "TWO PAIR",
+                                "text": "${pokerData.outcome}",
                                 "fontSize": "40dp",
                                 "fontWeight": "bold",
                                 "textAlign": "center",
@@ -125,31 +129,37 @@
                                     	"type": "CardImage",
                                     	"suit": "${pokerData.cards[0].suit}",
                                     	"value": "${pokerData.cards[0].value}",
-                                    	"isHeld": "${pokerData.cards[0].isHeld}"
+                                        "isHeld": "${pokerData.cards[0].isHeld}",
+                                        "symbol": "${pokerData.cards[0].symbol}"
                                     },
                                     {
                                     	"type": "CardImage",
                                     	"suit": "${pokerData.cards[1].suit}",
                                     	"value": "${pokerData.cards[1].value}",
-                                    	"isHeld": "${pokerData.cards[1].isHeld}"
+                                        "isHeld": "${pokerData.cards[1].isHeld}",
+                                        "symbol": "${pokerData.cards[1].symbol}"
+                                        
                                     },
                                     {
                                     	"type": "CardImage",
                                     	"suit": "${pokerData.cards[2].suit}",
                                     	"value": "${pokerData.cards[2].value}",
-                                    	"isHeld": "${pokerData.cards[2].isHeld}"
+                                        "isHeld": "${pokerData.cards[2].isHeld}",
+                                        "symbol": "${pokerData.cards[2].symbol}"
                                     },
                                     {
                                     	"type": "CardImage",
                                     	"suit": "${pokerData.cards[3].suit}",
                                     	"value": "${pokerData.cards[3].value}",
-                                    	"isHeld": "${pokerData.cards[3].isHeld}"
+                                        "isHeld": "${pokerData.cards[3].isHeld}",
+                                        "symbol": "${pokerData.cards[3].symbol}"
                                     },
                                     {
                                     	"type": "CardImage",
                                     	"suit": "${pokerData.cards[4].suit}",
                                     	"value": "${pokerData.cards[4].value}",
-                                    	"isHeld": "${pokerData.cards[4].isHeld}"
+                                        "isHeld": "${pokerData.cards[4].isHeld}",
+                                        "symbol": "${pokerData.cards[4].symbol}"
                                     }
                                 ]
                             },
@@ -165,7 +175,7 @@
                                 "items": [
                                     {
                                         "type": "Text",
-                                        "text": "$10748"
+                                        "text": "${pokerData.balance}"
                                     },
                                     {
                                       "type": "AlexaButton",
@@ -175,7 +185,7 @@
                                         "type": "SendEvent",
                                         "componentId": "containedButtonId",
                                         "arguments": [
-                                          "contained"
+                                          "PokerDeal"
                                         ]
                                       }
                                      }

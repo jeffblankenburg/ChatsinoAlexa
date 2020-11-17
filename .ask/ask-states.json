@@ -9,8 +9,8 @@
               "iamRole": "arn:aws:iam::679180307287:role/service-role/ChatsinoAlexa-role-rtdbd1zy",
               "lambda": {
                 "arn": "arn:aws:lambda:us-east-1:679180307287:function:ChatsinoAlexa",
-                "lastModified": "2020-10-30T16:35:30.660+0000",
-                "revisionId": "19dc94c9-46cb-433d-8c8c-f5af318175e1"
+                "lastModified": "2020-11-16T14:38:43.775+0000",
+                "revisionId": "c1f995d0-31cd-449b-848b-b5cb8d58d017"
               }
             }
           }
@@ -18,11 +18,11 @@
       },
       "skillId": "amzn1.ask.skill.a575fab8-3483-4b15-adba-7814aaf54b70",
       "skillMetadata": {
-        "lastDeployHash": "QPcvUzC9WD8lneGogYM7nLYF8Sg="
+        "lastDeployHash": "2djNCH5/boVLdaUeenxZ+6o0odc="
       },
       "code": {
         "default": {
-          "lastDeployHash": "dlW34Wc9jPAEUZa0K9N9Sd9CqnA="
+          "lastDeployHash": "9HNSx15AUvH4gyk2J73X60mOw3U="
         }
       }
     }

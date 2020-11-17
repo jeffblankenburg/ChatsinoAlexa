@@ -644,6 +644,7 @@
                     "name": "CardValues",
                     "values": [
                         {
+                            "id": 13,
                             "name": {
                                 "value": "king",
                                 "synonyms": [
@@ -652,6 +653,7 @@
                             }
                         },
                         {
+                            "id": 12,
                             "name": {
                                 "value": "queen",
                                 "synonyms": [
@@ -660,6 +662,7 @@
                             }
                         },
                         {
+                            "id": 11,
                             "name": {
                                 "value": "jack",
                                 "synonyms": [
@@ -668,6 +671,7 @@
                             }
                         },
                         {
+                            "id": 10,
                             "name": {
                                 "value": "ten",
                                 "synonyms": [
@@ -676,6 +680,7 @@
                             }
                         },
                         {
+                            "id": 9,
                             "name": {
                                 "value": "nine",
                                 "synonyms": [
@@ -684,6 +689,7 @@
                             }
                         },
                         {
+                            "id": 8,
                             "name": {
                                 "value": "eight",
                                 "synonyms": [
@@ -692,6 +698,7 @@
                             }
                         },
                         {
+                            "id": 7,
                             "name": {
                                 "value": "seven",
                                 "synonyms": [
@@ -700,6 +707,7 @@
                             }
                         },
                         {
+                            "id": 6,
                             "name": {
                                 "value": "six",
                                 "synonyms": [
@@ -708,6 +716,7 @@
                             }
                         },
                         {
+                            "id": 5,
                             "name": {
                                 "value": "five",
                                 "synonyms": [
@@ -716,6 +725,7 @@
                             }
                         },
                         {
+                            "id": 4,
                             "name": {
                                 "value": "four",
                                 "synonyms": [
@@ -724,6 +734,7 @@
                             }
                         },
                         {
+                            "id": 3,
                             "name": {
                                 "value": "three",
                                 "synonyms": [
@@ -732,6 +743,7 @@
                             }
                         },
                         {
+                            "id": 2,
                             "name": {
                                 "value": "two",
                                 "synonyms": [
@@ -740,8 +752,10 @@
                             }
                         },
                         {
+                            "id": 14,
                             "name": {
                                 "value": "ace",
+                                
                                 "synonyms": [
                                     "ones"
                                 ]
