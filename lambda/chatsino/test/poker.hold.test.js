@@ -1,5 +1,7 @@
 const poker = require("../poker");
 const data = require("../data");
+const deck = require("../deck");
+const deleteAllCrapsRollsByUser = require("../data/deleteAllCrapsRollsByUser");
 
 let user;
 
@@ -38,8 +40,16 @@ test("Makes no changes to hold status when requested suit doesn't exist.", async
 //TRIES TO HOLD VALUE THAT DOESN'T EXIST.
 test("Makes no changes to hold status when requested value doesn't exist.", async () => {
     const game = await poker.play(user, 10);
+    const hand = [{"suit":deck.suit.CLUBS, "value":deck.value._K, "held": false},
+                  {"suit":deck.suit.CLUBS, "value":deck.value._J, "held": false},
+                  {"suit":deck.suit.HEARTS, "value":deck.value._9, "held": false},
+                  {"suit":deck.suit.CLUBS, "value":deck.value._7, "held": false},
+                  {"suit":deck.suit.CLUBS, "value":deck.value._5, "held": false}];
+    console.log("GAME.GAME = " + JSON.stringify(game.game));
+    console.log("GAME.ID = " + game.game.id);
+    const pokerGame = await data.updatePokerHand(game.game.id, hand, game.deck, undefined);
     const result = await poker.hold(user, "hold", undefined, 1);
-    expect(game.hand).toMatchObject(result.hand);
+    expect(pokerGame.hand).toMatchObject(result.hand);
     expect(result.status).toBe("CARD_HOLD_UPDATED");
 });
 

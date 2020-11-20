@@ -34,6 +34,7 @@ async function play(user, wager) {
       const updatedUser = await data.getUserByRecordId(user.fields.RecordId);
 
       const result = {
+          game: game,
           user: updatedUser,
           wager: wager,
           hand: hand,

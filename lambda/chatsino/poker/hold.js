@@ -5,9 +5,9 @@ const evaluator = require("./evaluator");
 
 async function hold(user, action, suit, value) {
 
-    console.log({action});
-    console.log({suit});
-    console.log({value});
+    //console.log({action});
+    //console.log({suit});
+    //console.log({value});
 
 
     const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
