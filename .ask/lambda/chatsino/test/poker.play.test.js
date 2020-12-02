@@ -13,24 +13,21 @@ afterAll(async (done) => {
   done();
 });
 
-test("Invalid wager when more than AvailableBalance", async () => {
-  const result = await poker.play(user, 111);
+test("Returns an active game when user has an active game.", async () => {
+  const gameStart = await poker.play(user, 10);
+  const result = await poker.play(user, 10);
   expect(result.user.RecordId).toBe(user.RecordId);
-  expect(result.wager).toBe(111);
-  expect(result.status).toBe("INVALID_WAGER");
+  expect(result.wager).toBe(10);
+  expect(result.hand.length).toBe(5);
+  expect(result.deck.length).toBe(47);
+  expect(result.status).toBe("ACTIVE_GAME");
 });
 
-// test("Values should match on return", async () => {
-//   const result = await poker.play(user, 10);
-//   //console.log(`RESULT USER FIELDS ${JSON.stringify(result.user.fields)}`);
-//   expect(result.user.fields.RecordId).toBe(user.fields.RecordId);
-//   expect(result.wager).toBe(10);
-//   expect(result.user.fields.AvailableBalance).toBe(90);
-// });
-
-// test("Should return ACTIVE_GAME because a game is already in progress", async () => {
-//     const firstresult = await poker.play(user, 10);
-//     const result = await poker.play(user, 10);
-//     expect(result.status).toBe("ACTIVE_GAME");
-//     expect(result.user.fields.AvailableBalance).toBe(user.fields.AvailableBalance);
-// });
+test("Returns a new game when user starts a new game.", async () => {
+  const result = await poker.play(user, 10);
+  expect(result.user.RecordId).toBe(user.RecordId);
+  expect(result.wager).toBe(10);
+  expect(result.hand.length).toBe(5);
+  expect(result.deck.length).toBe(47);
+  expect(result.status).toBe("BEFORE_DRAW");
+});

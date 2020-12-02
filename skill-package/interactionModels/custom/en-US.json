@@ -133,7 +133,9 @@
                         "what is my chip count",
                         "how many coins do I have",
                         "what is my balance",
-                        "how much do I have"
+                        "how much do I have",
+                        "balance",
+                        "bank"
                     ]
                 },
                 {
@@ -619,21 +621,25 @@
                     "name": "CardSuits",
                     "values": [
                         {
+                            "id": 3,
                             "name": {
                                 "value": "clubs"
                             }
                         },
                         {
+                            "id": 2,
                             "name": {
                                 "value": "diamonds"
                             }
                         },
                         {
+                            "id": 1,
                             "name": {
                                 "value": "hearts"
                             }
                         },
                         {
+                            "id": 4,
                             "name": {
                                 "value": "spades"
                             }

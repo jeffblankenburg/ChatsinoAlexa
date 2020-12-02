@@ -10,11 +10,11 @@ async function play(user, wager) {
       const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
       if (activeGame.length > 0) {
         const evaluation = evaluator(JSON.parse(activeGame[0].fields.OpeningHand));
-        console.log({evaluation});
+        //console.log({evaluation});
           const result = {
               user: user,
               wager: activeGame[0].fields.WageredAmount,
-              result: JSON.parse(activeGame[0].fields.OpeningHand),
+              hand: JSON.parse(activeGame[0].fields.OpeningHand),
               deck: JSON.parse(activeGame[0].fields.Deck),
               outcome: evaluation.outcome,
               status: "ACTIVE_GAME",
@@ -34,9 +34,10 @@ async function play(user, wager) {
       const updatedUser = await data.getUserByRecordId(user.fields.RecordId);
 
       const result = {
+          game: game,
           user: updatedUser,
           wager: wager,
-          result: hand,
+          hand: hand,
           deck: dealOutcome.deck,
           outcome: evaluation.outcome,
           status: "BEFORE_DRAW",

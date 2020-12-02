@@ -5,9 +5,13 @@ const APL = require("../APL");
 async function PokerHoldIntent(handlerInput) {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
     helper.setAction(handlerInput, `POKERHOLD`);
-    const action = helper.getResolvedWords(handlerInput, "holdType");
-    const cardSuit = helper.getResolvedWords(handlerInput, "cardSuit");
-    const cardValue = helper.getResolvedWords(handlerInput, "cardValue");
+    let action = helper.getResolvedWords(handlerInput, "holdType");
+    let cardSuit = helper.getResolvedWords(handlerInput, "cardSuit");
+    let cardValue = helper.getResolvedWords(handlerInput, "cardValue");
+
+    if (action) action = action[0].value.name;
+    if (cardSuit) cardSuit = parseInt(cardSuit[0].value.id);
+    if (cardValue) cardValue = parseInt(cardValue[0].value.id);
 
     const result = await chatsino.poker.hold(sessionAttributes.user, action, cardSuit, cardValue);
 

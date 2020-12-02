@@ -189,5 +189,5 @@ test('A 2 7 8 9 returns UNDEFINED', () => {
     { suit: deck.suit.CLUBS, value: deck.value._8 },
     { suit: deck.suit.SPADES, value: deck.value._9 }];
   const result = poker.evaluator(hand);
-  expect(result).toBe(undefined);
+  expect(result.outcome).toBe(undefined);
 });
