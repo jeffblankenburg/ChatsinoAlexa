@@ -77,11 +77,11 @@
                         "items": [
                             {
                             	"type": "CardImage",
-                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/king_of_spades.png"
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/k_of_spades.png"
                             },
                             {
                             	"type": "CardImage",
-                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/queen_of_spades.png"
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/q_of_spades.png"
                             },
                             {
                             	"type": "CardImage",
@@ -93,7 +93,7 @@
                             },
                             {
                             	"type": "CardImage",
-                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/ace_of_spades.png"
+                            	"imagePath": "https://s3.amazonaws.com/jeffblankenburg.alexa/chatsino/art/cards/a_of_spades.png"
                             }
                         ]
                     }
