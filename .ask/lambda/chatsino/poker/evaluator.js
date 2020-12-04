@@ -13,7 +13,7 @@ function evaluator(hand) {
   if (isThreeOfAKind(sortedHand)) return {outcome: position.THREEOFAKIND, threeofakind:whichThreeOfAKind(sortedHand).name};
   if (isTwoPair(sortedHand)) return {outcome: position.TWOPAIR, highcard:whichTwoPairHigh(sortedHand).name, lowcard:whichTwoPairLow(sortedHand).name};
   if (isPair(sortedHand)) return {outcome: position.PAIR, pair:whichPair(sortedHand).name};
-  return {outcome: undefined};
+  return {"outcome": undefined};
 }
 
 function isRoyalFlush(hand) {
@@ -91,7 +91,7 @@ function whichFourOfAKind(hand) {
 
 function whichFlush(hand) {
   if (isFlush(hand)) {
-    return hand[0].suit.name;
+    return hand[0].suit;
   }
   return 0;
 }

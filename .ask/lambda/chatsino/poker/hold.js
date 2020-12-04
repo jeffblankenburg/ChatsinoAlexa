@@ -5,14 +5,15 @@ const evaluator = require("./evaluator");
 
 async function hold(user, action, suit, value) {
 
-    console.log({action});
-    console.log({suit});
-    console.log({value});
+    //console.log({action});
+    //console.log({suit});
+    //console.log({value});
 
 
     const activeGame = await data.getGamesByUserRecordId(user.fields.RecordId, helper.VIDEOPOKER);
     if (activeGame.length > 0) {
         let openingHand = JSON.parse(activeGame[0].fields.OpeningHand);
+        //console.log(`OPENING HAND ${JSON.stringify(openingHand)}`);
         if (action) {
             if (!suit && !value) {
                 for (let i = 0;i<openingHand.length;i++) {
@@ -22,29 +23,25 @@ async function hold(user, action, suit, value) {
             }
             else if (value && !suit) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (parseInt(value[0].value.id) === openingHand[i].value.id) {
-                        if (action[0].value.name === "hold") openingHand[i].held = true;
-                        else if (action[0].value.name === "discard") openingHand[i].held = false;
+                    if (parseInt(value) === openingHand[i].value.id) {
+                        if (action === "hold") openingHand[i].held = true;
+                        else if (action === "discard") openingHand[i].held = false;
                     }
                 }
             }
             else if (suit && !value) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase()) {
-                        if (action[0].value.name === "hold") openingHand[i].held = true;
-                        else if (action[0].value.name === "discard") openingHand[i].held = false;
+                    if (parseInt(suit) === parseInt(openingHand[i].suit.id)) {
+                        if (action === "hold") openingHand[i].held = true;
+                        else if (action === "discard") openingHand[i].held = false;
                     }
                 }
             }
             else if (suit && value) {
                 for (let i = 0;i<openingHand.length;i++) {
-                    console.log(`suit[0].value.name.toLowerCase() = ${suit[0].value.name.toLowerCase()}`);
-                    console.log(`openingHand[i].suit.name.toLowerCase() = ${openingHand[i].suit.name.toLowerCase()}`);
-                    console.log(`value[0].value.id = ${value[0].value.id}`);
-                    console.log(`openingHand[i].value.id = ${openingHand[i].value.id}`);
-                    if (suit[0].value.name.toLowerCase() === openingHand[i].suit.name.toLowerCase() && parseInt(value[0].value.id) === parseInt(openingHand[i].value.id)) {
-                        if (action[0].value.name === "hold") openingHand[i].held = true;
-                        else if (action[0].value.name === "discard") openingHand[i].held = false;
+                    if (parseInt(suit) === parseInt(openingHand[i].suit.id) && parseInt(value) === parseInt(openingHand[i].value.id)) {
+                        if (action === "hold") openingHand[i].held = true;
+                        else if (action === "discard") openingHand[i].held = false;
                     }
                 }
             }
@@ -81,13 +78,14 @@ async function hold(user, action, suit, value) {
 
         return {
             user: user,
-            action: action,
-            suit: suit,
-            value: value,
-            result: openingHand,
+            wager: activeGame[0].fields.WageredAmount,
+            hand: openingHand,
             game: activeGame[0],
             outcome: evaluation.outcome,
-            status: "CARD_HOLD_UPDATED"
+            status: "CARD_HOLD_UPDATED",
+            action: action,
+            suit: suit,
+            value: value
         }
     }
     else return {user: user, status: "NO_ACTIVE_GAME"}

@@ -57,7 +57,8 @@
                         "play slots for {wager} credits",
                         "play slots for {wager} coins",
                         "play slots for {wager}",
-                        "bet {wager} on slots"
+                        "bet {wager} on slots",
+                        "slots for {wager}"
                     ]
                 },
                 {
@@ -133,7 +134,9 @@
                         "what is my chip count",
                         "how many coins do I have",
                         "what is my balance",
-                        "how much do I have"
+                        "how much do I have",
+                        "balance",
+                        "bank"
                     ]
                 },
                 {
@@ -173,7 +176,8 @@
                         "finish the hand",
                         "deal the cards",
                         "draw",
-                        "deal"
+                        "deal",
+                        "stand"
                     ]
                 },
                 {
@@ -619,23 +623,34 @@
                     "name": "CardSuits",
                     "values": [
                         {
+                            "id": 3,
                             "name": {
-                                "value": "clubs"
+                                "value": "clubs",
+                                "synonyms": [
+                                    "club",
+                                    "puppy feet"
+                                ]
                             }
                         },
                         {
+                            "id": 2,
                             "name": {
                                 "value": "diamonds"
                             }
                         },
                         {
+                            "id": 1,
                             "name": {
                                 "value": "hearts"
                             }
                         },
                         {
+                            "id": 4,
                             "name": {
-                                "value": "spades"
+                                "value": "spades",
+                                "synonyms": [
+                                    "shovels"
+                                ]
                             }
                         }
                     ]
@@ -779,7 +794,7 @@
                             "name": {
                                 "value": "hold",
                                 "synonyms": [
-                                    "save"
+                                    "save", "keep"
                                 ]
                             }
                         }

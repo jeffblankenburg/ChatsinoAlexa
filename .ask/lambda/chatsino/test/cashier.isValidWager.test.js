@@ -1,8 +1,9 @@
 const cashier = require("../cashier");
-const userFactory = require("./user.factory");
+const data = require("../data");
 
-beforeEach(() => {
-    user = userFactory.createUser(100);
+beforeEach(async (done) => {
+    user = await data.resetTestUser();
+    done();
 });
 
 function setUserBalance(balance) {

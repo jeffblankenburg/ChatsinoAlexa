@@ -38,6 +38,8 @@ async function hold(user, action, suit, value) {
                 }
             }
             else if (suit && value) {
+                console.log({suit});
+                console.log({value});
                 for (let i = 0;i<openingHand.length;i++) {
                     if (parseInt(suit) === parseInt(openingHand[i].suit.id) && parseInt(value) === parseInt(openingHand[i].value.id)) {
                         if (action === "hold") openingHand[i].held = true;

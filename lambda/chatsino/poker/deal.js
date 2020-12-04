@@ -56,7 +56,7 @@ async function deal(user) {
             user: user,
             game: activeGame[0],
             outcome: evaluation.outcome,
-            result: pokerHand,
+            hand: pokerHand,
             winnings: winnings,
             evaluation: evaluation,
             achievements: achievementArray,
