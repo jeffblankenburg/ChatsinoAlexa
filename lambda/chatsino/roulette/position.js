@@ -1,18 +1,8 @@
-const RED = {
-    name: 'Red', odds: 1, symbol: 'Red', id: 'RED',
-  };
-  const BLACK = {
-    name: 'Black', odds: 1, symbol: 'Black', id: 'BLACK',
-  };
-  const EVEN = {
-    name: 'Even', odds: 1, symbol: 'Even', id: 'EVEN',
-  };
-  const ODD = {
-    name: 'Odd', odds: 1, symbol: 'Odd', id: 'ODD',
-  };
-  const BOTTOM = {
-    name: 'Bottom', odds: 1, symbol: 'Bottom Half', id: 'BOTTOM',
-  };
+const RED = {name: 'Red', odds: 1, symbol: 'Red', id: 'RED'};
+const BLACK = {name: 'Black', odds: 1, symbol: 'Black', id: 'BLACK'};
+const EVEN = {name: 'Even', odds: 1, symbol: 'Even', id: 'EVEN'};
+const ODD = {name: 'Odd', odds: 1, symbol: 'Odd', id: 'ODD'};
+const BOTTOM = {name: 'Bottom', odds: 1, symbol: 'Bottom Half', id: 'BOTTOM'};
   const TOP = {
     name: 'Top', odds: 1, symbol: 'Top Half', id: 'TOP',
   };

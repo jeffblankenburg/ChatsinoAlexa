@@ -1,18 +1,9 @@
 const cashier = require("../cashier");
 const data = require("../data");
 const craps = require("../craps");
+const userFactory = require("./user.factory");
 
-let user = {fields:{RecordId: "recbk1dFfqb0m8cLA", Balance:100, AvailableBalance:100}};
-
-// beforeEach(async (done) => {
-//     //user = await data.resetTestUser();
-//     //done();
-// });
-
-afterAll(async (done) => {
-    user = await data.resetTestUser();
-    done();
-  });
+let user = userFactory.createUser(100);
 
 const validWager = {status: "VALID_WAGER", isValid: true};
 const betAboveAvailableBalance = { status: "BET_ABOVE_AVAILABLE_BALANCE", isValid: false};

@@ -57,7 +57,8 @@
                         "play slots for {wager} credits",
                         "play slots for {wager} coins",
                         "play slots for {wager}",
-                        "bet {wager} on slots"
+                        "bet {wager} on slots",
+                        "slots for {wager}"
                     ]
                 },
                 {
@@ -175,7 +176,8 @@
                         "finish the hand",
                         "deal the cards",
                         "draw",
-                        "deal"
+                        "deal",
+                        "stand"
                     ]
                 },
                 {
@@ -623,7 +625,11 @@
                         {
                             "id": 3,
                             "name": {
-                                "value": "clubs"
+                                "value": "clubs",
+                                "synonyms": [
+                                    "club",
+                                    "puppy feet"
+                                ]
                             }
                         },
                         {
@@ -641,7 +647,10 @@
                         {
                             "id": 4,
                             "name": {
-                                "value": "spades"
+                                "value": "spades",
+                                "synonyms": [
+                                    "shovels"
+                                ]
                             }
                         }
                     ]
@@ -785,7 +794,7 @@
                             "name": {
                                 "value": "hold",
                                 "synonyms": [
-                                    "save"
+                                    "save", "keep"
                                 ]
                             }
                         }
