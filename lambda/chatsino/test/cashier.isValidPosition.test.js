@@ -39,6 +39,8 @@ test("PASSODDS returns false.", async () =>{
     expect(result).toBe(false);
 });
 
+console.log(JSON.stringify(roulette.position));
+
 for (const p of roulette.position) {
     test(`${p.id} returns true.`, async () =>{
         const game = gameFactory.createGame("roulette");
