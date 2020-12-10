@@ -3,12 +3,8 @@ const BLACK = {name: 'Black', odds: 1, symbol: 'Black', id: 'BLACK'};
 const EVEN = {name: 'Even', odds: 1, symbol: 'Even', id: 'EVEN'};
 const ODD = {name: 'Odd', odds: 1, symbol: 'Odd', id: 'ODD'};
 const BOTTOM = {name: 'Bottom', odds: 1, symbol: 'Bottom Half', id: 'BOTTOM'};
-  const TOP = {
-    name: 'Top', odds: 1, symbol: 'Top Half', id: 'TOP',
-  };
-  const LOW = {
-    name: 'Low', odds: 2, symbol: 'Low Third', id: 'LOW',
-  };
+const TOP = {name: 'Top', odds: 1, symbol: 'Top Half', id: 'TOP'};
+const LOW = {name: 'Low', odds: 2, symbol: 'Low Third', id: 'LOW'};
   const MIDDLE = {
     name: 'Middle', odds: 2, symbol: 'Middle Third', id: 'MIDDLE',
   };
@@ -91,52 +87,52 @@ const BOTTOM = {name: 'Bottom', odds: 1, symbol: 'Bottom Half', id: 'BOTTOM'};
     name: 'Twenty', odds: 35, symbol: 'Twenty', id: '20',
   };
   const TWENTYONE = {
-    name: 'Twenty-One', odds: 35, symbol: 'Twenty-One', id: '21',
+    name: 'Twenty-One', odds: 35, symbol: 'TwentyOne', id: '21',
   };
   const TWENTYTWO = {
-    name: 'Twenty-Two', odds: 35, symbol: 'Twenty-Two', id: '22',
+    name: 'Twenty-Two', odds: 35, symbol: 'TwentyTwo', id: '22',
   };
   const TWENTYTHREE = {
-    name: 'Twenty-Three', odds: 35, symbol: 'Twenty-Three', id: '23',
+    name: 'Twenty-Three', odds: 35, symbol: 'TwentyThree', id: '23',
   };
   const TWENTYFOUR = {
-    name: 'Twenty-Four', odds: 35, symbol: 'Twenty-Four', id: '24',
+    name: 'Twenty-Four', odds: 35, symbol: 'TwentyFour', id: '24',
   };
   const TWENTYFIVE = {
-    name: 'Twenty-Five', odds: 35, symbol: 'Twenty-Five', id: '25',
+    name: 'Twenty-Five', odds: 35, symbol: 'TwentyFive', id: '25',
   };
   const TWENTYSIX = {
-    name: 'Twenty-Six', odds: 35, symbol: 'Twenty-Six', id: '26',
+    name: 'Twenty-Six', odds: 35, symbol: 'TwentySix', id: '26',
   };
   const TWENTYSEVEN = {
-    name: 'Twenty-Seven', odds: 35, symbol: 'Twenty-Seven', id: '27',
+    name: 'Twenty-Seven', odds: 35, symbol: 'TwentySeven', id: '27',
   };
   const TWENTYEIGHT = {
-    name: 'Twenty-Eight', odds: 35, symbol: 'Twenty-Eight', id: '28',
+    name: 'Twenty-Eight', odds: 35, symbol: 'TwentyEight', id: '28',
   };
   const TWENTYNINE = {
-    name: 'Twenty-Nine', odds: 35, symbol: 'Twenty-Nine', id: '29',
+    name: 'Twenty-Nine', odds: 35, symbol: 'TwentyNine', id: '29',
   };
   const THIRTY = {
     name: 'Thirty', odds: 35, symbol: 'Thirty', id: '30',
   };
   const THIRTYONE = {
-    name: 'Thirty-One', odds: 35, symbol: 'Thirty-One', id: '31',
+    name: 'Thirty-One', odds: 35, symbol: 'ThirtyOne', id: '31',
   };
   const THIRTYTWO = {
-    name: 'Thirty-Two', odds: 35, symbol: 'Thirty-Two', id: '32',
+    name: 'Thirty-Two', odds: 35, symbol: 'ThirtyTwo', id: '32',
   };
   const THIRTYTHREE = {
-    name: 'Thirty-Three', odds: 35, symbol: 'Thirty-Three', id: '33',
+    name: 'Thirty-Three', odds: 35, symbol: 'ThirtyThree', id: '33',
   };
   const THIRTYFOUR = {
-    name: 'Thirty-Four', odds: 35, symbol: 'Thirty-Four', id: '34',
+    name: 'Thirty-Four', odds: 35, symbol: 'ThirtyFour', id: '34',
   };
   const THIRTYFIVE = {
-    name: 'Thirty-Five', odds: 35, symbol: 'Thirty-Five', id: '35',
+    name: 'Thirty-Five', odds: 35, symbol: 'ThirtyFive', id: '35',
   };
   const THIRTYSIX = {
-    name: 'Thirty-Six', odds: 35, symbol: 'Thirty-Six', id: '36',
+    name: 'Thirty-Six', odds: 35, symbol: 'ThirtySix', id: '36',
   };
   
   module.exports = {

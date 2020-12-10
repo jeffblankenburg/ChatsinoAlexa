@@ -1,24 +1,24 @@
 function setAction(handlerInput, action) {
-    const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-    sessionAttributes.previousAction = action;
-  }
+  const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+  sessionAttributes.previousAction = action;
+}
   
-  function getLocale(handlerInput) {
-    return handlerInput.requestEnvelope.request.locale;
-  }
+function getLocale(handlerInput) {
+  return handlerInput.requestEnvelope.request.locale;
+}
   
-  function getSpokenWords(handlerInput, slot) {
-    if (
-      handlerInput.requestEnvelope &&
-      handlerInput.requestEnvelope.request &&
-      handlerInput.requestEnvelope.request.intent &&
-      handlerInput.requestEnvelope.request.intent.slots &&
-      handlerInput.requestEnvelope.request.intent.slots[slot] &&
-      handlerInput.requestEnvelope.request.intent.slots[slot].value
-    )
-      return handlerInput.requestEnvelope.request.intent.slots[slot].value;
-    else return undefined;
-  }
+function getSpokenWords(handlerInput, slot) {
+  if (
+    handlerInput.requestEnvelope &&
+    handlerInput.requestEnvelope.request &&
+    handlerInput.requestEnvelope.request.intent &&
+    handlerInput.requestEnvelope.request.intent.slots &&
+    handlerInput.requestEnvelope.request.intent.slots[slot] &&
+    handlerInput.requestEnvelope.request.intent.slots[slot].value
+  )
+    return handlerInput.requestEnvelope.request.intent.slots[slot].value;
+  else return undefined;
+}
   
   function getResolvedWords(handlerInput, slot) {
     if (
